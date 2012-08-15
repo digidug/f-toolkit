@@ -1,0 +1,630 @@
+@font-face {
+	font-family: "Antenna";
+	src: url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-2.eot");
+	src: local("Antenna"),
+	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff"),
+	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-1.ttf") format("truetype"),
+	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-4.svg#web") format("svg");
+	font-style: normal;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "Antenna";
+	src: url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-2.eot");
+	src: local("Antenna"),
+	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-3.woff") format("woff"),
+	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-1.ttf") format("truetype"),
+	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-4.svg#web") format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "AntennaRE";
+	src: url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-2.eot?") format("embedded-opentype"),
+	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-3.woff") format("woff"),
+	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-1.ttf") format("truetype"),
+	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-4.svg#web") format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,.output i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,input,textarea {
+	font-weight:400;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+
+body {
+	line-height:1;
+}
+
+ol,ul {
+	list-style:none;
+}
+
+blockquote,q {
+	quotes:none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+	content:'';
+	content:none;
+}
+
+:focus {
+	outline:0;
+}
+
+img {
+	vertical-align:top;
+}
+
+ins {
+	text-decoration:none;
+}
+
+del {
+	text-decoration:line-through;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+textarea {
+	resize:none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	fieldset {
+		padding-top:1px;
+	}
+}
+
+/* let's clear some floats */
+.clearfix:before,
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+
+body {
+	font-family: "AntennaRE";
+}
+
+.fm-button {
+	color: white;
+	text-decoration: none;
+	background: #2D96CD url("../img/iconsFord@2x.png") no-repeat;
+	border-radius: 6px;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	line-height: 100%;
+	padding: 15px 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 15px;
+	font-family: "Antenna";
+	font-weight: 700;
+	margin: 5px 0;
+	position: relative;
+	text-indent: 10px;
+}
+.fm-button-dark {
+	background: #1c3a53 url("../img/iconsFord@2x.png") no-repeat;
+}
+
+.fm-button-grey {
+
+}
+.search {
+	width: 160px !important;
+}
+
+.dropdown {
+	width: 180px !important;
+}
+.fat-arrow {
+	background-size: 40px !important;
+	background-position: right -397px !important;
+}
+.fat-arrow-alt {
+	background-size: 40px !important;
+	background-position: right -517px !important;
+}
+.arrow {
+	background-size: 40px !important;
+	background-position: right -357px !important;
+}
+.arrow-alt {
+	background-size: 40px !important;
+	background-position: right -556px !important;
+}
+.blue-arrow {
+	background-size: 40px;
+	background-position: right -319px;
+}
+span[class^="fm-icon-"] {
+	display: inline-block;
+	background: url("../img/iconsFord@2x.png") no-repeat;
+	background-size: 40px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-top: -13px;
+}
+
+.fm-icon-crosshair { background-position: 0 -440px !important; }
+.fm-icon-money { background-position: 0 0 !important; }
+.fm-icon-cog { background-position: 0 -40px !important; }
+.fm-icon-map { background-position: 0 -80px !important; }
+.fm-icon-clipboard { background-position: 0 -120px !important; }
+.fm-icon-present { background-position: 0 -160px !important; }
+
+.med {
+	font-weight: 500;
+	font-family: "Antenna";
+	text-transform: capitalize;
+}
+
+.fm-navigation .fm-nav-header {
+	text-transform: uppercase !important;
+}
+
+.fm-navigation .fm-button,
+.fm-navigation-dark .fm-button,
+.fm-navigation-vehicles .fm-button,
+.fm-navigation-media .fm-button {
+	margin: 0;
+	border-radius: 0px;
+	background-color: transparent;
+}
+
+.fm-navigation,
+.fm-navigation-dark,
+.fm-navigation-vehicles,
+.fm-navigation-media {
+	padding: 15px;
+		margin: 0;
+}
+
+.fm-navigation li {
+	background-image: #1c3a53;
+	background-image: -webkit-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -moz-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -o-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -ms-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	border-bottom: 1px #060405 solid;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+
+
+}
+
+.fm-navigation-dark li {
+	background-image: #343f4a;
+	background-image: -webkit-linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
+	background-image: -moz-linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
+	background-image: -o-linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
+	background-image: -ms-linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
+	background-image: linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
+	border-bottom: 1px #060405 solid;
+	list-style: none;
+
+}
+
+.fm-navigation-vehicles li {
+	background: white;
+	border: 1px solid #CCCCCC;
+	border-top: none;
+	list-style: none;
+}
+.fm-navigation-vehicles li:first-child {
+	border-top: 1px solid #CCCCCC;
+}
+
+.fm-navigation-vehicles {
+	margin: 0 15px;
+}
+
+.fm-navigation-vehicles a {
+	color: #31A1DB;
+	text-transform: uppercase;
+}
+
+.fm-navigation-media li {
+	background: #31A1DB;
+	border-bottom: 1px solid #3F6075;
+	list-style: none;
+	margin: 0;
+}
+.fm-navigation-media li:last-child {
+	border-bottom: none;
+}
+
+.fm-navigation-media {
+	margin: 0 15px;
+}
+
+.fm-navigation-media a {
+	color: white;
+	text-transform: uppercase;
+}
+
+.fm-load-more-button {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	color: #2D96CD;
+	background: #F7F7F7;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 15px 0;
+	font-weight: bold;
+	letter-spacing: 0;
+}
+
+.fm-load-more-button .arrow-entitiy {
+	font-size: 8px;
+	margin-left: 4px;
+}
+
+.fm-accordian-button {
+	color: white;
+	text-decoration: none;
+	background: #31A1DB url("../img/iconsFord@2x.png") no-repeat;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	line-height: 100%;
+	padding: 15px 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 15px;
+	font-family: "Antenna";
+	font-weight: 700;
+	margin: 5px 0;
+	position: relative;
+	text-indent: 10px;
+}
+
+.fm-button-menu {
+	color: #2D96CD;
+	text-decoration: none;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	line-height: 100%;
+	padding: 18px 0;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 14px;
+	font-family: "Antenna";
+	font-weight: 700;
+	margin: 5px 0;
+	position: relative;
+	text-indent: 10px;
+	width: 70px;
+	border: 1px solid #ddd;
+	text-indent: 0;
+	text-transform: uppercase;
+	background: rgb(254,254,254); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,254,1)), color-stop(100%,rgba(232,234,233,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e8eae9',GradientType=0 ); /* IE6-9 */
+}
+
+.fm-h1 {
+	color: white;
+	background: #425967;
+	text-decoration: none;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	width: 100%;
+	line-height: 100%;
+	padding: 12px 0;
+	text-indent: 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 14px;
+	font-family: "Antenna";
+	margin: 5px 0;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.fm-h1 span {
+	font-weight: bold;
+}
+
+.fm-h1 em {
+	font-weight: bold;
+	font-style: normal;
+	float: right;
+	padding-right: 15px;
+	display: inline-block;
+	text-transform: capitalize;
+}
+
+.fm-h2 {
+	color: white;
+	background: #92A4B2;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	width: 100%;
+	line-height: 100%;
+	padding: 10px 0;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "Antenna";
+	margin: 5px 0;
+	position: relative;
+}
+
+.fm-h2-vehicle-title {
+	color: #2D96CD;
+	cursor: pointer;
+	height: auto;
+	width: 100%;
+	line-height: 100%;
+	font-size: 16px;
+	font-family: "Antenna";
+	margin: 5px 0;
+}
+
+.fm-h2-vehicle-title em {
+	font-weight: bold;
+	font-style: normal;
+	text-transform: uppercase;
+}
+
+
+.fm-h3 {
+	color: #555;
+	font-size: 13px;
+	line-height: 17px;
+}
+
+.fm-h4 {
+
+}
+
+.fm-h5 {
+
+}
+
+.fm-h6 {
+
+}
+
+.fm-pagination-3,
+.fm-pagination-3 ul {
+	width: 100%;
+	background: blue;
+	margin: 0;
+	padding: 0;
+	outline: 1px solid #CDCDCD;
+}
+
+
+.fm-pagination-3 li {
+	width: 50%;
+	text-align: left;
+	display: inline-block;
+}
+
+
+.fm-pagination-3 a {
+	text-transform: lowercase;
+	text-decoration: none;
+	color: #31A1DB;
+	background: #F7F7F7;
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
+	height: auto;
+	width: 100%;
+	padding: 15px 0;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Antenna";
+}
+
+.fm-pagination-3 .next {
+	border-left: 1px solid #CDCDCD;
+}
+
+.fm-pagination-3 .arrow-entitiy {
+	font-size: 9px;
+	padding: 5px;
+}
+
+.fm-pagination-3 .inactive {
+	color: #9F9F9F;
+}
+
+/*url('../img/iconsFord@2x.png') no-repeat*/
+.fm-vehicle-list {
+	/*background-size: 15%;*/
+	margin: 0;
+	padding: 15px;
+}
+
+.fm-vehicle-list-item {
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 8px;
+	position: relative;
+	list-style: none;
+}
+
+.fm-vehicle-list-item:last-child {
+	border-bottom: none;
+}
+
+.fm-vehicle-list-item img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.fm-vehicle-list-item  .fm-vehicle-msrp {
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Antenna";
+	color: #425967;
+	margin-bottom: 8px;
+}
+
+.fm-vehicle-list-item  .fm-vehicle-info {
+	font-size: 10px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 10px;
+}
+
+.fm-vehicle-list-item sup {
+	font-size: 8px;
+	font-weight: 800;
+	position: relative;
+	top: -5px;
+}
+
+.list-blue-arrow {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url("../img/iconsFord@2x.png") no-repeat;
+	background-size: 100%;
+	background-position: 0 -319px;
+	position: absolute;
+	top: 50%; right: 25px;
+	margin-top: -20px;
+}
+
+.fm-form-text,
+.fm-form-textarea {
+	font-family: "Antenna";
+	padding: 5px;
+	border: 1px solid #C3C3C3;
+	border-radius: 6px;
+	width: 100px;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
+}
+
+.fm-form-textarea {
+	width: 100%;
+	display: inline-block;
+
+}
+
+.fm-form-error {
+	font-family: "Antenna";
+	font-size: 14px;
+	color: #B01D20;
+}
+
+.fm-form-label {
+	color: #344349;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.fm-form-text-error {
+	font-family: "Antenna";
+	padding: 5px;
+	border: 3px solid #B2191B;
+	border-radius: 6px;
+	width: 100px;
+	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .3);
+}
+
+
+
+
+.fm-gallery {
+	max-width: 480px;
+	min-width: 320px;
+	height: auto;
+	overflow: hidden;
+}
+
+.fm-gallery ul {
+	-webkit-column-count: 3;
+	-webkit-column-gap:   0px;
+	-moz-column-count:    3;
+	-moz-column-gap:      0px;
+	column-count:         3;
+	column-gap:           0px;
+	margin: 0;
+ }
+
+	.fm-image-viewer img {
+
+	}
+
+	.fm-gallery-item {
+		line-height: 0;
+		background-size: 220%;
+		background: no-repeat;
+		max-width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+		.fm-gallery-item img {
+
+		}
+
+
+		.fm-gallery-item.active {
+
+		}
+
+		.fm-gallery-item span {
+			display: block;
+			box-sizing: border-box;
+		}
+
+		.fm-gallery-item.active span {
+			background: rgba(0, 0, 0, .8);
+			border: 3px solid #1E79BB;
+			height: auto;
+			display: block;
+		}
+
+
+
+
+
+
+
+

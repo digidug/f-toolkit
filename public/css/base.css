@@ -1,0 +1,104 @@
+body {
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	background:#e1eaee;
+	background-image:url(/public/assets/img/fm-wrapper-gradient.svg);
+	background:-moz-linear-gradient(top,#fff 0%,#0 11%,#e1eaee 43%,#fff 76%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(11%,#e1eaee),color-stop(43%,#e1eaee),color-stop(76%,#fff));
+	background:-webkit-linear-gradient(top,#fff 0%,#e1eaee 11%,#e1eaee 43%,#fff 76%);
+	background:-o-linear-gradient(top,#fff 0%,#e1eaee 11%,#e1eaee 43%,#fff 76%);
+	background:-ms-linear-gradient(top,#fff 0%,#e1eaee 11%,#e1eaee 43%,#fff 76%);
+	background:linear-gradient(top,#fff 0%,#e1eaee 11%,#e1eaee 43%,#fff 76%);
+	padding: 0 20px;
+}
+
+@media all and (min-width: 1024px) {
+  #fm-wrapper {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+.spacer {
+	margin-bottom: 20px;
+}
+
+.e {
+	background: #fff;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+	margin: 10px 0;
+	padding: 20px;
+	border-radius: 6px;
+}
+
+.d {
+	background: #607586;
+}
+
+.h {
+	background-image: #1c3a53;
+	background-image: -webkit-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -moz-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -o-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: -ms-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	background-image: linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
+	color: rgba(255, 255, 255, .9);
+	font-size: 80%;
+	font-style: normal;
+	font-weight: normal;
+	font-family: AntennaRE;
+	margin: -20px -20px 20px -20px;
+	padding: 10px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+
+}
+
+.h1 {
+	/*border-bottom: 1px solid #7490a6;*/
+	color: #394651;
+	font: normal 250% 'Antenna', Helvetica;
+	margin: 50px 0 0 0;
+
+}
+
+.hr {
+	border: 2px solid #333;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.navigation {
+	overflow: hidden;
+	padding: 10px;
+}
+
+.navigation li {
+	display: inline;
+	float: left;
+	line-height: 150%;
+	width: 200px;
+}
+
+.navigation a,
+.top {
+	color: #607586;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.rel {
+	position: relative;
+	width: 100%;
+}
+
+.v {
+	margin-left: 50px;
+}
+.e p {
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-family: "AntennaRE";
+}

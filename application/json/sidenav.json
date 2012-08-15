@@ -1,0 +1,19 @@
+{
+	"TOOLS":
+		[
+			{ "name":"Dashboard", "regexp":"/", "url":"/", "icon":"icon-dashboard" },
+			{ "name":"Projects", "regexp":"projects*", "url":"projects", "icon":"icon-folder-open" },
+			{ "name":"Tasks", "regexp":"tasks*", "url":"tasks", "icon":"icon-tasks" },
+			{ "name":"Inspiration", "regexp":"inspirations*", "url":"inspirations", "icon":"icon-heart" },
+			{ "name":"Messages", "regexp":"messages*", "url":"messages", "icon":"icon-comments" },
+			{ "name":"Files", "regexp":"files*", "url":"files", "icon":"icon-file" }
+		],
+	"STYLEGUIDE":
+		[
+			{ "name":"Typography", "regexp":"styleguide/typography*", "url":"styleguide/typography", "icon":"icon-font" },
+			{ "name":"Grid", "regexp":"styleguide/grid*", "url":"styleguide/grid", "icon":"icon-th-large" },
+			{ "name":"Buttons", "regexp":"patterns/category/buttons*", "url":"patterns/category/buttons", "icon":"icon-reorder" },
+			{ "name":"Lists", "regexp":"styleguide/lists*", "url":"styleguide/lists", "icon":"icon-th-list" },
+			{ "name":"Forms", "regexp":"styleguide/forms*", "url":"styleguide/forms", "icon":"icon-check" }
+		]
+}
