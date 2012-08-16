@@ -656,7 +656,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 		}
 
 
-
+.fm-secondary {
+	font-family: "Antenna";
+	font-weight: normal;
+	width: 50%;
+	box-sizing: border-box;
+	display: inline-block;
+}
 
 
 
