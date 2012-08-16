@@ -126,6 +126,16 @@ body {
 	width: 100%;
 	box-sizing: border-box;
 }
+
+.fm-badge {
+	width: 100%;
+	max-width: 480px;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
 .fm-button-dark {
 	background: #1c3a53 url("../img/iconsFord@2x.png") no-repeat;
 }
@@ -275,16 +285,27 @@ span[class^="fm-icon-"] {
 	width: 100%;
 	color: #2D96CD;
 	background: #F7F7F7;
+	border: none;
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	padding: 15px 0;
 	font-weight: bold;
 	letter-spacing: 0;
+	box-sizing: border-box;
 }
 
 .fm-load-more-button .arrow-entitiy {
 	font-size: 8px;
 	margin-left: 4px;
+}
+
+.fm-load-more-button.fm-more {
+	border: 1px solid #CCCCCC;
+}
+
+.fm-customizer-button {
+	border-radius: 6px;
+	border: 2px solid #EBEBEB;
 }
 
 .fm-accordian-button {
