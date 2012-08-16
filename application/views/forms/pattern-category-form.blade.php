@@ -21,7 +21,7 @@
         <div class="control-group {{ $errors->first('description')?'error':'' }}">
         	{{ Form::label('description', 'Description',array('class'=>'control-label')) }}
         	<div class="controls">
-            	{{ Form::textarea('description',@$category->description,array('style'=>'width:98%;height:400px;'))}}
+            	{{ Form::textarea('description',@$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;'))}}
             	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
@@ -37,4 +37,23 @@
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>
 	{{ Form::close() }}
+	
+	@section('jsfiles')
+    	@parent
+    	{{ HTML::script('tiny_mce/tiny_mce.js') }}
+    @endsection
+	@section('jsready')
+    	@parent
+    	tinyMCE.init({
+	        // General options
+	        mode : "textareas",
+	        plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+		
+	        // Example content CSS (should be your site CSS)
+	        content_css : "/f-tk/css/styles.css",
+
+	    });
+
+    @endsection
+	</script>
 @endsection

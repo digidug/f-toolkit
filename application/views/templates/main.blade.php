@@ -52,11 +52,13 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/jquery.min.js') }}
-    {{ HTML::script('js/bootstrap.min.js') }}
-    {{ HTML::script('js/google-code-prettify/prettify.js') }}
-    {{ HTML::script('js/google-code-prettify/lang-css.js') }}
-    {{ HTML::script('js/jquery.taboverride.js') }}
+    @section('jsfiles')
+    	{{ HTML::script('js/jquery.min.js') }}
+    	{{ HTML::script('js/bootstrap.min.js') }}
+    	{{ HTML::script('js/google-code-prettify/prettify.js') }}
+    	{{ HTML::script('js/google-code-prettify/lang-css.js') }}
+    	{{ HTML::script('js/jquery.taboverride.js') }}
+    @yield_section
     <script>
     	$(document).ready(function() {
 	    	@section('jsready')
