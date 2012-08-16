@@ -160,15 +160,21 @@ body {
 }
 .arrow {
 	background-size: 40px !important;
-	background-position: right -357px !important;
+	background-position: right -360px !important;
 }
+
+.arrow-down {
+	background-size: 40px !important;
+	background-position: right -560px !important;
+}
+
 .arrow-alt {
 	background-size: 40px !important;
 	background-position: right -556px !important;
 }
 .blue-arrow {
 	background-size: 40px;
-	background-position: right -319px;
+	background-position: right -320px;
 }
 span[class^="fm-icon-"] {
 	display: inline-block;
@@ -259,6 +265,14 @@ span[class^="fm-icon-"] {
 	text-transform: uppercase;
 }
 
+.fm-navigation-vehicles li .fm-nav-open {
+	color: white;
+	background-color: #425967;
+	/*background: url("../img/iconsFord@2x.png") no-repeat;*/
+	border-top: none;
+	list-style: none;
+}
+
 .fm-navigation-media li {
 	background: #31A1DB;
 	border-bottom: 1px solid #3F6075;
@@ -325,6 +339,10 @@ span[class^="fm-icon-"] {
 	margin: 5px 0;
 	position: relative;
 	text-indent: 10px;
+}
+
+.fm-accordian-button-open {
+
 }
 
 .fm-button-menu {
@@ -586,9 +604,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .3);
 }
 
-
-
-
 .fm-gallery {
 	max-width: 480px;
 	min-width: 320px;
@@ -639,7 +654,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 			height: auto;
 			display: block;
 		}
-
 
 
 
