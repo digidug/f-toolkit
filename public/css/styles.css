@@ -113,19 +113,18 @@ body {
 	text-decoration: none;
 	background: #2D96CD url("../img/iconsFord@2x.png") no-repeat;
 	border-radius: 6px;
+	border: none;
 	cursor: pointer;
-	display: block;
-	height: auto;
-	line-height: 100%;
-	padding: 15px 15px;
+	display: inline-block;
+	line-height: 40px;
 	text-align: left;
-	vertical-align: middle;
 	font-size: 15px;
 	font-family: "Antenna";
 	font-weight: 700;
-	margin: 5px 0;
 	position: relative;
 	text-indent: 10px;
+	width: 100%;
+	box-sizing: border-box;
 }
 .fm-button-dark {
 	background: #1c3a53 url("../img/iconsFord@2x.png") no-repeat;
@@ -168,7 +167,6 @@ span[class^="fm-icon-"] {
 	float: left;
 	width: 40px;
 	height: 40px;
-	margin-top: -13px;
 }
 
 .fm-icon-crosshair { background-position: 0 -440px !important; }
