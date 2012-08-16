@@ -125,7 +125,6 @@ body {
 	text-indent: 10px;
 	width: 100%;
 	box-sizing: border-box;
-	-webkit-filter: blur(5px);
 }
 .fm-button-dark {
 	background: #1c3a53 url("../img/iconsFord@2x.png") no-repeat;
