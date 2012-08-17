@@ -518,6 +518,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 	/*background-size: 15%;*/
 	margin: 0;
 	padding: 15px;
+	list-style: none !important;
 }
 
 .fm-vehicle-list-item {
@@ -525,7 +526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 	padding-top: 15px;
 	padding-bottom: 8px;
 	position: relative;
-	list-style: none;
+	list-style: none !important;
 }
 
 .fm-vehicle-list-item:last-child {
@@ -543,14 +544,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 	font-weight: bold;
 	font-family: "Antenna";
 	color: #425967;
-	margin-bottom: 8px;
+	margin-bottom: 5px;
+	list-style: none;
 }
 
 .fm-vehicle-list-item  .fm-vehicle-info {
 	font-size: 10px;
 	font-family: "AntennaRE";
 	color: #425967;
-	margin-bottom: 10px;
+	margin-bottom: 0;
+	list-style: none;
 }
 
 .fm-vehicle-list-item sup {
