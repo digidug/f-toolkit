@@ -28,7 +28,7 @@
 		  	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
-		    	{{ Form::textarea('description',isset($pattern->description->content)?$pattern->description->content:$pattern->description,array('style'=>'width:98%;height:400px;')) }}
+		    	{{ Form::textarea('description',isset($pattern->description->content)?$pattern->description->content:$pattern->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
 		  	</div>
 		  	<div class="tab-pane" id="html">
 			    {{ Form::textarea('html',isset($pattern->html->content)?$pattern->html->content:$pattern->html,array('style'=>'width:98%;height:400px;')) }}
@@ -48,4 +48,17 @@
 @section('jsready')
     @parent
     $('textarea').tabOverride(true);
+    tinyMCE.init({
+        // General options
+        mode : "specific_textareas",
+        editor_selector : "tinymce",
+	
+        // Example content CSS (should be your site CSS)
+        content_css : "/f-tk/css/styles.css",
+
+    });
+@endsection
+@section('jsfiles')
+	@parent
+	{{ HTML::script('tiny_mce/tiny_mce.js') }}
 @endsection

@@ -19,12 +19,12 @@
 	        @if ($pattern->html->content!='' || $pattern->css->content!='')
 		        <div class="tabbable">
 				  <ul class="nav nav-tabs">
-				    <li class="active"><a href="#html" data-toggle="tab">HTML</a></li>
-				    <li><a href="#css" data-toggle="tab">CSS</a></li>
+				    <li class="active"><a href="#html_{{$pattern->html->id}}" data-toggle="tab">HTML</a></li>
+				    <li><a href="#css_{{$pattern->css->id}}" data-toggle="tab">CSS</a></li>
 				  </ul>
 				  <div class="tab-content">
-				  	<pre class="tab-pane active prettyprint pre-scrollable" id="html">{{ htmlentities($pattern->html->content) }}</pre>
-				    <pre class="tab-pane prettyprint lang-css pre-scrollable" id="css">{{ $pattern->css->content }}</pre>
+				  	<pre class="tab-pane active prettyprint pre-scrollable" id="html_{{$pattern->html->id}}">{{ htmlentities($pattern->html->content) }}</pre>
+				    <pre class="tab-pane prettyprint lang-css pre-scrollable" id="css_{{$pattern->css->id}}">{{ $pattern->css->content }}</pre>
 				  </div>
 				</div>
 			@endif
