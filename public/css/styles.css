@@ -116,14 +116,15 @@ body {
 	border: none;
 	cursor: pointer;
 	display: inline-block;
-	line-height: 40px;
+	line-height: 44px;
 	text-align: left;
-	font-size: 15px;
+	font-size: 13px;
 	font-family: "Antenna";
 	font-weight: 700;
 	position: relative;
 	text-indent: 10px;
 	width: 100%;
+	padding-left: 15px;
 	box-sizing: border-box;
 }
 
@@ -230,8 +231,6 @@ span[class^="fm-icon-"] {
 	list-style: none !important;
 	margin: 0 !important;
 	padding: 0 !important;
-
-
 }
 
 .fm-navigation-dark li {
@@ -251,6 +250,7 @@ span[class^="fm-icon-"] {
 	border: 1px solid #CCCCCC;
 	border-top: none;
 	list-style: none;
+	font-size: 14px;
 }
 .fm-navigation-vehicles li:first-child {
 	border-top: 1px solid #CCCCCC;
