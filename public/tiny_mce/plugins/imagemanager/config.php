@@ -5,7 +5,7 @@
 
         // General options
         $mcImageManagerConfig['general.theme'] = "im";
-        $mcImageManagerConfig['general.tools'] = "createdir,upload,refresh,addfavorite,removefavorite,insert,delete,edit,preview,filemanager"; // "filemanager" button if you have "filemanager.urlprefix" configured.
+        $mcImageManagerConfig['general.tools'] = "createdir,upload,refresh,addfavorite,removefavorite,insert,delete,edit,preview"; // "filemanager" button if you have "filemanager.urlprefix" configured.
         $mcImageManagerConfig['general.disabled_tools'] = "";
         $mcImageManagerConfig['general.user_friendly_paths'] = true;
         $mcImageManagerConfig['general.encrypt_paths'] = true;
