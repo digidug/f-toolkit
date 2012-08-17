@@ -161,7 +161,7 @@ body {
 }
 .arrow {
 	background-size: 40px !important;
-	background-position: right -360px !important;
+	background-position: right -358px !important;
 }
 
 .arrow-down {
@@ -571,8 +571,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', end
 	background-size: 100%;
 	background-position: 0 -319px;
 	position: absolute;
-	top: 50%; right: 25px;
-	margin-top: -20px;
+	top: 43px; right: 25px;
+
 }
 
 .fm-form-text,
