@@ -118,7 +118,7 @@ body {
 	display: inline-block;
 	line-height: 44px;
 	text-align: left;
-	font-size: 13px;
+	font-size: 14px;
 	font-family: "Antenna";
 	font-weight: 700;
 	position: relative;
@@ -231,6 +231,7 @@ span[class^="fm-icon-"] {
 	list-style: none !important;
 	margin: 0 !important;
 	padding: 0 !important;
+	font-size: 13px !important;
 }
 
 .fm-navigation-dark li {
@@ -242,7 +243,11 @@ span[class^="fm-icon-"] {
 	background-image: linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
 	border-bottom: 1px #060405 solid;
 	list-style: none;
+}
 
+.fm-navigation li a,
+.fm-navigation-dark li a {
+	font-size: 13px;
 }
 
 .fm-navigation-vehicles li {
@@ -250,7 +255,7 @@ span[class^="fm-icon-"] {
 	border: 1px solid #CCCCCC;
 	border-top: none;
 	list-style: none;
-	font-size: 14px;
+	font-size: 14px !important;
 }
 .fm-navigation-vehicles li:first-child {
 	border-top: 1px solid #CCCCCC;
@@ -333,7 +338,7 @@ span[class^="fm-icon-"] {
 	padding: 15px 15px;
 	text-align: left;
 	vertical-align: middle;
-	font-size: 15px;
+	font-size: 14px !important;
 	font-family: "Antenna";
 	font-weight: 700;
 	margin: 5px 0;
