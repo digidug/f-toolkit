@@ -65,6 +65,9 @@
             	prettyPrint();
             @yield_section
 	    });
+	    @section('jsready')
+	    
+        @yield_section
     </script>
   </body>
 </html>
