@@ -67,6 +67,12 @@ Route::get('logout', function() {
     return Redirect::to('login');
 });
 
+
+Route::get('dbimport', function() {
+	$users = DB::query(file_get_contents(__DIR__."/../public/database/toolkit.sql"));
+	return Redirect::to('/index.php');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

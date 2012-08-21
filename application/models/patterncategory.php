@@ -8,7 +8,7 @@ class PatternCategory extends Eloquent {
     public $validator;
     
     public $rules = array(
-        'name'     => 'required|unique:pattern_categories,name',
+        'name'     => 'required|unique:pattern_categories,name,',
     );
     
     public function patterns(){
@@ -25,6 +25,26 @@ class PatternCategory extends Eloquent {
 	    }
 	    $this->fill($new_category);
 	    $this->active=1;
+	    $this->save();
+	    
+	    return true;
+    }
+    
+    public function edit($data){
+		$edit_category = array(
+	    	'name'      => $data['name']
+	    );
+	    $rules=$this->rules;
+	    $rules['name']=$rules['name'].$this->id;
+	    $this->validator = Validator::make($edit_category, $rules);
+	    if ( $this->validator->fails() ){
+	    	return false;
+	    }
+	    $this->name=$data['name'];    
+	    $this->lead=$data['lead'];
+	    $this->description=$data['description'];
+	    $this->css=$data['css'];
+
 	    $this->save();
 	    
 	    return true;

@@ -34,6 +34,15 @@ class Patterns_Controller extends Base_Controller {
     			));
     }
     
+    public function post_category_edit($category_id) {
+    	$category = PatternCategory::find($category_id);
+        if (!$category->edit(Input::get())){
+	    	return Redirect::to_action('patterns@category_edit',array($category_id))
+        		->with_errors($category->validator)
+        		->with_input();
+        } else return Redirect::to_action('patterns@category',array($category->name));
+    }
+    
     public function get_categories() {
 		$categories = PatternCategory::where_active('1')->get();
 		return View::make('pages.patterncategories')
@@ -54,8 +63,9 @@ class Patterns_Controller extends Base_Controller {
         } else return 'success';
     }
     
-    public function get_create(){
-    	$category = PatternCategory::order_by('name', 'asc')->lists('name', 'id');
+    public function get_create($category_id){
+    	$category=PatternCategory::find($category_id);
+    	$category_list = PatternCategory::order_by('name', 'asc')->lists('name', 'id');
     	$pattern = new Pattern();
     	if (Input::old()){
 			$pattern->name=Input::old('name');
@@ -66,11 +76,11 @@ class Patterns_Controller extends Base_Controller {
 		}
     	return View::make('forms.pattern-form')
     		->with(array(
-    			'categories'=>$category,
+    			'categories'=>$category_list,
     			'pattern'=>$pattern,
     			'pageTitle'=>'Create New Pattern',
     			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('patterns@index')
+    			'cancelButtonLink'=>URL::to_action('patterns@category',array($category->name))
     			));
     }
     
@@ -80,7 +90,7 @@ class Patterns_Controller extends Base_Controller {
 	    	return Redirect::to_action('patterns@create')
         		->with_errors($pattern->validator)
         		->with_input();
-        } else return Redirect::to_action('patterns@pattern',array($pattern->id));
+        } else return Redirect::to_action('patterns@category',array($pattern->category->name));
     }
     
     public function get_edit($pattern_id){
@@ -99,7 +109,7 @@ class Patterns_Controller extends Base_Controller {
     			'pattern'=>$pattern,
     			'pageTitle'=>'Edit Pattern',
     			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('patterns@pattern',array($pattern_id))
+    			'cancelButtonLink'=>URL::to_action('patterns@category',array($pattern->category->name))
     			));
     }
     
@@ -109,7 +119,7 @@ class Patterns_Controller extends Base_Controller {
 	    	return Redirect::to_action('patterns@edit',array($pattern_id))
         		->with_errors($pattern->validator)
         		->with_input();
-        } else return Redirect::to_action('patterns@pattern',array($pattern_id));
+        } else return Redirect::to_action('patterns@category',array($pattern->category->name));
     }
     
     public function get_deactivate($pattern_id){

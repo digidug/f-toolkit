@@ -3,7 +3,7 @@
 	<div class="page-header">
 		<h1>{{ $pageTitle }}</h1>
 	</div>
-	{{ Form::open('#', 'POST', array('id'=>'patternForm','class' => 'form-vertical')) }}
+	{{ Form::open(URL::current(), 'POST', array('id'=>'patternForm','class' => 'form-vertical')) }}
 		<div class="control-group {{ $errors->first('name')?'error':'' }}">
         	{{ Form::label('name', 'Name',array('class'=>'control-label')) }}
         	<div class="controls">
@@ -23,6 +23,13 @@
         	<div class="controls">
             	{{ Form::textarea('description',@$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;'))}}
             	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
+            </div>
+        </div>
+        <div class="control-group {{ $errors->first('css')?'error':'' }}">
+        	{{ Form::label('css', 'CSS',array('class'=>'control-label')) }}
+        	<div class="controls">
+            	{{ Form::textarea('css',@$category->css,array('style'=>'width:98%;height:400px;'))}}
+            	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
         <div>
@@ -52,6 +59,7 @@
         // Example content CSS (should be your site CSS)
         content_css : "/css/styles.css",
         elements : "",
+        inline_styles : true,
         plugins : "advimage,imagemanager",
         theme : "advanced",
 	    theme_advanced_buttons1 : "mylistbox,mysplitbutton,bold,italic,underline,separator,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,undo,redo,link,unlink,image,code",

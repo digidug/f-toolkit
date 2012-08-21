@@ -1,7 +1,7 @@
 @layout('templates.main')
 @section('content')
 	<h1>{{ $pageTitle }}</h1>
-	{{ Form::open('#', 'POST', array('id'=>'patternForm','class' => 'form-vertical')) }}
+	{{ Form::open(URL::current(), 'POST', array('id'=>'patternForm','class' => 'form-vertical')) }}
 		<div class="control-group {{ $errors->first('name')?'error':'' }}">
         	{{ Form::label('name', 'Name',array('class'=>'control-label')) }}
         	<div class="controls">
@@ -26,6 +26,7 @@
 		  	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
 		  	{{ $errors->first('html', '<span class="help-inline">:message</span>') }}
 		  	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
+		  </div>
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
 		    	{{ Form::textarea('description',isset($pattern->description->content)?$pattern->description->content:$pattern->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}

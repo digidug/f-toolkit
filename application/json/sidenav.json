@@ -10,10 +10,13 @@
 		],
 	"STYLEGUIDE":
 		[
-			{ "name":"Typography", "regexp":"styleguide/typography*", "url":"styleguide/typography", "icon":"icon-font" },
-			{ "name":"Grid", "regexp":"styleguide/grid*", "url":"styleguide/grid", "icon":"icon-th-large" },
+			{ "name":"Colors", "regexp":"patterns/category/colors*", "url":"patterns/category/colors", "icon":"icon-sign-blank" },
+			{ "name":"Typography", "regexp":"patterns/category/typography*", "url":"patterns/category/typography", "icon":"icon-font" },
+			{ "name":"Grid", "regexp":"patterns/category/grid*", "url":"patterns/category/grid", "icon":"icon-th-large" },
+			{ "name":"Navigation", "regexp":"patterns/category/navigation*", "url":"patterns/category/navigation", "icon":"icon-link" },
 			{ "name":"Buttons", "regexp":"patterns/category/buttons*", "url":"patterns/category/buttons", "icon":"icon-reorder" },
-			{ "name":"Lists", "regexp":"styleguide/lists*", "url":"styleguide/lists", "icon":"icon-th-list" },
-			{ "name":"Forms", "regexp":"styleguide/forms*", "url":"styleguide/forms", "icon":"icon-check" }
+			{ "name":"Lists", "regexp":"patterns/category/lists*", "url":"patterns/category/lists", "icon":"icon-th-list" },
+			{ "name":"Forms", "regexp":"styleguide/forms*", "url":"patterns/category/forms", "icon":"icon-check" },
+			{ "name":"Media", "regexp":"patterns/category/media*", "url":"patterns/category/media", "icon":"icon-camera" }
 		]
 }

@@ -1,8 +1,12 @@
 @layout('templates.main')
 @section('content')
+	{{ $category->css }}
 	<div class="page-header">
 		@if (Auth::user()->hasRole('Administrator'))
-			<a class="btn btn-primary pull-right" href="{{ URL::to_action('patterns@category_edit', array($category->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
+			<div class="pull-right">
+				<a class="btn btn-success" href="{{ URL::to_action('patterns@create', array($category->id)) }}"><i class="icon-plus"></i> Add</a> 
+				<a class="btn btn-primary" href="{{ URL::to_action('patterns@category_edit', array($category->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
+			</div>
 		@endif
 		<h1>{{ $category->name }}</h1>
 	</div>
