@@ -19,6 +19,8 @@
     {{ HTML::style('css/font-awesome.css') }}
     {{ HTML::style('css/site.css') }}
     {{ HTML::style('css/prettify.css') }}
+    
+    {{ HTML::script('js/jquery.min.js') }}
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -53,7 +55,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     @section('jsfiles')
-    	{{ HTML::script('js/jquery.min.js') }}
     	{{ HTML::script('js/bootstrap.min.js') }}
     	{{ HTML::script('js/google-code-prettify/prettify.js') }}
     	{{ HTML::script('js/google-code-prettify/lang-css.js') }}

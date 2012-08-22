@@ -3,7 +3,6 @@
 	<div class="twelve columns">
 		<ul>
 			<li>{{ HTML::link('patterns','Patterns',array('class'=>'primary small button')) }}</li>
-			<li>{{ HTML::link('dbimport','Import database',array('class'=>'primary small button')) }}</li>
 		</ul>
 	</div>
 @endsection

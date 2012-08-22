@@ -13,13 +13,13 @@
 	<p class="lead">{{ $category->lead }}</p>
 	<div>{{ $category->description }}</div>
 	@foreach ($patterns as $pattern)
-		<div class="output">
+		<div>
 			@if (Auth::user()->hasRole('Administrator'))
 				<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('patterns@edit', array($pattern->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
 			@endif
 			<h3>{{ $pattern->name }}</h3>
 			<div>{{ $pattern->description->content }}</div>
-	        <div>{{ $pattern->html->content }}</div>
+	        <div class="output">{{ $pattern->html->content }}</div>
 	        @if ($pattern->html->content!='' || $pattern->css->content!='')
 		        <div class="tabbable">
 				  <ul class="nav nav-tabs">
@@ -35,4 +35,8 @@
 	    </div>
 	@endforeach
 	</div>
+@endsection
+
+@section('jsready')
+	$('.output').attr('contentEditable','true');
 @endsection
