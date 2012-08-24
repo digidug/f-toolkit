@@ -47,6 +47,22 @@ class PatternCategory extends Eloquent {
 
 	    $this->save();
 	    
+	    if (isset($data['activePatterns'])){
+		    parse_str($data['activePatterns'],$activePatterns);
+		    parse_str($data['inactivePatterns'],$inactivePatterns);
+		}
+		/*
+	    Pattern::bulk_deactivate(unserialize($data['activePatterns']));
+	    Pattern::order($this->id,unserialize($data['inactivePatterns']));
+	    */
+	    return true;
+    }
+    
+    public function activePatterns(){
+	    return true;
+    }
+    
+    public function inactivePatterns(){
 	    return true;
     }
 }

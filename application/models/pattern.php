@@ -83,6 +83,28 @@ class Pattern extends Eloquent {
 	    return true;
     }
     
+    public function bulk_deactivate($pattern_ids){
+	    foreach ($pattern_ids AS $pattern_id){
+		    $pattern=Pattern::find($pattern_id);
+		    $pattern->deactivate();
+	    }
+	    
+	    return true;
+    }
+    
+    public function order($pattern_category_id,$pattern_ids){
+    	$order=1;
+	    foreach ($pattern_ids AS $pattern_id){
+	    	$pattern=Pattern::find($pattern_id);
+		    $pattern->sort=$order;
+		    $pattern->pattern_category_id=$pattern_category_id;
+		    $pattern->activate();
+		    $order++;
+	    }
+	    
+	    return true;
+    }
+    
     public function deactivate(){
 	    $this->active=0;
 	    $this->save();

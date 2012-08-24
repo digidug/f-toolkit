@@ -8,17 +8,21 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    {{ HTML::style('css/styles.css') }}
-    {{ HTML::style('css/bootstrap.css') }}
+    @section('cssfiles')
+	    {{ HTML::style('css/styles.css') }}
+	    {{ HTML::style('css/bootstrap.css') }}
+	    {{ HTML::style('css/bootstrap-responsive.css') }}
+	    {{ HTML::style('css/font-awesome.css') }}
+	    {{ HTML::style('css/site.css') }}
+	    {{ HTML::style('css/prettify.css') }}
+    @yield_section
     <style>
+    @section('css')
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        /* padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
+    @yield_section
     </style>
-    {{ HTML::style('css/bootstrap-responsive.css') }}
-    {{ HTML::style('css/font-awesome.css') }}
-    {{ HTML::style('css/site.css') }}
-    {{ HTML::style('css/prettify.css') }}
     
     {{ HTML::script('js/jquery.min.js') }}
 
@@ -57,8 +61,8 @@
     @section('jsfiles')
     	{{ HTML::script('js/bootstrap.min.js') }}
     	{{ HTML::script('js/google-code-prettify/prettify.js') }}
-    	{{ HTML::script('js/google-code-prettify/lang-css.js') }}
     	{{ HTML::script('js/jquery.taboverride.js') }}
+    	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js') }}
     @yield_section
     <script>
     	$(document).ready(function() {

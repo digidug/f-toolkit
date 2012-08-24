@@ -33,12 +33,27 @@
             </div>
         </div>
         <div>
-        	<span>Patterns</span>
-        	@foreach ($patterns as $pattern)
-	        	<ul>
-					<li>{{ $pattern->name }}</li>
-				</ul>
-			@endforeach
+        	<h3>Patterns</h3>
+        	<div class="row">
+				<div class="span4">
+					<h4>Active {{ $category->name }} Patterns</h4>
+		        	<ul id="active-patterns" class="sortable unstyled">
+		        	@foreach ($patterns as $pattern)
+						<li class="well" id="pattern_{{ $pattern->name }}">{{ $pattern->name }}</li>
+					@endforeach
+		        	</ul>
+				</div>
+				<div class="span4">
+					<h4>Inactive Patterns</h4>
+		        	<ul id="inactive-patterns" class="sortable unstyled" style="min-height:200px;">
+		        	@foreach ($patterns as $pattern)
+						<li class="well">{{ $pattern->name }}</li>
+					@endforeach
+		        	</ul>
+				</div>
+				{{ Form::hidden('activePatterns',@$category->activePatterns()) }}
+				{{ Form::hidden('inactivePatterns',@$category->inactivePatterns()) }}
+        	</div>
         </div>
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
@@ -69,4 +84,12 @@
 	    theme_advanced_toolbar_align : "left",
 	    theme_advanced_statusbar_location : "bottom"
 	});
+	
+	$("#active-patterns, #inactive-patterns").sortable({
+    	connectWith: $('.sortable'),
+    	update: function(event, ui) {
+    		$("input[name='activePatterns']").val($('#active-patterns').sortable('serialize'));
+    		$("input[name='inactivePatterns']").val($('#inactive-patterns').sortable('serialize'));    	}
+    });
+	$(".sortable").disableSelection();
 @endsection

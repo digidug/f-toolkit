@@ -15,7 +15,7 @@ class Patterns_Controller extends Base_Controller {
     public function get_category($category_name) {
     	$categories=PatternCategory::where_name($category_name)->get();
     	$category=$categories[0];
-		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('name')->get();
+		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
 		return View::make('pages.patternsbycategory')
 		    ->with('category', $category)
 		    ->with('patterns', $patterns);
@@ -23,7 +23,7 @@ class Patterns_Controller extends Base_Controller {
     
     public function get_category_edit($category_id) {
     	$category=PatternCategory::find($category_id);
-		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('name')->get();
+		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
 		return View::make('forms.pattern-category-form')
 		    ->with(array(
 		    	'category'=>$category,
