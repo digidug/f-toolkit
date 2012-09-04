@@ -36,18 +36,18 @@
         	<h3>Patterns</h3>
         	<div class="row">
 				<div class="span4">
-					<h4>Active {{ $category->name }} Patterns</h4>
-		        	<ul id="active-patterns" class="sortable unstyled">
+					<h4>{{ $category->name }} Patterns</h4>
+		        	<ul id="active-patterns" class="sortable unstyled" style="min-height:200px;">
 		        	@foreach ($patterns as $pattern)
-						<li class="well" id="pattern_{{ $pattern->name }}">{{ $pattern->name }}</li>
+						<li class="well {{ $pattern->published==1?'':'unpublished' }}" id="pattern_{{ $pattern->id }}">{{ $pattern->name }}</li>
 					@endforeach
 		        	</ul>
 				</div>
 				<div class="span4">
 					<h4>Inactive Patterns</h4>
 		        	<ul id="inactive-patterns" class="sortable unstyled" style="min-height:200px;">
-		        	@foreach ($patterns as $pattern)
-						<li class="well">{{ $pattern->name }}</li>
+		        	@foreach ($inactive_patterns as $pattern)
+						<li class="well {{ $pattern->published==1?'':'unpublished' }}" id="pattern_{{ $pattern->id }}">{{ $pattern->name }}</li>
 					@endforeach
 		        	</ul>
 				</div>
@@ -89,7 +89,8 @@
     	connectWith: $('.sortable'),
     	update: function(event, ui) {
     		$("input[name='activePatterns']").val($('#active-patterns').sortable('serialize'));
-    		$("input[name='inactivePatterns']").val($('#inactive-patterns').sortable('serialize'));    	}
+    		$("input[name='inactivePatterns']").val($('#inactive-patterns').sortable('serialize'));
+    	}
     });
 	$(".sortable").disableSelection();
 @endsection

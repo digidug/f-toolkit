@@ -66,7 +66,8 @@ class Pattern extends Eloquent {
 	    	return false;
 	    }
 	    $this->name=$data['name'];
-	    $this->pattern_category_id=$data['category'];	    
+	    $this->pattern_category_id=$data['category'];
+	    $this->published=$data['published'];	    
 	    $this->description->content=$data['description'];
 	    $this->html->content=$data['html'];
 	    $this->css->content=$data['css'];
@@ -75,6 +76,7 @@ class Pattern extends Eloquent {
 	    $this->description->save();
 	    $this->html->save();
 	    $this->css->save();
+	    
 	    /*
 	    $this->html()->save(array('content'=>$data['html']));
 	    $this->css()->save(array('content'=>$data['css']));
@@ -83,7 +85,7 @@ class Pattern extends Eloquent {
 	    return true;
     }
     
-    public function bulk_deactivate($pattern_ids){
+    public static function bulkDeactivate($pattern_ids){
 	    foreach ($pattern_ids AS $pattern_id){
 		    $pattern=Pattern::find($pattern_id);
 		    $pattern->deactivate();
@@ -92,7 +94,7 @@ class Pattern extends Eloquent {
 	    return true;
     }
     
-    public function order($pattern_category_id,$pattern_ids){
+    public static function order($pattern_category_id,$pattern_ids){
     	$order=1;
 	    foreach ($pattern_ids AS $pattern_id){
 	    	$pattern=Pattern::find($pattern_id);

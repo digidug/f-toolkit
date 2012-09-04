@@ -58,3 +58,9 @@ h1 {padding-bottom:0.2em;}
 .zebra-list li:nth-child(odd) {background-color:#F9F9F9;}
 .zebra-list li:first-child {-webkit-border-radius:4px 4px 0 0; -moz-border-radius:4px 4px 0 0; border-radius:4px 4px 0 0;}
 .zebra-list li:last-child {border-bottom:1px solid #DDD; -webkit-border-radius:0 0 4px 4px; -moz-border-radius:0 0 4px 4px; border-radius:0 0 4px 4px;}
+
+/* patterns */
+
+.unpublished{
+	border: 3px #fcd4d4 dashed;
+}

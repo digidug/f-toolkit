@@ -9,11 +9,11 @@
             	{{ $errors->first('name', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
-        <div class="control-group {{ $errors->first('description')?'error':'' }}">
-        	{{ Form::label('category', 'Category',array('class'=>'control-label')) }}
+        <div class="control-group {{ $errors->first('published')?'error':'' }}">
+        	{{ Form::label('published', 'Published',array('class'=>'control-label')) }}
         	<div class="controls">
-            	{{ Form::select('category', $categories, isset($pattern->category->id)?$pattern->category->id:$pattern->category); }}
-            	{{ $errors->first('category', '<span class="help-inline">:message</span>') }}
+            	{{ Form::select('published', array('0'=>'Unpublished','1'=>'Published'), isset($pattern->published)?$pattern->published:0); }}
+            	{{ $errors->first('published', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
         <div class="tabbable">
@@ -39,7 +39,7 @@
 		    </div>
 		  </div>
 		</div>
-     
+		{{ Form::hidden('category', $pattern->category) }}
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>

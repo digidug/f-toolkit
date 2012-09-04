@@ -49,12 +49,17 @@ class PatternCategory extends Eloquent {
 	    
 	    if (isset($data['activePatterns'])){
 		    parse_str($data['activePatterns'],$activePatterns);
-		    parse_str($data['inactivePatterns'],$inactivePatterns);
+		    if (isset($activePatterns['pattern'])){
+			    Pattern::order($this->id,$activePatterns['pattern']);
+			}
 		}
-		/*
-	    Pattern::bulk_deactivate(unserialize($data['activePatterns']));
-	    Pattern::order($this->id,unserialize($data['inactivePatterns']));
-	    */
+		if (isset($data['inactivePatterns'])){
+	    	parse_str($data['inactivePatterns'],$inactivePatterns);
+	    	if (isset($inactivePatterns['pattern'])){
+		    	Pattern::bulkDeactivate($inactivePatterns['pattern']);
+		    }
+	    }
+	    
 	    return true;
     }
     
