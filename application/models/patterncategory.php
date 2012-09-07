@@ -15,6 +15,14 @@ class PatternCategory extends Eloquent {
         return $this->has_many('Pattern','pattern_category_id');
     }
     
+    public function meta(){
+        return $this->has_one('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc');
+    }
+    
+    public function history(){
+        return $this->has_many('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc');
+    }
+    
     public function add($data){
 	    $new_category = array(
         	'name' => $data['name']
@@ -26,6 +34,8 @@ class PatternCategory extends Eloquent {
 	    $this->fill($new_category);
 	    $this->active=1;
 	    $this->save();
+	    
+	    $this->meta()->insert(array('lead'=>$data['lead'],'description'=>$data['description'],'css'=>$data['css'],'javascript'=>$data['javascript']));
 	    
 	    return true;
     }
@@ -41,11 +51,9 @@ class PatternCategory extends Eloquent {
 	    	return false;
 	    }
 	    $this->name=$data['name'];    
-	    $this->lead=$data['lead'];
-	    $this->description=$data['description'];
-	    $this->css=$data['css'];
-
 	    $this->save();
+	    
+	    $this->meta()->insert(array('lead'=>$data['lead'],'description'=>$data['description'],'css'=>$data['css'],'javascript'=>$data['javascript']));
 	    
 	    if (isset($data['activePatterns'])){
 		    parse_str($data['activePatterns'],$activePatterns);

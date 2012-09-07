@@ -14,24 +14,33 @@
 		<div class="control-group {{ $errors->first('lead')?'error':'' }}">
         	{{ Form::label('lead', 'Lead',array('class'=>'control-label')) }}
         	<div class="controls">
-            	{{ Form::textarea('lead',@$category->lead,array('style'=>'width:98%;height:100px;'))}}
-            	{{ $errors->first('category', '<span class="help-inline">:message</span>') }}
+            	{{ Form::textarea('lead',@$category->meta->lead,array('style'=>'width:98%;height:100px;'))}}
+            	{{ $errors->first('lead', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
-        <div class="control-group {{ $errors->first('description')?'error':'' }}">
-        	{{ Form::label('description', 'Description',array('class'=>'control-label')) }}
-        	<div class="controls">
-            	{{ Form::textarea('description',@$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;'))}}
-            	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
-            </div>
-        </div>
-        <div class="control-group {{ $errors->first('css')?'error':'' }}">
-        	{{ Form::label('css', 'CSS',array('class'=>'control-label')) }}
-        	<div class="controls">
-            	{{ Form::textarea('css',@$category->css,array('style'=>'width:98%;height:400px;'))}}
-            	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
-            </div>
-        </div>
+        <div class="tabbable">
+		  <ul class="nav nav-pills">
+		  	<li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+		    <li><a href="#css" data-toggle="tab">CSS</a></li>
+		    <li><a href="#javascript" data-toggle="tab">Javascript</a></li>
+		  </ul>
+		  <div class="control-group {{ $errors->first('description')?'error':'' }}{{ $errors->first('css')?'error':'' }}{{ $errors->first('javascript')?'error':'' }}">
+		  	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
+		  	{{ $errors->first('html', '<span class="help-inline">:message</span>') }}
+		  	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
+		  </div>
+		  <div class="tab-content">
+		  	<div class="tab-pane active" id="description">
+		    	{{ Form::textarea('description',isset($category->meta->description)?$category->meta->description:$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
+		  	</div>
+		  	<div class="tab-pane" id="css">
+			    {{ Form::textarea('css',isset($category->meta->css)?$category->meta->css:$category->css,array('style'=>'width:98%;height:400px;')) }}
+		    </div>
+		    <div class="tab-pane" id="javascript">
+			    {{ Form::textarea('javascript',isset($category->meta->javascript)?$category->meta->javascript:$category->javascript,array('style'=>'width:98%;height:400px;')) }}
+		    </div>
+		  </div>
+		</div>
         <div>
         	<h3>Patterns</h3>
         	<div class="row">
@@ -55,6 +64,16 @@
 				{{ Form::hidden('inactivePatterns',@$category->inactivePatterns()) }}
         	</div>
         </div>
+        @if (isset($category->history))
+        <div>
+        	<h3>History</h3>
+        	<ul>
+        	@foreach ($category->history AS $item)
+        		<li>{{ $item->updated_at }} by {{ $item->user->username }}</li>
+        	@endforeach
+        	</ul>
+        </div>
+        @endif
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>

@@ -15,24 +15,8 @@ class Pattern extends Eloquent {
         return $this->belongs_to('PatternCategory', 'pattern_category_id')->order_by('pattern_categories.name', 'asc');
     }
     
-    public function description(){
-        return $this->has_one('PatternDescription');
-    }
-    
-    public function html(){
-        return $this->has_one('PatternHtml');
-    }
-    
-    public function css(){
-        return $this->has_one('PatternCss');
-    }
-    
-    public function tags(){
-        return $this->has_many('PatternTag');
-    }
-    
-    public function tagsbyuser(){
-        return $this->has_many('PatternTagbyuser');
+    public function meta(){
+        return $this->has_one('PatternMeta')->order_by('created_at','desc');
     }
     
     public function add($data){
@@ -47,10 +31,8 @@ class Pattern extends Eloquent {
 	    $this->fill($new_pattern);
 	    $this->active=1;
 	    $this->save();
-
-	    $this->description()->insert(array('content'=>$data['description']));
-	    $this->html()->insert(array('content'=>$data['html']));
-	    $this->css()->insert(array('content'=>$data['css']));
+	    
+	    $this->meta()->insert(array('description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
 	    
 	    return true;
     }
@@ -67,20 +49,10 @@ class Pattern extends Eloquent {
 	    }
 	    $this->name=$data['name'];
 	    $this->pattern_category_id=$data['category'];
-	    $this->published=$data['published'];	    
-	    $this->description->content=$data['description'];
-	    $this->html->content=$data['html'];
-	    $this->css->content=$data['css'];
+	    $this->published=$data['published'];	
 	    $this->save();
 	    
-	    $this->description->save();
-	    $this->html->save();
-	    $this->css->save();
-	    
-	    /*
-	    $this->html()->save(array('content'=>$data['html']));
-	    $this->css()->save(array('content'=>$data['css']));
-	    */
+	    $this->meta()->insert(array('description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
 	    
 	    return true;
     }

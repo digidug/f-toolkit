@@ -15,7 +15,7 @@ class Patterns_Controller extends Base_Controller {
     public function get_category($category_name) {
     	$categories=PatternCategory::where_name($category_name)->get();
     	$category=$categories[0];
-		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
+		$patterns = Pattern::where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
 		return View::make('pages.patternsbycategory')
 		    ->with('category', $category)
 		    ->with('patterns', $patterns);
@@ -23,8 +23,15 @@ class Patterns_Controller extends Base_Controller {
     
     public function get_category_edit($category_id) {
     	$category=PatternCategory::find($category_id);
-		$patterns = Pattern::with('category')->where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
-		$inactive_patterns = Pattern::where_active('0')->get();
+		$patterns = Pattern::where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
+		$inactive_patterns = Pattern::where_active('0')->get();	
+		if (Input::old()){
+			$category->name=Input::old('name');
+			$category->meta->lead=Input::old('lead');
+			$category->meta->description=Input::old('description');
+			$category->meta->css=Input::old('css');
+			$category->meta->javascript=Input::old('javascript');
+		}
 		return View::make('forms.pattern-category-form')
 		    ->with(array(
 		    	'category'=>$category,
@@ -73,13 +80,14 @@ class Patterns_Controller extends Base_Controller {
 			$pattern->description=Input::old('description');
 			$pattern->html=Input::old('html');
 			$pattern->css=Input::old('css');
-			$pattern->category=Input::old('category');
+			$category_id=Input::old('category');
 		}else{
-			$pattern->category=$category->id;
+			$category_id=$category->id;
 		}
     	return View::make('forms.pattern-form')
     		->with(array(
     			'pattern'=>$pattern,
+    			'category_id'=>$category_id,
     			'pageTitle'=>'Create New <em>'.$category->name.'</em> Pattern',
     			'submitButtonTitle'=>'Save',
     			'cancelButtonLink'=>URL::to_action('patterns@category',array($category->name))
@@ -102,11 +110,13 @@ class Patterns_Controller extends Base_Controller {
 			$pattern->description->content=Input::old('description');
 			$pattern->html->content=Input::old('html');
 			$pattern->css->content=Input::old('css');
-			$pattern->category=Input::old('category');
+			$pattern->category->id=Input::old('category');
 		}
+		
     	return View::make('forms.pattern-form')
     		->with(array(
     			'pattern'=>$pattern,
+    			'category_id'=>$pattern->category->id,
     			'pageTitle'=>'Edit Pattern',
     			'submitButtonTitle'=>'Save',
     			'cancelButtonLink'=>URL::to_action('patterns@category',array($pattern->category->name))

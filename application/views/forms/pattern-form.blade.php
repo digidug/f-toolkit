@@ -29,17 +29,17 @@
 		  </div>
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
-		    	{{ Form::textarea('description',isset($pattern->description->content)?$pattern->description->content:$pattern->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
+		    	{{ Form::textarea('description',isset($pattern->meta->description)?$pattern->meta->description:$pattern->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
 		  	</div>
 		  	<div class="tab-pane" id="html">
-			    {{ Form::textarea('html',isset($pattern->html->content)?$pattern->html->content:$pattern->html,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('html',isset($pattern->meta->html)?$pattern->meta->html:$pattern->html,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		    <div class="tab-pane" id="css">
-			    {{ Form::textarea('css',isset($pattern->css->content)?$pattern->css->content:$pattern->css,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('css',isset($pattern->meta->css)?$pattern->meta->css:$pattern->css,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		  </div>
 		</div>
-		{{ Form::hidden('category', $pattern->category) }}
+		{{ Form::hidden('category', $category_id) }}
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>
