@@ -10,16 +10,23 @@
 		<h1>{{ $category->name }}</h1>
 	</div>
 	<p class="lead">{{ $category->meta->lead }}</p>
-	<div>{{ $category->description }}</div>
+	<div>{{ $category->meta->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
 			<div class="{{ $pattern->published==1?'':'unpublished' }}">
 				@if (Auth::user()->hasRole('Administrator'))
-					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('patterns@edit', array($pattern->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
+					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('patterns@edit', array($pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
+				@endif
+				@if ($pattern->meta->html!='')
+					<div class="btn-group pull-right" data-toggle="buttons-radio">
+						<button type="button" class="btn btn-info btn-mini active" onclick="changeOutputWidth(this,{{$pattern->id}},'320px');">320px</button>
+						<button type="button" class="btn btn-info btn-mini" onclick="changeOutputWidth(this,{{$pattern->id}},'480px');">480px</button>
+						<button type="button" class="btn btn-info btn-mini" onclick="changeOutputWidth(this,{{$pattern->id}},'600px');">600px</button>
+					</div>
 				@endif
 				<h3>{{ $pattern->name }}</h3>
 				<div>{{ $pattern->meta->description }}</div>
-		        <div class="output">{{ $pattern->meta->html }}</div>
+		        <div class="output" id="output_{{$pattern->id}}">{{ $pattern->meta->html }}</div>
 		        @if ($pattern->meta->html!='' || $pattern->meta->css!='')
 			        <div class="tabbable">
 					  <ul class="nav nav-tabs">
@@ -46,6 +53,11 @@
 @section('js')
 	@parent
 	{{ $category->meta->javascript }}
+	function changeOutputWidth(button,output_id,size){
+		$(button).siblings().removeClass('active');
+		$(button).addClass('active');
+		$('#output_'+output_id).animate({'width':size});
+	}
 @endsection
 
 @section('jsready')

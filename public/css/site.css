@@ -61,6 +61,10 @@ h1 {padding-bottom:0.2em;}
 
 /* patterns */
 
+.output{
+	width:320px;
+}
+
 .unpublished{
 	border: 3px #fcd4d4 dashed;
 }

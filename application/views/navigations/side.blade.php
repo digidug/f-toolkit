@@ -26,6 +26,9 @@
 							<li class="{{ URI::is('users*') && !URI::is('users/user*')?'active':'' }}">
 								<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
 							</li>
+							<li class="{{ URI::is('styleguides*')?'active':'' }}">
+								<a href="{{ URL::to('styleguides') }}"><i class="icon-tint"></i> Manage Style Guides</a>
+							</li>
 							<li class="{{ URI::is('configure*')?'active':'' }}">
 								<a href="blank.htm"><i class="icon-wrench"></i> Configure</a>
 							</li>

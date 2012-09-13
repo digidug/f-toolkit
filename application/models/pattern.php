@@ -19,6 +19,10 @@ class Pattern extends Eloquent {
         return $this->has_one('PatternMeta')->order_by('created_at','desc');
     }
     
+    public function history(){
+        return $this->has_many('PatternMeta','pattern_id')->order_by('created_at','desc');
+    }
+    
     public function add($data){
 	    $new_pattern = array(
         	'name' => $data['name'],

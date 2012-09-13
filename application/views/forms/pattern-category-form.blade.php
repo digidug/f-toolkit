@@ -64,7 +64,7 @@
 				{{ Form::hidden('inactivePatterns',@$category->inactivePatterns()) }}
         	</div>
         </div>
-        @if (isset($category->history))
+        @if (count($category->history)>0)
         <div>
         	<h3>History</h3>
         	<ul>

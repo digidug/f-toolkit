@@ -40,6 +40,16 @@
 		  </div>
 		</div>
 		{{ Form::hidden('category', $category_id) }}
+		@if (count($pattern->history)>0)
+        <div>
+        	<h3>History</h3>
+        	<ul>
+        	@foreach ($pattern->history AS $item)
+        		<li>{{ $item->updated_at }} by {{ $item->user->username }}</li>
+        	@endforeach
+        	</ul>
+        </div>
+        @endif
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>
