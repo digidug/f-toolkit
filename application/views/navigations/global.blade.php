@@ -43,9 +43,6 @@
 									</ul>
 								</li>
 							</ul>
-							<form class="navbar-search pull-left" action="">
-								<input type="text" class="search-query span2" placeholder="Search" />
-							</form>
 							-->
 							<ul class="nav pull-right">
 								<li>
@@ -55,6 +52,9 @@
 									<a href="{{ URL::to('logout') }}"><i class="icon-off icon-white"></i> Logout</a>
 								</li>
 							</ul>
+							<form class="navbar-search pull-right" action="">
+								<input type="text" class="search-query span2" placeholder="Search" />
+							</form>
 						</div>
 					</div>
 				</div>

@@ -25,7 +25,7 @@
 					</div>
 				@endif
 				<h3>{{ $pattern->name }}</h3>
-				<div>{{ $pattern->meta->description }}</div>
+				<div class="description">{{ $pattern->meta->description }}</div>
 		        <div class="output" id="output_{{$pattern->id}}">{{ $pattern->meta->html }}</div>
 		        @if ($pattern->meta->html!='' || $pattern->meta->css!='')
 			        <div class="tabbable">

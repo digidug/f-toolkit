@@ -34,10 +34,12 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" style="background-image: -webkit-gradient(radial, 50% 50%,0,50% 50%,200, from(#21435E), to(#133247));height:600px;position:relative;">
 	    <div class="content">
         	@yield('content')
         </div>
+        <h2 style="position:absolute;right:50px;bottom:150px;color:#fff;">Ford Global Look + Style Guidelines</h2>
+        <img src="/img/Ford_Motor_Company_logo.png" style="width:200px;position:absolute;right:50px;bottom:-40px;">
     </div>
 
     <!-- Le javascript

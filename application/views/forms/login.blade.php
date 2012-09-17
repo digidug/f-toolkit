@@ -1,9 +1,9 @@
 @layout('templates.blank')
 @section('content')
 
-<div id='login-page' class='container'>
-	<h1>Login</h1>
+<div id='login-page' class='container' style='margin-top:20px;'>
 	{{ Form::open('#', 'POST', array('class' => 'well')) }}
+		<h1>Login</h1>
     	@if (Session::has('login_errors'))
         	<span class="error">Username or password incorrect.</span>
         @endif
