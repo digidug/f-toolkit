@@ -12,6 +12,19 @@
 							To the Ford Global Look + Style Guidelines Interface.
 						</p>
 					</div>
+					<div class="well summary">
+						<ul>
+							<li>
+								<a href="#"><span class="count">3</span> Projects</a>
+							</li>
+							<li>
+								<a href="#"><span class="count">27</span> Tasks</a>
+							</li>
+							<li>
+								<a href="#"><span class="count">7</span> Messages</a>
+							</li>
+						</ul>
+					</div>
 					<h2>
 						Recent Activity
 					</h2>

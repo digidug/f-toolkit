@@ -1,5 +1,5 @@
 /* general */
-body {padding-top:20px; padding-bottom:20px;}
+body {padding-top:20px; padding-bottom:20px;font-size:16px;}
 
 h1 {padding-bottom:0.2em;}
 
@@ -60,6 +60,13 @@ h1 {padding-bottom:0.2em;}
 .zebra-list li:last-child {border-bottom:1px solid #DDD; -webkit-border-radius:0 0 4px 4px; -moz-border-radius:0 0 4px 4px; border-radius:0 0 4px 4px;}
 
 /* patterns */
+.pattern{
+	margin: 20px 0;
+}
+.pattern h3{
+	border-bottom:thin #E5E5E5 ridge;
+	margin-bottom:20px;
+}
 .description{
 	clear:both;
 }
@@ -69,4 +76,8 @@ h1 {padding-bottom:0.2em;}
 
 .unpublished{
 	border: 3px #fcd4d4 dashed;
+}
+
+.nav-tabs{
+	margin:10px 0 0 0;
 }

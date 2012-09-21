@@ -4,7 +4,7 @@
 									{{ $title }}
 								</li>
 								@foreach ($items AS $item)
-									<li class="{{ URI::is($item['regexp'])?'active':'' }}">
+									<li class="{{ URI::is(strtolower($item['regexp']))?'active':'' }}">
 										<a href="{{ URL::to($item['url']) }}"><i class="{{ $item['icon'] }}"></i> {{ $item['name'] }}</a>
 									</li>
 								@endforeach

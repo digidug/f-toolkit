@@ -8,7 +8,7 @@
 			{ "name":"Messages", "regexp":"messages*", "url":"messages", "icon":"icon-comments" },
 			{ "name":"Files", "regexp":"files*", "url":"files", "icon":"icon-file" }
 		],
-	"STYLEGUIDE":
+	"MOBILE STYLEGUIDE":
 		[
 			{ "name":"Colors", "regexp":"patterns/category/colors*", "url":"patterns/category/colors", "icon":"icon-sign-blank" },
 			{ "name":"Typography", "regexp":"patterns/category/typography*", "url":"patterns/category/typography", "icon":"icon-font" },
@@ -16,7 +16,7 @@
 			{ "name":"Navigation", "regexp":"patterns/category/navigation*", "url":"patterns/category/navigation", "icon":"icon-link" },
 			{ "name":"Buttons", "regexp":"patterns/category/buttons*", "url":"patterns/category/buttons", "icon":"icon-reorder" },
 			{ "name":"Lists", "regexp":"patterns/category/lists*", "url":"patterns/category/lists", "icon":"icon-th-list" },
-			{ "name":"Forms", "regexp":"styleguide/forms*", "url":"patterns/category/forms", "icon":"icon-check" },
+			{ "name":"Forms", "regexp":"patterns/category/forms*", "url":"patterns/category/forms", "icon":"icon-check" },
 			{ "name":"Media", "regexp":"patterns/category/media*", "url":"patterns/category/media", "icon":"icon-camera" }
 		]
 }
