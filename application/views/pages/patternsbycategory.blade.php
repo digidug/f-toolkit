@@ -26,7 +26,7 @@
 				@endif
 				<h3>{{ $pattern->name }}</h3>
 				<div class="description">{{ $pattern->meta->description }}</div>
-		        <div class="output" id="output_{{$pattern->id}}">{{ $pattern->meta->html }}</div>
+		        <div class="output" id="output_{{$pattern->id}}" contenteditable="true">{{ $pattern->meta->html }}</div>
 		        @if ($pattern->meta->html!='' || $pattern->meta->css!='')
 			        <div class="tabbable">
 					  <ul class="nav nav-tabs">
