@@ -1,10 +1,23 @@
 /* general */
-body {padding-top:20px; padding-bottom:20px;font-size:16px;}
+body {padding-top:20px; padding-bottom:20px;font-size:16px;line-height: 21px;}
 
 h1 {padding-bottom:0.2em;}
 
 .meta {color:#999; font-size:.9em; display:block;}
 .meta em {font-style:normal; font-weight:bold;}
+
+img{
+	max-width:100%;
+	height:auto;
+}
+
+/* top bar */
+.navbar .brand {
+	padding-top: 11px;
+}
+.navbar .nav > li > a {
+	padding-top: 13px;
+}
 
 /* sidenav */
 .nav-list{
@@ -70,6 +83,8 @@ h1 {padding-bottom:0.2em;}
 .description{
 	clear:both;
 }
+.description p,.description ul{max-width:700px;}
+.description p,.description li{margin-bottom:20px;}
 .output{
 	width:320px;
 }
@@ -80,4 +95,10 @@ h1 {padding-bottom:0.2em;}
 
 .nav-tabs{
 	margin:10px 0 0 0;
+}
+
+/*edit patterns*/
+#imagesModal{
+    width: 800px;
+    margin-left: -400px; /* - width/2 */
 }

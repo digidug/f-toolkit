@@ -11,8 +11,16 @@ class PatternCategory extends Eloquent {
         'name'     => 'required|unique:pattern_categories,name,',
     );
     
+    public function styleguide(){
+        return $this->belongs_to('Styleguide','styleguide_id');
+    }
+    
     public function patterns(){
         return $this->has_many('Pattern','pattern_category_id');
+    }
+    
+    public function activePatterns(){
+        return $this->has_many('Pattern','pattern_category_id')->where_active(1)->order_by('sort','asc')->get();
     }
     
     public function meta(){
@@ -32,6 +40,7 @@ class PatternCategory extends Eloquent {
 	    	return false;
 	    }
 	    $this->fill($new_category);
+	    $this->styleguide_id=$data['styleguide'];
 	    $this->active=1;
 	    $this->save();
 	    
@@ -50,7 +59,7 @@ class PatternCategory extends Eloquent {
 	    if ( $this->validator->fails() ){
 	    	return false;
 	    }
-	    $this->name=$data['name'];    
+	    $this->name=$data['name']; 
 	    $this->save();
 	    
 	    $this->meta()->insert(array('lead'=>$data['lead'],'description'=>$data['description'],'css'=>$data['css'],'javascript'=>$data['javascript']));
@@ -68,10 +77,6 @@ class PatternCategory extends Eloquent {
 		    }
 	    }
 	    
-	    return true;
-    }
-    
-    public function activePatterns(){
 	    return true;
     }
     

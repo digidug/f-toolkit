@@ -12,11 +12,15 @@ class Pattern extends Eloquent {
     );
     
     public function category(){
-        return $this->belongs_to('PatternCategory', 'pattern_category_id')->order_by('pattern_categories.name', 'asc');
+        return $this->belongs_to('PatternCategory', 'pattern_category_id');
     }
     
     public function meta(){
         return $this->has_one('PatternMeta')->order_by('created_at','desc');
+    }
+    
+    public function styleguide(){
+	    return Styleguide::find($this->category->styleguide_id);
     }
     
     public function history(){
@@ -61,7 +65,7 @@ class Pattern extends Eloquent {
 	    return true;
     }
     
-    public static function bulkDeactivate($pattern_ids){
+    static function bulkDeactivate($pattern_ids){
 	    foreach ($pattern_ids AS $pattern_id){
 		    $pattern=Pattern::find($pattern_id);
 		    $pattern->deactivate();
@@ -70,7 +74,7 @@ class Pattern extends Eloquent {
 	    return true;
     }
     
-    public static function order($pattern_category_id,$pattern_ids){
+    static function order($pattern_category_id,$pattern_ids){
     	$order=1;
 	    foreach ($pattern_ids AS $pattern_id){
 	    	$pattern=Pattern::find($pattern_id);

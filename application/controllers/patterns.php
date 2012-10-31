@@ -21,37 +21,12 @@ class Patterns_Controller extends Base_Controller {
 		    ->with('patterns', $patterns);
     }
     
-    public function get_category_edit($category_id) {
-    	$category=PatternCategory::find($category_id);
-		$patterns = Pattern::where_pattern_category_id($category->id)->where_active('1')->order_by('sort')->get();
-		$inactive_patterns = Pattern::where_active('0')->get();	
-		if (Input::old()){
-			$category->name=Input::old('name');
-			$category->meta->lead=Input::old('lead');
-			$category->meta->description=Input::old('description');
-			$category->meta->css=Input::old('css');
-			$category->meta->javascript=Input::old('javascript');
-		}
-		return View::make('forms.pattern-category-form')
-		    ->with(array(
-		    	'category'=>$category,
-		    	'patterns'=>$patterns,
-		    	'inactive_patterns'=>$inactive_patterns,
-		    	'pageTitle'=>'Edit <em> '.$category->name.' </em> Category',
-		    	'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('patterns@category',array($category->name))
-    			));
+    public function get_categorycss($category_name) {
+    	$categories=PatternCategory::where_name($category_name)->get();
+    	$category=$categories[0];
+		return strip_tags($category->meta->css);
     }
-    
-    public function post_category_edit($category_id) {
-    	$category = PatternCategory::find($category_id);
-        if (!$category->edit(Input::get())){
-	    	return Redirect::to_action('patterns@category_edit',array($category_id))
-        		->with_errors($category->validator)
-        		->with_input();
-        } else return Redirect::to_action('patterns@category',array($category->name));
-    }
-    
+        
     public function get_categories() {
 		$categories = PatternCategory::where_active('1')->get();
 		return View::make('pages.patterncategories')
@@ -64,74 +39,7 @@ class Patterns_Controller extends Base_Controller {
 	    return View::make('pages.pattern')
     		->with(array('pattern'=>$pattern));
     }
-
-    public function post_createcategory(){
-        $category = new PatternCategory(); 
-        if (!$category->add(Input::get())){
-	    	return 'fail';
-        } else return 'success';
-    }
-    
-    public function get_create($category_id){
-    	$category=PatternCategory::find($category_id);
-    	$pattern = new Pattern();
-    	if (Input::old()){
-			$pattern->name=Input::old('name');
-			$pattern->description=Input::old('description');
-			$pattern->html=Input::old('html');
-			$pattern->css=Input::old('css');
-			$category_id=Input::old('category');
-		}else{
-			$category_id=$category->id;
-		}
-    	return View::make('forms.pattern-form')
-    		->with(array(
-    			'pattern'=>$pattern,
-    			'category_id'=>$category_id,
-    			'pageTitle'=>'Create New <em>'.$category->name.'</em> Pattern',
-    			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('patterns@category',array($category->name))
-    			));
-    }
-    
-    public function post_create(){
-        $pattern = new Pattern(); 
-        if (!$pattern->add(Input::get())){
-	    	return Redirect::to_action('patterns@create')
-        		->with_errors($pattern->validator)
-        		->with_input();
-        } else return Redirect::to_action('patterns@category',array($pattern->category->name));
-    }
-    
-    public function get_edit($pattern_id){
-    	$pattern=Pattern::find($pattern_id);
-		if (Input::old()){
-			$pattern->name=Input::old('name');
-			$pattern->description->content=Input::old('description');
-			$pattern->html->content=Input::old('html');
-			$pattern->css->content=Input::old('css');
-			$pattern->category->id=Input::old('category');
-		}
-		
-    	return View::make('forms.pattern-form')
-    		->with(array(
-    			'pattern'=>$pattern,
-    			'category_id'=>$pattern->category->id,
-    			'pageTitle'=>'Edit Pattern',
-    			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('patterns@category',array($pattern->category->name))
-    			));
-    }
-    
-    public function post_edit($pattern_id){
-        $pattern = Pattern::find($pattern_id);
-        if (!$pattern->edit(Input::get())){
-	    	return Redirect::to_action('patterns@edit',array($pattern_id))
-        		->with_errors($pattern->validator)
-        		->with_input();
-        } else return Redirect::to_action('patterns@category',array($pattern->category->name));
-    }
-    
+        
     public function get_deactivate($pattern_id){
         $pattern = Pattern::find($pattern_id);
         $pattern->deactivate();
@@ -148,6 +56,71 @@ class Patterns_Controller extends Base_Controller {
         $pattern = Pattern::find($pattern_id);
         if ($pattern->active==0) $pattern->delete();
         return Redirect::to_action('patterns@index');
+    }
+    
+    public function get_create($category_id){
+    	$category=PatternCategory::find($category_id);
+    	$pattern = new Pattern();
+    	if (Input::old()){
+			$pattern->name=Input::old('name');
+			$pattern->description=Input::old('description');
+			$pattern->html=Input::old('html');
+			$pattern->css=Input::old('css');
+			$category_id=Input::old('category');
+		}else{
+			$category_id=$category->id;
+		}
+		$css=addslashes(preg_replace('/\s\s+/', ' ', strip_tags($category->meta->css)));
+    	return View::make('forms.pattern-form')
+    		->with(array(
+    			'pattern'=>$pattern,
+    			'category_id'=>$category_id,
+    			'pageTitle'=>'Create New <em>'.$category->name.'</em> Pattern',
+    			'css'=>$css,
+    			'submitButtonTitle'=>'Save',
+    			'cancelButtonLink'=>URL::to_action('styleguides@one',array($category->styleguide->name))
+    			));
+    }
+    
+    public function post_create(){
+    	$category=PatternCategory::find(Input::get('category'));
+    	$pattern = new Pattern();
+        if (!$pattern->add(Input::get())){
+	    	return Redirect::to(URL::current())
+        		->with_errors($category->validator)
+        		->with_input();
+        } else return Redirect::to_action('styleguides@category',array($category->styleguide->name,$category->name));
+    }
+    
+    public function get_edit($pattern_id){
+	    $pattern=Pattern::find($pattern_id);
+		if (Input::old()){
+			$pattern->name=Input::old('name');
+			$pattern->description->content=Input::old('description');
+			$pattern->html->content=Input::old('html');
+			$pattern->css->content=Input::old('css');
+			$pattern->category->id=Input::old('category');
+		}
+		$css=addslashes(preg_replace('/\s+/', ' ', strip_tags($pattern->category->meta->css)));
+		
+    	return View::make('forms.pattern-form')
+    		->with(array(
+    			'pattern'=>$pattern,
+    			'category_id'=>$pattern->category->id,
+    			'pageTitle'=>'Edit Pattern',
+    			'css'=>$css,
+    			'submitButtonTitle'=>'Save',
+    			'cancelButtonLink'=>URL::to_action('styleguides@category',array($pattern->styleguide()->name,$pattern->category->name))
+    			));
+    }
+    
+    public function post_edit($pattern_id){
+        $pattern = Pattern::find($pattern_id);
+        if (!$pattern->edit(Input::get())){
+	    	return Redirect::to(URL::current())
+        		->with_errors($pattern->validator)
+        		->with_input();
+        } else return Redirect::to_action('styleguides@category',array($pattern->styleguide()->name,$pattern->category->name));
     }
     
 }

@@ -17,17 +17,10 @@ class Form {
 	public static $macros = array();
 
 	/**
-	 * Whether or not form fields should be re-populated from Input.
-	 *
-	 * @var bool
-	 */
-	protected static $remember = false;
-
-	/**
 	 * Registers a custom macro.
 	 *
 	 * @param  string   $name
-	 * @param  Closure  $input
+	 * @param  Closure  $macro
 	 * @return void
 	 */
 	public static function macro($name, $macro)
@@ -222,7 +215,6 @@ class Form {
 		$name = (isset($attributes['name'])) ? $attributes['name'] : $name;
 
 		$id = static::id($name, $attributes);
-		$value = static::value($name, $value);
 
 		$attributes = array_merge($attributes, compact('type', 'name', 'value', 'id'));
 
@@ -251,7 +243,7 @@ class Form {
 	 */
 	public static function password($name, $attributes = array())
 	{
-		return static::input('password', $name, '', $attributes);
+		return static::input('password', $name, null, $attributes);
 	}
 
 	/**
@@ -435,7 +427,7 @@ class Form {
 			$html[] = static::option($value, $display, $selected);
 		}
 
-		return '<optgroup label="'.HTML::entities($label).'">'.implode('', $html).'</option>';
+		return '<optgroup label="'.HTML::entities($label).'">'.implode('', $html).'</optgroup>';
 	}
 
 	/**
@@ -454,7 +446,7 @@ class Form {
 		}
 		else
 		{
-			$selected = ($value == $selected) ? 'selected' : null;
+			$selected = ((string) $value == (string) $selected) ? 'selected' : null;
 		}
 
 		$attributes = array('value' => HTML::entities($value), 'selected' => $selected);
@@ -534,7 +526,7 @@ class Form {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function submit($value, $attributes = array())
+	public static function submit($value = null, $attributes = array())
 	{
 		return static::input('submit', null, $value, $attributes);
 	}
@@ -546,7 +538,7 @@ class Form {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function reset($value, $attributes = array())
+	public static function reset($value = null, $attributes = array())
 	{
 		return static::input('reset', null, $value, $attributes);
 	}
@@ -578,7 +570,7 @@ class Form {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function button($value, $attributes = array())
+	public static function button($value = null, $attributes = array())
 	{
 		return '<button'.HTML::attributes($attributes).'>'.HTML::entities($value).'</button>';
 	}
@@ -604,36 +596,6 @@ class Form {
 		{
 			return $name;
 		}
-	}
-
-	/**
-	 * Determine the value attribute for a form element.
-	 *
-	 * @param  string  $name
-	 * @param  string  $value
-	 * @return string
-	 */
-	protected static function value($name, $value)
-	{
-		// If we are set to remember form input, the value will be
-		// re-populated from the Input. Otherwise, the given value will be
-		// used. (This value will always overwrite any Input data.)
-		if (!static::$remember or is_string($value) or !is_string($name))
-		{
-			return $value;
-		}
-
-		return Input::old($name, $value);
-	}
-	
-	/**
-	 * Let form fields be re-populated from Input.
-	 *
-	 * @return void
-	 */
-	public static function remember_input()
-	{
-		static::$remember = true;
 	}
 
 	/**

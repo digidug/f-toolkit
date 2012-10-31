@@ -32,7 +32,9 @@
 |
 */
 Route::controller('users');
+Route::controller('styleguides');
 Route::controller('patterns');
+Route::controller('images');
 Route::controller('inspirations');
 
 Route::get('/', function()

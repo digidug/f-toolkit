@@ -3,8 +3,8 @@
 	<div class="page-header">
 		@if (Auth::user()->hasRole('Administrator'))
 			<div class="pull-right">
-				<a class="btn btn-success" href="{{ URL::to_action('patterns@create', array($category->id)) }}"><i class="icon-plus"></i> Add</a> 
-				<a class="btn btn-primary" href="{{ URL::to_action('patterns@category_edit', array($category->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
+				<a class="btn btn-success" href="{{ URL::to_action('styleguides@create', array('pattern',$category->id)) }}"><i class="icon-plus"></i> Add</a> 
+				<a class="btn btn-primary" href="{{ URL::to_action('styleguides@edit', array('category',$category->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
 			</div>
 		@endif
 		<h1>{{ $category->name }}</h1>
@@ -13,9 +13,9 @@
 	<div>{{ $category->meta->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
-			<div class="pattern {{ $pattern->published==1?'':'unpublished' }}">
+			<div class="pattern {{ $pattern->published==1?'':'unpublished' }}" id="pattern_{{$pattern->id}}">
 				@if (Auth::user()->hasRole('Administrator'))
-					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('patterns@edit', array($pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
+					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('styleguides@edit', array('pattern',$pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
 				@endif
 				@if ($pattern->meta->html!='')
 					<div class="btn-group pull-right" data-toggle="buttons-radio">

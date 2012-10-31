@@ -26,8 +26,8 @@
 		  </ul>
 		  <div class="control-group {{ $errors->first('description')?'error':'' }}{{ $errors->first('css')?'error':'' }}{{ $errors->first('javascript')?'error':'' }}">
 		  	{{ $errors->first('description', '<span class="help-inline">:message</span>') }}
-		  	{{ $errors->first('html', '<span class="help-inline">:message</span>') }}
 		  	{{ $errors->first('css', '<span class="help-inline">:message</span>') }}
+		  	{{ $errors->first('javascript', '<span class="help-inline">:message</span>') }}
 		  </div>
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
@@ -41,6 +41,7 @@
 		    </div>
 		  </div>
 		</div>
+		@if (isset($patterns))
         <div>
         	<h3>Patterns</h3>
         	<div class="row">
@@ -60,10 +61,11 @@
 					@endforeach
 		        	</ul>
 				</div>
-				{{ Form::hidden('activePatterns',@$category->activePatterns()) }}
-				{{ Form::hidden('inactivePatterns',@$category->inactivePatterns()) }}
+				{{ Form::hidden('activePatterns','') }}
+				{{ Form::hidden('inactivePatterns','') }}
         	</div>
         </div>
+        @endif
         @if (count($category->history)>0)
         <div>
         	<h3>History</h3>
@@ -74,6 +76,7 @@
         	</ul>
         </div>
         @endif
+        {{ Form::hidden('styleguide',@$styleguide_id) }}
         <div class="form-actions">
         	<button class='btn btn-primary'><i class='icon-ok'></i> {{ $submitButtonTitle }}</button> <a href="{{ URL::to($cancelButtonLink) }}" class="btn"><i class="icon-remove"></i> Cancel</a>
         </div>
@@ -89,6 +92,7 @@
         // General options
         mode : "specific_textareas",
         editor_selector : "tinymce",
+        relative_urls : false,
 	
         // Example content CSS (should be your site CSS)
         content_css : "/css/styles.css",

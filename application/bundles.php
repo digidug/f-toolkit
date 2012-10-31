@@ -37,10 +37,11 @@ return array(
 
 	'docs' => array('handles' => 'docs'),
 	'aware' => array(
-	'autoloads' => array(
-		'map' => array(
-			'Aware' => '(:bundle)/model.php'
-			),
-		)
+		'autoloads' => array(
+			'map' => array(
+				'Aware' => '(:bundle)/model.php'
+				),
+			)
 	),
+	'styleguides' => array('auto' => true),
 );

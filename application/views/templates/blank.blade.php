@@ -8,15 +8,21 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    {{ HTML::style('css/bootstrap.css') }}
+    @section('cssfiles')
+    	{{ HTML::style('css/bootstrap.css') }}
+    	{{ HTML::style('css/bootstrap-responsive.css') }}
+    	{{ HTML::style('css/site.css') }}
+    	{{ HTML::style('css/prettify.css') }}
+    @yield_section
     <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+    	@section('css')
+    		body {
+	    		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	    	}
+	    @yield_section
     </style>
-    {{ HTML::style('css/bootstrap-responsive.css') }}
-    {{ HTML::style('css/site.css') }}
-    {{ HTML::style('css/prettify.css') }}
+    
+    {{ HTML::script('js/jquery.min.js') }}
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -34,25 +40,26 @@
   </head>
 
   <body>
-    <div class="container" style="background-image: -webkit-gradient(radial, 50% 50%,0,50% 50%,200, from(#21435E), to(#133247));height:600px;position:relative;">
-	    <div class="content">
-        	@yield('content')
-        </div>
-        <h2 style="position:absolute;right:50px;bottom:150px;color:#fff;">Ford Global Look + Style Guidelines</h2>
-        <img src="/img/Ford_Motor_Company_logo.png" style="width:200px;position:absolute;right:50px;bottom:-40px;">
-    </div>
+  	@yield('content')
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {{ HTML::script('js/jquery.min.js') }}
-    {{ HTML::script('js/bootstrap.min.js') }}
-    {{ HTML::script('js/google-code-prettify/prettify.js') }}
-    {{ HTML::script('js/google-code-prettify/lang-css.js') }}
+    @section('jsfiles')
+    	{{ HTML::script('js/bootstrap.min.js') }}
+    	{{ HTML::script('js/google-code-prettify/prettify.js') }}
+    	{{ HTML::script('js/jquery.taboverride.js') }}
+    	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js') }}
+    @yield_section
     <script>
     	$(document).ready(function() {
-	    	prettyPrint();
+	    	@section('jsready')
+            	prettyPrint();
+            @yield_section
 	    });
+	    @section('js')
+	    
+        @yield_section
     </script>
   </body>
 </html>
