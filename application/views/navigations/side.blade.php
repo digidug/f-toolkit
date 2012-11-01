@@ -43,7 +43,7 @@
 							<li class="nav-header">
 								Admin
 							</li>
-							<!--
+							
 							<li class="{{ URI::is('users*') && !URI::is('users/user*')?'active':'' }}">
 								<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
 							</li>
@@ -53,7 +53,7 @@
 							<li class="{{ URI::is('configure*')?'active':'' }}">
 								<a href="#"><i class="icon-wrench"></i> Configure</a>
 							</li>
-							-->
+							
 							@endif
 							<li class="divider">
 							</li>
