@@ -1,36 +1,24 @@
 @font-face {
 	font-family: "Antenna";
 	src: url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-2.eot");
-	src: local("Antenna"),
-	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff"),
-	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-1.ttf") format("truetype"),
-	url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-4.svg#web") format("svg");
+	src: local("Antenna"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-1.ttf") format("truetype"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-4.svg#web") format("svg");
 	font-style: normal;
 	font-weight: bold;
 }
-
 @font-face {
 	font-family: "Antenna";
 	src: url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-2.eot");
-	src: local("Antenna"),
-	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-3.woff") format("woff"),
-	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-1.ttf") format("truetype"),
-	url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-4.svg#web") format("svg");
+	src: local("Antenna"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-3.woff") format("woff"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-1.ttf") format("truetype"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-4.svg#web") format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
-
 @font-face {
 	font-family: "AntennaRE";
-	src: url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-2.eot?") format("embedded-opentype"),
-	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-3.woff") format("woff"),
-	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-1.ttf") format("truetype"),
-	url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-4.svg#web") format("svg");
+	src: url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-2.eot?") format("embedded-opentype"), url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-3.woff") format("woff"), url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-1.ttf") format("truetype"), url("AntennaRE/e18d346f-d902-4a0e-b8d4-8d7edca22429-4.svg#web") format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
-
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,.output i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,input,textarea {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, .output i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea {
 	font-weight:400;
 	margin:0;
 	padding:0;
@@ -40,74 +28,87 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	vertical-align:baseline;
 	background:transparent;
 }
-
 body {
 	line-height:1;
 }
-
-ol,ul {
+.container {
+	width:980px;
+	height:auto;
+}
+.form-container {
+	width:450px;
+	height:auto;
+	padding:10px;
+	float: left;
+}
+.highlights-container {
+	width:450px;
+	height:auto;
+	padding:10px;
+	float:left;
+}
+.models-container {
+	width:230px;
+	height:auto;
+	float:right;
+	line-height:15px;
+}
+.floatleft {
+	float: left;
+	width: 400px;
+	height: auto;
+	margin-left:25px;
+}
+ol, ul {
 	list-style:none;
 }
-
-blockquote,q {
+blockquote, q {
 	quotes:none;
 }
-
-blockquote:before,blockquote:after,q:before,q:after {
+blockquote:before, blockquote:after, q:before, q:after {
 	content:'';
 	content:none;
 }
-
 :focus {
 	outline:0;
 }
-
 img {
 	vertical-align:top;
 }
-
 ins {
 	text-decoration:none;
 }
-
 del {
 	text-decoration:line-through;
 }
-
 table {
 	border-collapse:collapse;
 	border-spacing:0;
 }
-
 textarea {
 	resize:none;
 }
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	fieldset {
-		padding-top:1px;
-	}
+ @media screen and (-webkit-min-device-pixel-ratio:0) {
+fieldset {
+	padding-top:1px;
 }
-
+}
 /* let's clear some floats */
-.clearfix:before,
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  overflow: hidden;
+.clearfix:before, .clearfix:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	overflow: hidden;
 }
 .clearfix:after {
-  clear: both;
+	clear: both;
 }
 .clearfix {
-  zoom: 1;
+	zoom: 1;
 }
-
 body {
 	font-family: "AntennaRE" !important;
 }
-
 .fm-button {
 	color: white;
 	text-decoration: none;
@@ -127,7 +128,6 @@ body {
 	padding-left: 15px;
 	box-sizing: border-box;
 }
-
 .fm-badge {
 	width: 100%;
 	max-width: 480px;
@@ -136,18 +136,14 @@ body {
 	padding: 0;
 	margin: 0;
 }
-
 .fm-button-dark {
 	background: #1c3a53 url("../img/iconsFord@2x.png") no-repeat;
 }
-
 .fm-button-grey {
-
 }
 .search {
 	width: 160px !important;
 }
-
 .dropdown {
 	width: 180px !important;
 }
@@ -163,15 +159,20 @@ body {
 	background-size: 40px !important;
 	background-position: right -358px !important;
 }
-
 .arrow-down {
 	background-size: 40px !important;
 	background-position: right -560px !important;
 }
-
 .arrow-alt {
 	background-size: 40px !important;
 	background-position: right -556px !important;
+}
+.arrow-right {
+	border-bottom: 4px solid transparent;
+	border-left: 4px solid #2D96CD;
+	border-top: 4px solid transparent;
+	height: 0;
+	width: 0;
 }
 .blue-arrow {
 	background-size: 40px;
@@ -185,41 +186,41 @@ span[class^="fm-icon-"] {
 	width: 40px;
 	height: 40px;
 }
-
-.fm-icon-crosshair { background-position: 0 -440px !important; }
-.fm-icon-money { background-position: 0 0 !important; }
-.fm-icon-cog { background-position: 0 -40px !important; }
-.fm-icon-map { background-position: 0 -80px !important; }
-.fm-icon-clipboard { background-position: 0 -120px !important; }
-.fm-icon-present { background-position: 0 -160px !important; }
-
+.fm-icon-crosshair {
+	background-position: 0 -440px !important;
+}
+.fm-icon-money {
+	background-position: 0 0 !important;
+}
+.fm-icon-cog {
+	background-position: 0 -40px !important;
+}
+.fm-icon-map {
+	background-position: 0 -80px !important;
+}
+.fm-icon-clipboard {
+	background-position: 0 -120px !important;
+}
+.fm-icon-present {
+	background-position: 0 -160px !important;
+}
 .med {
 	font-weight: 500;
 	font-family: "Antenna";
 	text-transform: capitalize;
 }
-
 .fm-navigation .fm-nav-header {
 	text-transform: uppercase !important;
 }
-
-.fm-navigation .fm-button,
-.fm-navigation-dark .fm-button,
-.fm-navigation-vehicles .fm-button,
-.fm-navigation-media .fm-button {
+.fm-navigation .fm-button, .fm-navigation-dark .fm-button, .fm-navigation-vehicles .fm-button, .fm-navigation-media .fm-button {
 	margin: 0;
 	border-radius: 0px;
 	background-color: transparent;
 }
-
-.fm-navigation,
-.fm-navigation-dark,
-.fm-navigation-vehicles,
-.fm-navigation-media {
+.fm-navigation, .fm-navigation-dark, .fm-navigation-vehicles, .fm-navigation-media {
 	padding: 15px;
-		margin: 0;
+	margin: 0;
 }
-
 .fm-navigation li {
 	background-image: #1c3a53;
 	background-image: -webkit-linear-gradient(top, #21425d 0%, #21425d 0%, #112b40 100%);
@@ -233,7 +234,6 @@ span[class^="fm-icon-"] {
 	padding: 0 !important;
 	font-size: 13px !important;
 }
-
 .fm-navigation-dark li {
 	background-image: #343f4a;
 	background-image: -webkit-linear-gradient(top, #21425d 0%, #464749 0%, #343539 100%);
@@ -244,12 +244,9 @@ span[class^="fm-icon-"] {
 	border-bottom: 1px #060405 solid;
 	list-style: none;
 }
-
-.fm-navigation li a,
-.fm-navigation-dark li a {
+.fm-navigation li a, .fm-navigation-dark li a {
 	font-size: 13px;
 }
-
 .fm-navigation-vehicles li {
 	background: white;
 	border: 1px solid #CCCCCC;
@@ -260,16 +257,13 @@ span[class^="fm-icon-"] {
 .fm-navigation-vehicles li:first-child {
 	border-top: 1px solid #CCCCCC;
 }
-
 .fm-navigation-vehicles {
 	margin: 0 15px;
 }
-
 .fm-navigation-vehicles a {
 	color: #31A1DB;
 	text-transform: uppercase;
 }
-
 .fm-navigation-vehicles li .fm-nav-open {
 	color: white;
 	background-color: #425967;
@@ -277,7 +271,6 @@ span[class^="fm-icon-"] {
 	border-top: none;
 	list-style: none;
 }
-
 .fm-navigation-media li {
 	background: #31A1DB;
 	border-bottom: 1px solid #3F6075;
@@ -287,16 +280,13 @@ span[class^="fm-icon-"] {
 .fm-navigation-media li:last-child {
 	border-bottom: none;
 }
-
 .fm-navigation-media {
 	margin: 0 15px;
 }
-
 .fm-navigation-media a {
 	color: white;
 	text-transform: uppercase;
 }
-
 .fm-load-more-button {
 	display: inline-block;
 	text-align: center;
@@ -312,21 +302,17 @@ span[class^="fm-icon-"] {
 	letter-spacing: 0;
 	box-sizing: border-box;
 }
-
 .fm-load-more-button .arrow-entitiy {
 	font-size: 8px;
 	margin-left: 4px;
 }
-
 .fm-load-more-button.fm-more {
 	border: 1px solid #CCCCCC;
 }
-
 .fm-customizer-button {
 	border-radius: 6px;
 	border: 2px solid #EBEBEB;
 }
-
 .fm-accordian-button {
 	color: white;
 	text-decoration: none;
@@ -345,11 +331,8 @@ span[class^="fm-icon-"] {
 	position: relative;
 	text-indent: 10px;
 }
-
 .fm-accordian-button-open {
-
 }
-
 .fm-button-menu {
 	color: #2D96CD;
 	text-decoration: none;
@@ -371,15 +354,14 @@ span[class^="fm-icon-"] {
 	text-indent: 0;
 	text-transform: uppercase;
 	background: rgb(254,254,254); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,254,254,1)), color-stop(100%,rgba(232,234,233,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(254,254,254,1) 0%,rgba(232,234,233,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e8eae9',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(254,254,254,1)), color-stop(100%, rgba(232,234,233,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(254,254,254,1) 0%, rgba(232,234,233,1) 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e8eae9', GradientType=0 ); /* IE6-9 */
 }
-
 .fm-h1 {
 	color: white;
 	background: #425967;
@@ -399,11 +381,9 @@ span[class^="fm-icon-"] {
 	position: relative;
 	text-transform: uppercase;
 }
-
 .fm-h1 span {
 	font-weight: bold;
 }
-
 .fm-h1 em {
 	font-weight: bold;
 	font-style: normal;
@@ -412,7 +392,6 @@ span[class^="fm-icon-"] {
 	display: inline-block;
 	text-transform: capitalize;
 }
-
 .fm-h2 {
 	color: white;
 	background: #92A4B2;
@@ -430,7 +409,24 @@ span[class^="fm-icon-"] {
 	margin: 5px 0;
 	position: relative;
 }
-
+.fm-h2-terciary {
+	color: white;
+	background: #425967;
+	cursor: pointer;
+	display: block;
+	height: auto;
+	width: 100%;
+	line-height: 100%;
+	padding: 12px 0;
+	text-indent: 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "Antenna";
+	margin: 5px 0;
+	position: relative;
+}
 .fm-h2-vehicle-title {
 	color: #2D96CD;
 	cursor: pointer;
@@ -440,50 +436,68 @@ span[class^="fm-icon-"] {
 	font-size: 16px;
 	font-family: "Antenna";
 	margin: 5px 0;
+	float:none;
 }
-
+.fm-h2-body {
+	font-size: 12px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	line-height:16px;
+}
+.fm-h2-body-lead {
+	font-size: 14px;
+	font-family: "Antenna";
+	color: #333333;
+	font-weight:normal;
+	line-height:15px;
+}
+.fm-h2-dealer-title {
+	font-size: 14px;
+	font-family: "Antenna";
+	color: #425967;
+}
 .fm-h2-vehicle-title em {
 	font-weight: bold;
 	font-style: normal;
 	text-transform: uppercase;
 }
-
-
 .fm-h3 {
 	color: #555;
 	font-size: 13px;
 	line-height: 17px;
 }
-
 .fm-h4 {
-
+	color: white;
+	background: #91A4B1;
+	cursor: pointer;
+	display: block;
+	height: 23px;
+	width: 100%;
+	padding: 12px 0;
+	text-indent: 15px;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "Antenna";
+	margin: 5px 0;
+	position: relative;
 }
-
 .fm-h5 {
-
 }
-
 .fm-h6 {
-
 }
-
-.fm-pagination-3,
-.fm-pagination-3 ul {
+.fm-pagination-3, .fm-pagination-3 ul {
 	width: 100%;
 	background: blue;
 	margin: 0;
 	padding: 0;
 	outline: 1px solid #CDCDCD;
 }
-
-
 .fm-pagination-3 li {
 	width: 50%;
 	text-align: left;
 	display: inline-block;
 }
-
-
 .fm-pagination-3 a {
 	text-transform: lowercase;
 	text-decoration: none;
@@ -499,19 +513,57 @@ span[class^="fm-icon-"] {
 	font-size: 14px;
 	font-family: "Antenna";
 }
-
 .fm-pagination-3 .next {
 	border-left: 1px solid #CDCDCD;
 }
-
 .fm-pagination-3 .arrow-entitiy {
 	font-size: 9px;
 	padding: 5px;
 }
-
 .fm-pagination-3 .inactive {
 	color: #9F9F9F;
 }
+/*VEHICLE HIGHLIGHTS SECTION*/
+
+.fm-highlights-list {
+	/*background-size: 15%;*/
+	margin: 0;
+	padding: 15px;
+	list-style: none !important;
+}
+.fm-highlights-list-item {
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 8px;
+	position: relative;
+	list-style: none !important;
+}
+.fm-highlights-list-item:last-child {
+	border-bottom: none;
+}
+.fm-highlights-list-item img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.fm-h2-highlights-learn-more {
+	color: #2D96CD;
+	cursor: pointer;
+	height: auto;
+	width: 100%;
+	line-height: 100%;
+	font-size: 13px;
+	font-family: "Antenna";
+	margin: 5px 0;
+}
+.fm-highlights-info {
+	font-size: 13px;
+	font-family: "Antenna";
+	color: #425967;
+	margin-bottom: 5px;
+	list-style: none;
+}
+/*MODELS AND OPTIONS LIST*/
 
 /*url('../img/iconsFord@2x.png') no-repeat*/
 .fm-vehicle-list {
@@ -520,7 +572,6 @@ span[class^="fm-icon-"] {
 	padding: 15px;
 	list-style: none !important;
 }
-
 .fm-vehicle-list-item {
 	border-bottom: 1px solid #ccc;
 	padding-top: 15px;
@@ -528,18 +579,15 @@ span[class^="fm-icon-"] {
 	position: relative;
 	list-style: none !important;
 }
-
 .fm-vehicle-list-item:last-child {
 	border-bottom: none;
 }
-
 .fm-vehicle-list-item img {
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
-
-.fm-vehicle-list-item  .fm-vehicle-msrp {
+.fm-vehicle-list-item .fm-vehicle-msrp {
 	font-size: 15px;
 	font-weight: bold;
 	font-family: "Antenna";
@@ -547,22 +595,91 @@ span[class^="fm-icon-"] {
 	margin-bottom: 5px;
 	list-style: none;
 }
-
-.fm-vehicle-list-item  .fm-vehicle-info {
+.fm-vehicle-list-item {
+	font-size: 10px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	list-style:disc;
+}
+.fm-vehicle-list-item .fm-vehicle-info {
 	font-size: 10px;
 	font-family: "AntennaRE";
 	color: #425967;
 	margin-bottom: 0;
 	list-style: none;
 }
+.fm-vehicle-list-item {
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "Antenna";
+	color: #425967;
+	margin-bottom: 5px;
+	list-style: none;
+}
+/*TECH HUB LIST*/
 
+
+/*VEHICLE LIST SECTION*/
+
+/*url('../img/iconsFord@2x.png') no-repeat*/
+.fm-vehicle-list {
+	/*background-size: 15%;*/
+	margin: 0;
+	padding: 15px;
+	list-style: none !important;
+}
+.fm-vehicle-list-item {
+	border-bottom: 1px solid #ccc;
+	padding-top: 15px;
+	padding-bottom: 8px;
+	position: relative;
+	list-style: none !important;
+}
+.fm-vehicle-list-item:last-child {
+	border-bottom: none;
+}
+.fm-vehicle-list-item img {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.fm-vehicle-list-item .fm-vehicle-msrp {
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Antenna";
+	color: #425967;
+	margin-bottom: 5px;
+	list-style: none;
+}
+.fm-vehicle-list-item, {
+ font-size: 10px;
+ font-family: "AntennaRE";
+ color: #425967;
+ margin-bottom: 0;
+ list-style:disc;
+}
+.fm-vehicle-bullets {
+	font-size: 10px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	list-style:disc;
+	padding-left:0px;
+}
+.fm-vehicle-list-item .fm-vehicle-info {
+	font-size: 10px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	list-style: none;
+}
 .fm-vehicle-list-item sup {
 	font-size: 8px;
 	font-weight: 800;
 	position: relative;
 	top: -5px;
 }
-
 .list-blue-arrow {
 	display: block;
 	width: 40px;
@@ -571,12 +688,44 @@ span[class^="fm-icon-"] {
 	background-size: 100%;
 	background-position: 0 -319px;
 	position: absolute;
-	top: 43px; right: 25px;
-
+	top: 43px;
+	right: 25px;
 }
+/*DEALER INVENTORY / FORM ELEMENTS*/
 
-.fm-form-text,
-.fm-form-textarea {
+
+.fm-first-name {
+	font-size: 10px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	list-style: none;
+}
+.fm-address {
+	font-size: 12x;
+	font-family: "Antenna";
+	color: #425967;
+	margin-bottom: 0;
+	list-style: none;
+}
+.fm-zip-input {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 10px;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
+	padding:2px;
+	height:35px;
+}
+.fm-city-state-input {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 10px;
+	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
+	padding:2px;
+	height:35px;
+	border-color:#666666;
+}
+.fm-form-text, .fm-form-textarea {
 	font-family: "Antenna";
 	padding: 5px;
 	border: 1px solid #C3C3C3;
@@ -584,19 +733,15 @@ span[class^="fm-icon-"] {
 	width: 100px;
 	box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1);
 }
-
 .fm-form-textarea {
 	width: 100%;
 	display: inline-block;
-
 }
-
 .fm-form-error {
 	font-family: "Antenna";
 	font-size: 14px;
 	color: #B01D20;
 }
-
 .fm-form-label {
 	color: #344349;
 	margin-top: 15px;
@@ -611,14 +756,12 @@ span[class^="fm-icon-"] {
 	width: 100px;
 	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .3);
 }
-
 .fm-gallery {
 	max-width: 480px;
 	min-width: 320px;
 	height: auto;
 	overflow: hidden;
 }
-
 .fm-gallery ul {
 	-webkit-column-count: 3;
 	-webkit-column-gap:   0px;
@@ -627,47 +770,109 @@ span[class^="fm-icon-"] {
 	column-count:         3;
 	column-gap:           0px;
 	margin: 0;
- }
-
-	.fm-image-viewer img {
-
-	}
-
-	.fm-gallery-item {
-		line-height: 0;
-		background-size: 220%;
-		background: no-repeat;
-		max-width: 100%;
-		height: 100%;
-		box-sizing: border-box;
-	}
-
-		.fm-gallery-item img {
-
-		}
-
-
-		.fm-gallery-item.active {
-
-		}
-
-		.fm-gallery-item span {
-			display: block;
-			box-sizing: border-box;
-		}
-
-		.fm-gallery-item.active span {
-			background: rgba(0, 0, 0, .8);
-			border: 3px solid #1E79BB;
-			height: auto;
-			display: block;
-		}
-
-
+}
+.fm-image-viewer img {
+}
+.fm-gallery-item {
+	line-height: 0;
+	background-size: 220%;
+	background: no-repeat;
+	max-width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+.fm-gallery-item img {
+}
+.fm-gallery-item.active {
+}
+.fm-gallery-item span {
+	display: block;
+	box-sizing: border-box;
+}
+.fm-gallery-item.active span {
+	background: rgba(0, 0, 0, .8);
+	border: 3px solid #1E79BB;
+	height: auto;
+	display: block;
+}
 .fm-secondary {
 	font-family: "Antenna";
 	font-weight: normal;
 	width: 50%;
 	box-sizing: border-box;
 	display: inline-block;
+}
+.fm-disclaimer {
+	font-size: 12px;
+	font-family: "AntennaRE";
+	color: #425967;
+	list-style:none;
+}
+.fm-master-header {
+	line-height: 0;
+	background-size: 220%;
+	background: no-repeat;
+	max-width: 100%;
+	height: 100%;
+}
+.fm-vehicle-nameplate {
+	line-height: 0;
+	background-size: 220%;
+	background: no-repeat;
+	max-width: 100%;
+	height: 100%;
+}
+span.selectWhite {
+	position: absolute;
+	bottom: 0;
+	float: left;
+	left: 0;
+	width: 90px;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 10px;
+	background: url('../assets/transparent_arrow_down.png') no-repeat 90% white;
+	cursor: default;
+	z-index: 1;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #7F7F7F;
+	color: #373535;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: normal;
+}
+.mainImage {
+	width:100%;
+}
+.infoButton {
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:235px;
+	right:475px;
+	display:block;
+}
+#topHeaderStripeLightGray {
+	background-color: #F7F7F7;
+	height: 43px;
+	line-height: 43px;
+	vertical-align: middle;
+	color: #677C87;
+	font-weight: bold;
+	padding-left: 10px;
+	text-align: center;
+}
+.subCatTitle {
+	background: #91A4B1;
+	height: 44px;
+	line-height: 44px;
+	font-family: "AntennaRE";
+	color: white;
+	-webkit-box-sizing: border-box;
+	padding: 0 19px;
+	font-weight: bold;
+	font-size: 14px;
 }
