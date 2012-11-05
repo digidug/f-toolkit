@@ -446,6 +446,18 @@ span[class^="fm-icon-"] {
 	margin-bottom: 0;
 	line-height:16px;
 }
+
+p.copy {
+	
+	font-size: 12px;
+	font-family: "AntennaRE";
+	color: #425967;
+	margin-bottom: 0;
+	line-height:16px;
+}
+
+
+
 .fm-h2-body-lead {
 	font-size: 14px;
 	font-family: "Antenna";
