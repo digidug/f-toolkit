@@ -173,6 +173,7 @@ body {
 	border-top: 4px solid transparent;
 	height: 0;
 	width: 0;
+	
 }
 .blue-arrow {
 	background-size: 40px;
@@ -554,7 +555,8 @@ span[class^="fm-icon-"] {
 	line-height: 100%;
 	font-size: 13px;
 	font-family: "Antenna";
-	margin: 5px 0;
+	margin: 0px 0;
+	
 }
 .fm-highlights-info {
 	font-size: 13px;
@@ -844,9 +846,6 @@ span.selectWhite {
 	font-size: 14px;
 	font-weight: normal;
 }
-.mainImage {
-	width:100%;
-}
 .infoButton {
 	width:20px;
 	height:20px;
@@ -854,6 +853,9 @@ span.selectWhite {
 	top:235px;
 	right:475px;
 	display:block;
+}
+.mainImage {
+	width:100%;
 }
 #topHeaderStripeLightGray {
 	background-color: #F7F7F7;
@@ -865,6 +867,16 @@ span.selectWhite {
 	padding-left: 10px;
 	text-align: center;
 }
+.topHeaderStripe {
+	background-color: #425967;
+	min-height: 38px;
+	color: white;
+	font-weight: normal;
+	-webkit-box-sizing: border-box;
+	padding: 0 10px;
+	padding-top: 9px;
+	overflow: hidden;
+}
 .subCatTitle {
 	background: #91A4B1;
 	height: 44px;
@@ -875,4 +887,95 @@ span.selectWhite {
 	padding: 0 19px;
 	font-weight: bold;
 	font-size: 14px;
+}
+.dealer-container {
+	width:350px;
+	height:auto;
+	margin:10px;
+}
+.prevButton {
+	float: left;
+	border-top: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	text-align: center;
+	width: 119px;
+	padding: 0px;
+	height: 49px;
+	color: #31A1DB;
+	font-weight: bold;
+	font-size: 14px;
+}
+.nextButton {
+	float: left;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	text-align: center;
+	width: 119px;
+	height: 49px;
+	padding: 0px;
+	color: #31A1DB;
+	font-weight: bold;
+	font-size: 14px;
+}
+.pageslabel {
+	float: left;
+	border-bottom: 1px solid #CCC;
+	width: 80px;
+	text-align: center;
+	height: 31px;
+	padding-top: 18px;
+	padding-bottom: 0px;
+	color: #505254;
+	font-weight: bold;
+}
+#topmenu {
+	float: right;
+	border-left: 1px solid #BBB;
+	width: 70px;
+	height: 51px;
+	line-height: 51px;
+	text-align: center;
+	color: #31A1DB;
+	font-weight: bold;
+}
+#menu {
+	list-style-type: none;
+	background: -webkit-Gradient(linear, 0 0, 0 100%, from(#FEFEFE), to(#E8EAE9));
+	width: 320px;
+	height: 51px;
+	border-bottom: 1px solid #CCC;
+}
+select.selectWhite {
+	position: relative;
+	z-index: 10;
+	width: 90px !important;
+	height: 28px !important;
+	line-height: 28px;
+}
+span.selectWhite {
+	position: absolute;
+	bottom: 0;
+	float: left;
+	left: 0;
+	width: 90px;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 10px;
+	background:url(../img/transparent_arrow_down.png) no-repeat 90% white;
+	cursor: default;
+	z-index: -1;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #7F7F7F;
+	color: #373535;
+	background-image:url(../img/transparent_arrow_down.png);
+
+}
+
+
+.hub-container {
+	height:38px;
+	width:400px;
 }
