@@ -1,6 +1,6 @@
 @layout('templates.main')
 @section('content')
-	<a class="btn btn-success pull-right" href="{{ URL::to_action('patterns@create') }}"><i class="icon-plus"></i> Add</a>
+	<!--<a class="btn btn-success pull-right" href="{{ URL::to_action('patterns@create') }}"><i class="icon-plus"></i> Add</a>-->
 	<div class="page-header">
 		<h1>Styleguides</h1>
 	</div>

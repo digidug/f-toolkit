@@ -67,7 +67,7 @@ class StyleguideVersion extends Eloquent {
 	    	$category->active=0;
 	    	$category->save();
     	}
-    	$categories=PatternCategories::where_styleguide_id($this->styleguide_id)where_active(1)->get();
+    	$categories=PatternCategories::where_styleguide_id($this->styleguide_id)->where_active(1)->get();
     	foreach($categories AS $category){
 	    	$versionCategory=new StyleguideVersionPatternCategory();
 	    	$versionCategory->styleguide_version_id=$styleguide_version->id;
@@ -76,7 +76,7 @@ class StyleguideVersion extends Eloquent {
     	}
     	
     	//patterns
-    	foreach (this->patterns_added() AS $pattern){
+    	foreach ($this->patterns_added() AS $pattern){
 	    	$pattern->state=0;
 	    	$pattern->active=1;
 	    	$pattern->save();
@@ -91,11 +91,12 @@ class StyleguideVersion extends Eloquent {
 	    	$pattern->active=0;
 	    	$pattern->save();
     	}
-    	$patternsDB::table('patterns')
+    	$patterns=DB::table('patterns')
 	    	->join('pattern_categories', 'pattern_categories.id', '=', 'patterns.pattern_category_id')
 	    	->where('pattern_categories.styleguide_id', '=', $this->styleguide_id)
 	    	->where('patterns.active', '=', '1')
 	    	->get();
+	    	
     	foreach($patterns AS $pattern){
 	    	$versionPattern=new StyleguideVersionPattern();
 	    	$versionPattern->styleguide_version_id=$styleguide_version->id;

@@ -89,9 +89,17 @@ img{
 	width:320px;
 }
 
-.unpublished{
-	border: 3px #fcd4d4 dashed;
+.state_1 { /* new */
+	border: 3px #13A388 dashed;
 }
+.state_2 { /* edited */
+	border: 3px #86B828 dashed;
+}
+.state_3 { /* delited */
+	border: 3px #171819 dashed;
+}
+
+
 
 .nav-tabs{
 	margin:10px 0 0 0;

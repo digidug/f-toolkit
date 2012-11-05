@@ -57,7 +57,7 @@ class Pattern extends Eloquent {
 	    }
 	    $this->name=$data['name'];
 	    $this->pattern_category_id=$data['category'];
-	    $this->published=$data['published'];	
+	    //$this->published=$data['published'];	
 	    $this->save();
 	    
 	    $this->meta()->insert(array('description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));

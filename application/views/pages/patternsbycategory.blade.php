@@ -13,7 +13,7 @@
 	<div>{{ $category->meta->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
-			<div class="pattern {{ $pattern->state!=0?'':'unpublished' }}" id="pattern_{{$pattern->id}}">
+			<div class="pattern state_{{ $pattern->state }}" id="pattern_{{$pattern->id}}">
 				@if (Auth::user()->hasRole('Administrator'))
 					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('styleguides@edit', array('pattern',$pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
 				@endif
@@ -28,7 +28,7 @@
 				<div class="description">{{ $pattern->meta->description }}</div>
 		        <div class="output" id="output_{{$pattern->id}}" contenteditable="true">{{ $pattern->meta->html }}</div>
 		        @if ($pattern->meta->html!='' || $pattern->meta->css!='')
-			        <div class="tabbable">
+			        <div class="tabbable" style="clear:both;">
 					  <ul class="nav nav-tabs">
 					    <li class="active"><a href="#html_{{$pattern->meta->id}}" data-toggle="tab">HTML</a></li>
 					    <li><a href="#css_{{$pattern->meta->id}}" data-toggle="tab">CSS</a></li>
