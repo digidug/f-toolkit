@@ -15,6 +15,10 @@ class Styleguide extends Eloquent {
         return $this->has_many('PatternCategory','styleguide_id')->order_by('sort')->get();
     }
     
+    public function version($version_name=null){
+	    return StyleguideVersion::latest($this->id);
+    }
+    
     static function all(){
 	    return Styleguide::get()->order_by('guid');
     }

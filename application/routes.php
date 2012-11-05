@@ -33,7 +33,7 @@
 */
 Route::controller('users');
 Route::controller('styleguides');
-Route::controller('patterns');
+Route::controller('styleguideversions');
 Route::controller('images');
 Route::controller('inspirations');
 

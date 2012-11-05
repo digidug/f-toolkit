@@ -13,7 +13,7 @@
 	<div>{{ $category->meta->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
-			<div class="pattern {{ $pattern->published==1?'':'unpublished' }}" id="pattern_{{$pattern->id}}">
+			<div class="pattern {{ $pattern->state!=0?'':'unpublished' }}" id="pattern_{{$pattern->id}}">
 				@if (Auth::user()->hasRole('Administrator'))
 					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('styleguides@edit', array('pattern',$pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
 				@endif

@@ -21,9 +21,7 @@ class Styleguides_Controller extends Base_Controller {
 	}
     
     public function get_one($styleguide_name) {
-    	$styleguides = Styleguide::where_name($styleguide_name)->get();
-    	$styleguide=$styleguides[0];
-    	
+    	$styleguide = Styleguide::one($styleguide_name);
     	$categories=$styleguide->categories();
     	
     	return View::make('pages.styleguide')
@@ -32,7 +30,7 @@ class Styleguides_Controller extends Base_Controller {
     }
     
     public function get_category($styleguide_name,$category_name) {
-    	$styleguide = Styleguide::where_name($styleguide_name)->first();
+    	$styleguide = Styleguide::one($styleguide_name);
     	$category=$styleguide->category($styleguide->id,$category_name);
     	$patterns = $category->activePatterns();
     	return View::make('pages.patternsbycategory')
@@ -70,10 +68,9 @@ class Styleguides_Controller extends Base_Controller {
 	    
     }
     
-    public function get_manage($type,$id) {
-		switch ($type){
-		    case "list": return Controller::call('Styleguides@list',array($id));
-		    case "version": return Controller::call('StyleguideVersions@version',array($id));
+    public function get_manage($controller,$action,$id=null) {
+		switch ($controller){
+		    case "version": return Controller::call('StyleguideVersions@'.$action,array($id));
 	    }
     }
     
