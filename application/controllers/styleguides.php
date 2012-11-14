@@ -39,7 +39,7 @@ class Styleguides_Controller extends Base_Controller {
     	$patterns = $category->activePatterns();
     	*/
     	$styleguide=Styleguide::one($styleguide_name);
-    	$styleguide->setVersion('3.0.0');
+    	//$styleguide->setVersion('3.0.0');
     	//print_r($styleguide);die();
     	$category=$styleguide->category($category_name);
     	$patterns=$category->version_patterns();
