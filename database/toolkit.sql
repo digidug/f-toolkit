@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2012 at 07:52 PM
+-- Generation Time: Nov 14, 2012 at 08:05 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -898,6 +898,7 @@ INSERT INTO `styleguide_version_patterns` (`styleguide_version_pattern_id`, `sty
 
 DROP TABLE IF EXISTS `styleguide_version_pattern_categories`;
 CREATE TABLE IF NOT EXISTS `styleguide_version_pattern_categories` (
+  `id` int(11) NOT NULL,
   `styleguide_version_id` int(11) NOT NULL,
   `sort` int(11) NOT NULL,
   `pattern_category_id` int(11) NOT NULL,
@@ -909,19 +910,19 @@ CREATE TABLE IF NOT EXISTS `styleguide_version_pattern_categories` (
 -- Dumping data for table `styleguide_version_pattern_categories`
 --
 
-INSERT INTO `styleguide_version_pattern_categories` (`styleguide_version_id`, `sort`, `pattern_category_id`, `pattern_category_meta_id`) VALUES
-(4, 0, 1, 1),
-(5, 0, 1, 1),
-(6, 0, 1, 1),
-(7, 0, 1, 1),
-(7, 1, 2, 1),
-(7, 4, 3, 1),
-(7, 6, 7, 1),
-(7, 3, 5, 1),
-(7, 5, 9, 1),
-(7, 7, 10, 1),
-(7, 2, 11, 1),
-(7, 0, 18, 1);
+INSERT INTO `styleguide_version_pattern_categories` (`id`, `styleguide_version_id`, `sort`, `pattern_category_id`, `pattern_category_meta_id`) VALUES
+(0, 4, 0, 1, 1),
+(0, 5, 0, 1, 1),
+(0, 6, 0, 1, 1),
+(0, 7, 0, 1, 1),
+(0, 7, 1, 2, 1),
+(0, 7, 4, 3, 1),
+(0, 7, 6, 7, 1),
+(0, 7, 3, 5, 1),
+(0, 7, 5, 9, 1),
+(0, 7, 7, 10, 1),
+(0, 7, 2, 11, 1),
+(0, 7, 0, 18, 1);
 
 -- --------------------------------------------------------
 
