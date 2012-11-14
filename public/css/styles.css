@@ -728,6 +728,14 @@ p.copy {
 	padding:10px;
 }
 
+.fm-bullets-models {
+	font-size: 11px;
+	font-family: "AntennaRE";
+	color: #425967;
+	list-style:disc;
+	padding:10px;
+}
+
 
 .fm-vehicle-list-item .fm-vehicle-info {
 	font-size: 10px;
@@ -735,6 +743,7 @@ p.copy {
 	color: #425967;
 	margin-bottom: 0;
 	list-style: none;
+	line-height: 15px;
 }
 .fm-vehicle-list-item sup {
 	font-size: 8px;
@@ -1242,4 +1251,12 @@ span.selectWhite {
 }
 
 /* End Check Box */
+
+#holder {
+	width: 300px;
+	height: auto;
+	padding: 10px;
+	line-height: 20px;	
+	margin-left: 15px;
+}
 
