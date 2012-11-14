@@ -21,8 +21,11 @@ class Styleguide extends Eloquent {
     			$ids[]=$version_category->pattern_category_id;
     		}
     	}
-    	    	
-        $pattern_categories=PatternCategory::where_in('id',$ids)->get();
+    	if (count($ids)>0){
+	        $pattern_categories=PatternCategory::where_in('id',$ids)->get();
+	    }else{
+		    $pattern_categories=array();    
+	    }
         foreach ($pattern_categories AS $id=>$pattern_category){
 	        $pattern_categories[$id]->version_id=$this->version()->id;
         }
