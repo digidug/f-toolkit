@@ -62,6 +62,20 @@ body {
 ol, ul {
 	list-style:none;
 }
+
+/* Created New Class */
+
+
+ul li {
+	/* margin: 3px 20px 7px 15px; */
+}
+
+li.test {
+	line-height: 15px;
+	
+}
+
+
 blockquote, q {
 	quotes:none;
 }
@@ -179,6 +193,9 @@ body {
 	background-size: 40px;
 	background-position: right -320px;
 }
+
+/* Icon List */
+
 span[class^="fm-icon-"] {
 	display: inline-block;
 	background: url("../img/iconsFord@2x.png") no-repeat;
@@ -188,7 +205,7 @@ span[class^="fm-icon-"] {
 	height: 40px;
 }
 .fm-icon-crosshair {
-	background-position: 0 -440px !important;
+	background-position: 0 -438px !important;
 }
 .fm-icon-money {
 	background-position: 0 0 !important;
@@ -205,6 +222,20 @@ span[class^="fm-icon-"] {
 .fm-icon-present {
 	background-position: 0 -160px !important;
 }
+
+.fm-icon-overlay {
+	background-position: 0 -478px !important;
+}
+
+.fm-icon-group{
+	background-color: #2D96CD;
+	width: 240px;
+	height: 45px;
+	padding: 10px;
+}
+
+/* End Icon List */
+
 .med {
 	font-weight: 500;
 	font-family: "Antenna";
@@ -233,7 +264,7 @@ span[class^="fm-icon-"] {
 	list-style: none !important;
 	margin: 0 !important;
 	padding: 0 !important;
-	font-size: 13px !important;
+	font-size: 13px !important; 
 }
 .fm-navigation-dark li {
 	background-image: #343f4a;
@@ -468,7 +499,8 @@ p.copy {
 .fm-h2-dealer-title {
 	font-size: 14px;
 	font-family: "Antenna";
-	color: #425967;
+	color: #425968;
+	margin-bottom: -5px;
 }
 .fm-h2-vehicle-title em {
 	font-weight: bold;
@@ -601,7 +633,8 @@ p.copy {
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
-.fm-vehicle-list-item .fm-vehicle-msrp {
+.fm-vehicle-list-item .fm-vehicle-
+ {
 	font-size: 15px;
 	font-weight: bold;
 	font-family: "Antenna";
@@ -616,21 +649,24 @@ p.copy {
 	margin-bottom: 0;
 	list-style:disc;
 }
-.fm-vehicle-list-item .fm-vehicle-info {
+.fm-vehicle-list-item{
 	font-size: 10px;
 	font-family: "AntennaRE";
 	color: #425967;
 	margin-bottom: 0;
 	list-style: none;
 }
-.fm-vehicle-list-item {
-	font-size: 13px;
+.fm-list-details {
+	font-size: 12px;
 	font-weight: bold;
 	font-family: "Antenna";
 	color: #425967;
 	margin-bottom: 5px;
 	list-style: none;
 }
+
+
+
 /*TECH HUB LIST*/
 
 
@@ -681,6 +717,18 @@ p.copy {
 	list-style:disc;
 	padding-left:0px;
 }
+
+/* ADDED NEW BULLETS CLASS */
+
+.fm-bullets {
+	font-size: 12px;
+	font-family: "AntennaRE";
+	color: #425967;
+	list-style:disc;
+	padding:10px;
+}
+
+
 .fm-vehicle-list-item .fm-vehicle-info {
 	font-size: 10px;
 	font-family: "AntennaRE";
@@ -703,7 +751,7 @@ p.copy {
 	background-position: 0 -319px;
 	position: absolute;
 	top: 43px;
-	right: 25px;
+	right: -10px;
 }
 /*DEALER INVENTORY / FORM ELEMENTS*/
 
@@ -716,11 +764,10 @@ p.copy {
 	list-style: none;
 }
 .fm-address {
-	font-size: 12x;
-	font-family: "Antenna";
-	color: #425967;
-	margin-bottom: 0;
-	list-style: none;
+	font-size:13px;
+	font-family: "AntennaRE";
+	color: #425968;
+	line-height:20px;
 }
 .fm-zip-input {
 	-webkit-border-radius: 0px;
@@ -862,14 +909,14 @@ span.selectWhite {
 	width:20px;
 	height:20px;
 	position:absolute;
-	top:235px;
-	right:475px;
+	top:325px;
+	right:485px;
 	display:block;
 }
 .mainImage {
 	width:100%;
 }
-#topHeaderStripeLightGray {
+.topHeaderStripeLightGray {
 	background-color: #F7F7F7;
 	height: 43px;
 	line-height: 43px;
@@ -940,6 +987,10 @@ span.selectWhite {
 	color: #505254;
 	font-weight: bold;
 }
+
+/* MASTER HEADER */
+
+
 #topmenu {
 	float: right;
 	border-left: 1px solid #BBB;
@@ -949,7 +1000,10 @@ span.selectWhite {
 	text-align: center;
 	color: #31A1DB;
 	font-weight: bold;
-}
+	position: absolute;
+	margin-left: 250px;
+	}
+
 #menu {
 	list-style-type: none;
 	background: -webkit-Gradient(linear, 0 0, 0 100%, from(#FEFEFE), to(#E8EAE9));
@@ -957,6 +1011,9 @@ span.selectWhite {
 	height: 51px;
 	border-bottom: 1px solid #CCC;
 }
+
+/* END MASTER HEADER */
+
 select.selectWhite {
 	position: relative;
 	z-index: 10;
@@ -972,7 +1029,7 @@ span.selectWhite {
 	width: 90px;
 	height: 28px;
 	line-height: 28px;
-	text-indent: 10px;
+	text-indent: 1px;
 	background:url(../img/transparent_arrow_down.png) no-repeat 90% white;
 	cursor: default;
 	z-index: -1;
@@ -982,7 +1039,15 @@ span.selectWhite {
 	border-radius: 6px;
 	border: 1px solid #7F7F7F;
 	color: #373535;
-	background-image:url(../img/transparent_arrow_down.png);
+
+}
+
+
+.secondary-dropdown {
+	position: absolute;
+	padding-top:0;
+	margin: -15px;
+	margin-left: 10px;
 
 }
 
@@ -991,3 +1056,190 @@ span.selectWhite {
 	height:38px;
 	width:400px;
 }
+
+
+/*VEHICLE NAMEPLATE */
+
+
+
+#threeimg {
+	padding-left: 75px;
+	position: relative;
+	height: 55px;
+}
+
+
+
+.nameplate-hwy {
+	float:left;
+	position: relative;
+	padding: 5px;	
+}
+
+
+.nameplate-mpg {
+	float:left;
+	padding: 5px;
+	padding-left: 30px;
+	position: relative;
+	
+}
+
+
+.nameplate-hwynum {
+	float:left;
+	position: absolute;
+	color: white;
+	text-align: center;
+	width: 43px;
+	font-size: 12px
+	padding: 5px;
+	top:11px;
+}
+
+.nameplate-hwylabel {
+	float:left;
+	position: absolute;
+	color: white;
+	text-align: center;
+	width: 43px;
+	font-size: 9px;
+	padding: 5px;
+	top:28px;
+}
+
+
+
+
+/* Footer Elements */
+
+.footer-container {
+	margin-bottom: 1em;
+	overflow: hidden;
+	width: 285px;
+	height: 50px;
+	background-color: #DFDFDF;
+	padding: 15px;
+}
+
+.footer-top {
+	float: left;
+	line-height: 1.1em;
+	font-size: 11px;
+}
+
+.footer-bottom {
+	float: left;
+	line-height: 1.1em;
+	font-size: 11px;
+}
+
+.copyright {
+	font-size: 11px;
+	margin-left: 55px;
+	margin-top: 5px;
+}
+
+.primary-links {
+	
+	
+}
+
+
+.secondary-links {
+	margin-left: 50px;
+	margin-top: 15px;
+	
+}
+
+/* End Footer Elements */
+
+
+/* Responsive Tab System */
+
+.fm-search-nav {
+	border-bottom: 1px solid #DEDEDE;
+	clear: both;
+	height: 50px;
+
+}
+
+.fm-search-nav li:first-child {
+	border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+}
+
+.fm-search-nav li.active {
+	background: none repeat scroll 0 0 white;
+	border-color: #CCC;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	color: #425968;
+	height: 49px;
+	line-height: 54px;
+	margin-top: 0;
+	padding: 0 14px;
+	border-bottom-color: white;
+}
+
+
+.fm-search-nav li {
+	background-image: url('http://ford.lad.nextgen.teamdetroit.com/resources/ford/general/mysaveditems/images/blue-gradient.jpg');
+	border: 1px solid #666;
+	color: white;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 12px;
+	height: 44px;
+	line-height: 44px;
+	margin-top: 5px;
+	padding: 0 24px;
+	text-decoration: none;
+}
+
+.fm-search-nav li:last-child {
+	border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+}
+
+/* End Responsive Tab System */
+
+/* Check Box */
+
+.fm-ford-specialties ul li span.checkbox.selected {
+	background-position: -32px -172px;
+}
+
+.fm-ford-specialties ul li span.checkbox {
+	width: 21px;
+	height: 21px;
+	margin-right: 10px;
+	display: inline-block;
+	background: url(/img/ui-misc.png) no-repeat 0 -172px;
+}
+
+.fm-ford-specialties ul li {
+	float: left;
+	margin: 25px 0 0 0;
+	color: #21425B;
+	font-weight: normal;
+	font-size: 12px;
+	width: 220px;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.fm-ford-specialties ul li span.info-icon {
+	width: 14px;
+	height: 14px;
+	background: url(/img/i_icon.gif) no-repeat 0 0;
+	margin: 3px 0 0 8px;
+	float: left;
+}
+
+/* End Check Box */
+
