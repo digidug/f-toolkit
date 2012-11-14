@@ -9,6 +9,13 @@
             	{{ $errors->first('name', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
+        <div class="control-group {{ $errors->first('url')?'error':'' }}">
+        	{{ Form::label('url', 'URL',array('class'=>'control-label')) }}
+        	<div class="controls">
+            	{{ Form::text('url',isset($pattern->meta()->first()->url)?$pattern->meta()->first()->url:$pattern->url)}}
+            	{{ $errors->first('url', '<span class="help-inline">:message</span>') }}
+            </div>
+        </div>
         <div class="control-group {{ $errors->first('published')?'error':'' }}">
         	{{ Form::label('published', 'Published',array('class'=>'control-label')) }}
         	<div class="controls">
@@ -30,22 +37,22 @@
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
 		  		<button type="button" id="toggleEditor" style="display:none;">Toggle Editor</button> 
-		    	{{ Form::textarea('description',isset($pattern->meta->description)?$pattern->meta->description:$pattern->description,array('class'=>'tinymce','id'=>'editor-description','class'=>'description','style'=>'width:98%;height:400px;')) }}
+		    	{{ Form::textarea('description',isset($pattern->meta()->first()->description)?$pattern->meta()->first()->description:$pattern->description,array('class'=>'tinymce','id'=>'editor-description','class'=>'description','style'=>'width:98%;height:400px;')) }}
 		  	</div>
 		  	<div class="tab-pane" id="html">
-			    {{ Form::textarea('html',isset($pattern->meta->html)?$pattern->meta->html:$pattern->html,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('html',isset($pattern->meta()->first()->html)?$pattern->meta()->first()->html:$pattern->html,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		    <div class="tab-pane" id="css">
-			    {{ Form::textarea('css',isset($pattern->meta->css)?$pattern->meta->css:$pattern->css,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('css',isset($pattern->meta()->first()->css)?$pattern->meta()->first()->css:$pattern->css,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		  </div>
 		</div>
 		{{ Form::hidden('category', $category_id) }}
 		@if (count($pattern->history)>0)
         <div>
-        	<h3>History</h3>
+        	<h3>Revisions</h3>
         	<ul>
-        	@foreach ($pattern->history AS $item)
+        	@foreach ($pattern->revisions AS $item)
         		<li>{{ $item->updated_at }} by {{ $item->user->username }}</li>
         	@endforeach
         	</ul>

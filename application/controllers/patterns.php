@@ -63,6 +63,7 @@ class Patterns_Controller extends Base_Controller {
     	$pattern = new Pattern();
     	if (Input::old()){
 			$pattern->name=Input::old('name');
+			$pattern->url=Input::old('url');
 			$pattern->description=Input::old('description');
 			$pattern->html=Input::old('html');
 			$pattern->css=Input::old('css');
@@ -78,7 +79,7 @@ class Patterns_Controller extends Base_Controller {
     			'pageTitle'=>'Create New <em>'.$category->name.'</em> Pattern',
     			'css'=>$css,
     			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('styleguides@one',array($category->styleguide->name))
+    			'cancelButtonLink'=>URL::to_action('styleguides@editcategory',array($category->styleguide->name))
     			));
     }
     
@@ -89,20 +90,20 @@ class Patterns_Controller extends Base_Controller {
 	    	return Redirect::to(URL::current())
         		->with_errors($category->validator)
         		->with_input();
-        } else return Redirect::to_action('styleguides@category',array($category->styleguide->name,$category->name));
+        } else return Redirect::to_action('styleguides@editcategory',array($category->styleguide->name,$category->name));
     }
     
     public function get_edit($pattern_id){
 	    $pattern=Pattern::find($pattern_id);
 		if (Input::old()){
 			$pattern->name=Input::old('name');
+			$pattern->url=Input::old('url');
 			$pattern->description->content=Input::old('description');
 			$pattern->html->content=Input::old('html');
 			$pattern->css->content=Input::old('css');
 			$pattern->category->id=Input::old('category');
 		}
-		$css=addslashes(preg_replace('/\s+/', ' ', strip_tags($pattern->category->meta->css)));
-		
+		$css=addslashes(preg_replace('/\s+/', ' ', strip_tags($pattern->category->meta()->css)));
     	return View::make('forms.pattern-form')
     		->with(array(
     			'pattern'=>$pattern,
@@ -110,7 +111,7 @@ class Patterns_Controller extends Base_Controller {
     			'pageTitle'=>'Edit Pattern',
     			'css'=>$css,
     			'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('styleguides@category',array($pattern->styleguide()->name,$pattern->category->name))
+    			'cancelButtonLink'=>URL::to_action('styleguides@editcategory',array($pattern->styleguide()->name,$pattern->category->name))
     			));
     }
     
@@ -120,7 +121,7 @@ class Patterns_Controller extends Base_Controller {
 	    	return Redirect::to(URL::current())
         		->with_errors($pattern->validator)
         		->with_input();
-        } else return Redirect::to_action('styleguides@category',array($pattern->styleguide()->name,$pattern->category->name));
+        } else return Redirect::to_action('styleguides@editcategory',array($pattern->styleguide()->name,$pattern->category->name));
     }
     
 }

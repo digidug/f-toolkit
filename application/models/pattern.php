@@ -15,6 +15,10 @@ class Pattern extends Eloquent {
         return $this->belongs_to('PatternCategory', 'pattern_category_id');
     }
     
+    public function version_meta(){
+        return PatternMeta::where('id','=',$this->pattern_meta_id);
+    }
+    
     public function meta(){
         return $this->has_one('PatternMeta')->order_by('created_at','desc');
     }
@@ -25,6 +29,11 @@ class Pattern extends Eloquent {
     
     public function history(){
         return $this->has_many('PatternMeta','pattern_id')->order_by('created_at','desc');
+    }
+    
+    public function revisions(){
+    	$updated_at=$this->category()->first()->styleguide()->first()->updated_at;
+        return $this->has_many('PatternMeta','pattern_id')->order_by('created_at','desc')->where('created_at','>',$updated_at);
     }
     
     public function add($data){
@@ -38,17 +47,17 @@ class Pattern extends Eloquent {
 	    }
 	    $this->fill($new_pattern);
 	    $this->active=1;
+	    $this->state=1;
 	    $this->save();
 	    
-	    $this->meta()->insert(array('description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
+	    $this->meta()->insert(array('url'=>$data['url'],'description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
 	    
 	    return true;
     }
     
     public function edit($data){
 		$edit_pattern = array(
-	    	'name'      => $data['name'],
-	        'pattern_category_id'      => $data['category']
+	    	'name'      => $data['name']
 	    );
 	    $rules=$this->rules;
 	    $this->validator = Validator::make($edit_pattern, $rules);
@@ -57,11 +66,11 @@ class Pattern extends Eloquent {
 	    }
 	    $this->name=$data['name'];
 	    $this->pattern_category_id=$data['category'];
+	    if ($this->state==0) $this->state=2;
 	    //$this->published=$data['published'];	
 	    $this->save();
 	    
-	    $this->meta()->insert(array('description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
-	    
+	    $this->meta()->insert(array('url'=>$data['url'],'description'=>$data['description'],'html'=>$data['html'],'css'=>$data['css']));
 	    return true;
     }
     

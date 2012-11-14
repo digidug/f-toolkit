@@ -13,22 +13,4 @@ class Base_Controller extends Controller {
 	{
 		return Response::error('404');
 	}
-	
-	public function url(){
-	
-		//acquire url knowledge
-		$route=Request::route();
-        $aux=explode("@",$route->action['uses']);
-        $controller=array_shift($aux);
-        $action=array_shift($route->parameters);
-        $parameters=$route->parameters;
-        
-        $page=new stdClass;
-        $page->controller=$controller;
-        $page->action=$action;
-        $page->parameters=$parameters;
-	
-        return $page;
-        
-    }
 }

@@ -16,11 +16,11 @@
 									{{ $styleguide->name }} Styleguide
 								</li>
 								@foreach ($styleguide->categories() AS $category)
-									<li class="{{$category->name==$styleguide->category?'active':'' }}">
+									<li class="">
 										<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,$category->name)) }}">{{ $category->name }}</a>
-										@if (isset($styleguide->category->name) && $styleguide->category->name==$category->name)
+										@if (isset($category_name) && $category_name==$category->name)
 											<ul class="patternsNav">
-											@foreach ($styleguide->category->activePatterns() AS $pattern)
+											@foreach ($styleguide->category($category_name)->activePatterns() AS $pattern)
 												<li><small>{{$pattern->name}}</small></li>
 											@endforeach
 											</ul>

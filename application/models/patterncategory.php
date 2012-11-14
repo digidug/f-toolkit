@@ -6,6 +6,7 @@ class PatternCategory extends Eloquent {
     public static $table = 'pattern_categories';
     
     public $validator;
+    public $editing=false;
     
     public $rules = array(
         'name'     => 'required|unique:pattern_categories,name,',
@@ -15,16 +16,35 @@ class PatternCategory extends Eloquent {
         return $this->belongs_to('Styleguide','styleguide_id');
     }
     
-    public function patterns(){
-        return $this->has_many('Pattern','pattern_category_id');
+    public function version_patterns(){
+		$patterns=array();
+		$result=StyleguideVersionPattern::where_styleguide_version_id($this->version_id)->where_styleguide_version_pattern_category_id($this->styleguide_version_pattern_category_id)->order_by('sort')->get();
+		$pos=0;
+		foreach ($result AS $id=>$version_pattern){
+			$patterns[$pos]=Pattern::find($version_pattern->pattern_id);
+			$patterns[$pos]->version_id=$this->version_id;
+			$patterns[$pos]->pattern_meta_id=$version_pattern->pattern_meta_id;
+			$pos++;
+		}
+        
+        return $patterns;    
     }
+    
+    public function patterns(){
+    	return $this->has_many('Pattern','pattern_category_id')->where_active(1)->order_by('sort','asc')->get();    
+    }
+
     
     public function activePatterns(){
         return $this->has_many('Pattern','pattern_category_id')->where_active(1)->order_by('sort','asc')->get();
     }
     
+    public function version_meta(){
+    	return PatternCategoryMeta::where('id','=',$this->pattern_category_meta_id)->first();
+    }
+    
     public function meta(){
-        return $this->has_one('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc');
+    	return $this->has_one('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc')->first();
     }
     
     public function history(){

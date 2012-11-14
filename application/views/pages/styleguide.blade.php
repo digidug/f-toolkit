@@ -2,7 +2,7 @@
 @section('content')
 	<a class="btn btn-success pull-right" href="{{ URL::to_action('styleguides@create',array('category',$styleguide->id)) }}"><i class="icon-plus"></i> Add</a>
 	<div class="page-header">
-		<h1>Styleguide {{ $styleguide->guid }} - {{ $styleguide->name }}</h1>
+		<h1>Styleguide {{ $styleguide->guid }} - {{ $styleguide->name }} <small>Version {{$styleguide->version()->version}}</small></h1>
 	</div>
 	<table class="table table-striped table-bordered">
         <thead>

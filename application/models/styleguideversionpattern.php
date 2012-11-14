@@ -2,6 +2,7 @@
 
 class StyleguideVersionPattern extends Eloquent {
     
+    public static $timestamps = false;
     public static $table = 'styleguide_version_patterns';
 
     

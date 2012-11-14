@@ -5,23 +5,26 @@ class Styleguides_Controller extends Base_Controller {
 	public $restful = true;
 	static $guide_name;
 	static $styleguide;
-	
-	public function __construct(){
-	
-		// styleguide nav
-		$page=$this->url();
-		
-        if ($page->controller=="styleguides"){
-        	self::$guide_name=array_shift($page->parameters);
-	        self::$styleguide = Styleguide::one(self::$guide_name);
-	        
-	        if (isset(self::$styleguide)) self::$styleguide->category=isset($page->parameters[0])?Styleguide::category(self::$styleguide->id,$page->parameters[0]):"";
-	        View::share('styleguide', self::$styleguide);
-        }
-	}
+    
+    public function get_version($version,$styleguide_name) {
+    	$styleguide=Styleguide::one($styleguide_name);
+    	if ($version=='latest'){
+	    	$categories=$styleguide->version()->categories();
+    	}else{
+    		$categories=$styleguide->version($version)->categories();
+       	}
+       	
+    	return View::make('pages.styleguide-version')
+		    ->with('sg', $styleguide)
+		    ->with('categories', $categories);
+    }
     
     public function get_one($styleguide_name) {
+    	/*
     	$styleguide = Styleguide::one($styleguide_name);
+    	$categories=$styleguide->categories();
+    	*/
+    	$styleguide=Styleguide::one($styleguide_name);
     	$categories=$styleguide->categories();
     	
     	return View::make('pages.styleguide')
@@ -30,12 +33,33 @@ class Styleguides_Controller extends Base_Controller {
     }
     
     public function get_category($styleguide_name,$category_name) {
+    	/*
     	$styleguide = Styleguide::one($styleguide_name);
     	$category=$styleguide->category($styleguide->id,$category_name);
     	$patterns = $category->activePatterns();
-    	return View::make('pages.patternsbycategory')
+    	*/
+    	$styleguide=Styleguide::one($styleguide_name);
+    	$styleguide->setVersion('3.0.0');
+    	//print_r($styleguide);die();
+    	$category=$styleguide->category($category_name);
+    	$patterns=$category->version_patterns();
+    	return View::make('pages.versioncategory')
+    		->with('styleguide', $styleguide)
 		    ->with('category', $category)
-		    ->with('patterns', $patterns);
+		    ->with('patterns', $patterns)
+		    ->with('category_name', $category_name);
+    }
+    
+    public function get_editcategory($styleguide_name,$category_name) {
+    	$styleguide = Styleguide::one($styleguide_name);
+    	$category=$styleguide->category($category_name);
+    	$patterns = $category->patterns();
+
+       	return View::make('pages.patternsbycategory')
+    		->with('styleguide', $styleguide)
+		    ->with('category', $category)
+		    ->with('patterns', $patterns)
+		    ->with('category_name', $category_name);
     }
     
     public function get_create($type,$id){
@@ -69,6 +93,12 @@ class Styleguides_Controller extends Base_Controller {
     }
     
     public function get_manage($controller,$action,$id=null) {
+		switch ($controller){
+		    case "version": return Controller::call('StyleguideVersions@'.$action,array($id));
+	    }
+    }
+    
+    public function post_manage($controller,$action,$id=null) {
 		switch ($controller){
 		    case "version": return Controller::call('StyleguideVersions@'.$action,array($id));
 	    }
