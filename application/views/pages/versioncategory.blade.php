@@ -7,7 +7,7 @@
 	<div>{{ $category->meta()->first()->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
-			<div class="pattern state_{{ $pattern->state }}" id="pattern_{{$pattern->id}}">
+			<div class="pattern" id="pattern_{{$pattern->id}}">
 				@if ($pattern->version_meta()->first()->html!='')
 					<div class="btn-group pull-right" data-toggle="buttons-radio">
 						<button type="button" class="btn btn-info btn-mini active" onclick="changeOutputWidth(this,{{$pattern->id}},'320px');">320px</button>

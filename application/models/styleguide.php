@@ -5,7 +5,7 @@ class Styleguide extends Eloquent {
     public static $timestamps = true;
     public static $table = 'styleguides';
     
-    public $validator,$version;
+    public $validator,$version,$edit_mode;
     
     public $rules = array(
         'name'     => 'required',

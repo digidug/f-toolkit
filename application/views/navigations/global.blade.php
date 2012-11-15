@@ -25,6 +25,15 @@
 								</li>
 							</ul>
 							<ul class="nav pull-right">
+								@if(isset($styleguide) && Auth::user()->hasRole('Administrator'))
+								<li>
+									@if(isset($edit_mode) && $edit_mode==true)
+									<a href="{{ URL::current() }}?edit_mode=false"><i class="icon icon-unlock"></i> Close editing</a>
+									@else	
+									<a href="{{ URL::current() }}?edit_mode=true"><i class="icon icon-lock"></i> Open editing</a>
+									@endif
+								</li>
+								@endif
 								<li>
 									<a href="{{ URL::to_action('users@user',array(Auth::user()->id)) }}">@{{ Auth::user()->username }}</a>
 								</li>

@@ -37,7 +37,7 @@ class StyleguideVersion extends Eloquent {
     }
     
     public function categories_added(){
-	    return PatternCategory::where_styleguide_id($this->styleguide_id)->where_state(9)->get();
+	    return PatternCategory::where_styleguide_id($this->styleguide_id)->where_state(7)->get();
     }
     
     public function categories_edited(){
@@ -45,14 +45,14 @@ class StyleguideVersion extends Eloquent {
     }
     
     public function categories_purged(){
-	    return PatternCategory::where_styleguide_id($this->styleguide_id)->where_state(7)->get();
+	    return PatternCategory::where_styleguide_id($this->styleguide_id)->where_state(9)->get();
     }
     
     public function patterns_added(){
 	    return DB::table('pattern_categories')
 	    	->join('patterns', 'patterns.pattern_category_id', '=', 'pattern_categories.id')
 	    	->where('pattern_categories.styleguide_id', '=', $this->styleguide_id)
-	    	->where('patterns.state', '=', '9')
+	    	->where('patterns.state', '=', '7')
 	    	->get();
     }
     
@@ -68,7 +68,7 @@ class StyleguideVersion extends Eloquent {
     	return DB::table('pattern_categories')
 	    	->join('patterns', 'patterns.pattern_category_id', '=', 'pattern_categories.id')
 	    	->where('pattern_categories.styleguide_id', '=', $this->styleguide_id)
-	    	->where('patterns.state', '=', '7')
+	    	->where('patterns.state', '=', '9')
 	    	->get();
     }
     

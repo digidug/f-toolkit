@@ -7,6 +7,19 @@ class Pattern extends Eloquent {
     
     public $validator;
     
+    public static $states = array(
+    	0	=>	'Unchanged',
+    	1	=>	'New',
+    	2	=>	'Edited',
+    	3	=>	'Deleted',
+    	4	=>	'New awaiting approval',
+    	5	=>	'Edited Awaiting approval',
+    	6	=>	'Deleted awaiting approval',
+    	7	=>	'Approved addition',
+    	8	=>	'Approved changes',
+    	9	=>	'Approved deleted'
+    );
+    
     public $rules = array(
         'name'     => 'required',
     );
