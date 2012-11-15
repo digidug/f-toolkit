@@ -3,8 +3,8 @@
 	<div class="page-header">
 		<h1>{{ $category->name }} <small>Version {{$styleguide->version()->version}}</small></h1>
 	</div>
-	<p class="lead">{{ $category->meta()->lead }}</p>
-	<div>{{ $category->meta()->description }}</div>
+	<p class="lead">{{ $category->meta()->first()->lead }}</p>
+	<div>{{ $category->meta()->first()->description }}</div>
 	@foreach ($patterns as $pattern)
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
 			<div class="pattern state_{{ $pattern->state }}" id="pattern_{{$pattern->id}}">
@@ -38,12 +38,12 @@
 
 @section('css')
 	@parent
-	{{ $category->meta()->css }}
+	{{ $category->meta()->first()->css }}
 @endsection
 
 @section('js')
 	@parent
-	{{ $category->meta()->javascript }}
+	{{ $category->meta()->first()->javascript }}
 	function changeOutputWidth(button,output_id,size){
 		$(button).siblings().removeClass('active');
 		$(button).addClass('active');

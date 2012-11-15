@@ -40,11 +40,11 @@ class PatternCategory extends Eloquent {
     }
     
     public function version_meta(){
-    	return PatternCategoryMeta::where('id','=',$this->pattern_category_meta_id)->first();
+    	return PatternCategoryMeta::where('id','=',$this->pattern_category_meta_id);
     }
     
     public function meta(){
-    	return $this->has_one('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc')->first();
+    	return $this->has_one('PatternCategoryMeta','pattern_category_id')->order_by('created_at','desc');
     }
     
     public function history(){

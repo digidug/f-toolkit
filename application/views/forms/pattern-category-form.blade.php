@@ -14,7 +14,7 @@
 		<div class="control-group {{ $errors->first('lead')?'error':'' }}">
         	{{ Form::label('lead', 'Lead',array('class'=>'control-label')) }}
         	<div class="controls">
-            	{{ Form::textarea('lead',@$category->meta->lead,array('style'=>'width:98%;height:100px;'))}}
+            	{{ Form::textarea('lead',isset($category->meta()->first()->lead)?$category->meta()->first()->lead:$category->lead,array('style'=>'width:98%;height:100px;'))}}
             	{{ $errors->first('lead', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
@@ -31,13 +31,13 @@
 		  </div>
 		  <div class="tab-content">
 		  	<div class="tab-pane active" id="description">
-		    	{{ Form::textarea('description',isset($category->meta->description)?$category->meta->description:$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
+		    	{{ Form::textarea('description',isset($category->meta()->first()->description)?$category->meta()->first()->description:$category->description,array('class'=>'tinymce','style'=>'width:98%;height:400px;')) }}
 		  	</div>
 		  	<div class="tab-pane" id="css">
-			    {{ Form::textarea('css',isset($category->meta->css)?$category->meta->css:$category->css,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('css',isset($category->meta()->first()->css)?$category->meta()->first()->css:$category->css,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		    <div class="tab-pane" id="javascript">
-			    {{ Form::textarea('javascript',isset($category->meta->javascript)?$category->meta->javascript:$category->javascript,array('style'=>'width:98%;height:400px;')) }}
+			    {{ Form::textarea('javascript',isset($category->meta()->first()->javascript)?$category->meta()->first()->javascript:$category->javascript,array('style'=>'width:98%;height:400px;')) }}
 		    </div>
 		  </div>
 		</div>
