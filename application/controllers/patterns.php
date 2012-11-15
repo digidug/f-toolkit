@@ -103,7 +103,7 @@ class Patterns_Controller extends Base_Controller {
 			$pattern->css->content=Input::old('css');
 			$pattern->category->id=Input::old('category');
 		}
-		$css=addslashes(preg_replace('/\s+/', ' ', strip_tags($pattern->category->meta()->css)));
+		$css=addslashes(preg_replace('/\s+/', ' ', strip_tags($pattern->category->meta()->first()->css)));
     	return View::make('forms.pattern-form')
     		->with(array(
     			'pattern'=>$pattern,

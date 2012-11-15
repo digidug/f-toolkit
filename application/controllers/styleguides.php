@@ -32,15 +32,14 @@ class Styleguides_Controller extends Base_Controller {
 		    ->with('categories', $categories);
     }
     
-    public function get_category($styleguide_name,$category_name) {
+    public function get_category($styleguide_name,$category_name) {echo $category_name;die();
     	/*
     	$styleguide = Styleguide::one($styleguide_name);
     	$category=$styleguide->category($styleguide->id,$category_name);
     	$patterns = $category->activePatterns();
     	*/
     	$styleguide=Styleguide::one($styleguide_name);
-    	//$styleguide->setVersion('3.0.0');
-    	//print_r($styleguide);die();
+    	$styleguide->version=StyleguideVersion::latest($styleguide->id)->version;
     	$category=$styleguide->category($category_name);
     	$patterns=$category->version_patterns();
     	return View::make('pages.versioncategory')
