@@ -1253,10 +1253,32 @@ span.selectWhite {
 /* End Check Box */
 
 #holder {
-	width: 300px;
+	width: 275px;
 	height: auto;
 	padding: 10px;
 	line-height: 20px;	
-	margin-left: 15px;
+	margin-left: 12px;
 }
+
+/* Form Overlay */
+
+.forminnercontainer {
+	background-color: #F7F7F7;
+	padding: 12px;
+	border-radius: 5px;
+}
+
+
+.formcontainer {
+	display: none;
+	width: 300px;
+	padding: 10px;
+	overflow: hidden;
+	z-index: 6;
+	position: absolute;
+	top: 62px;
+}
+
+/* End Form Overlay */
+
 
