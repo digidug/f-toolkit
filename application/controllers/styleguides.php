@@ -25,6 +25,7 @@ class Styleguides_Controller extends Base_Controller {
     	$categories=$styleguide->categories();
     	*/
     	$styleguide=Styleguide::one($styleguide_name);
+    	$styleguide->version=StyleguideVersion::latest($styleguide->id)->version;
     	$categories=$styleguide->categories();
     	
     	return View::make('pages.styleguide')
@@ -32,7 +33,7 @@ class Styleguides_Controller extends Base_Controller {
 		    ->with('categories', $categories);
     }
     
-    public function get_category($styleguide_name,$category_name) {echo $category_name;die();
+    public function get_category($styleguide_name,$category_name) {
     	/*
     	$styleguide = Styleguide::one($styleguide_name);
     	$category=$styleguide->category($styleguide->id,$category_name);
