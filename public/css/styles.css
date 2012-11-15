@@ -1253,11 +1253,11 @@ span.selectWhite {
 /* End Check Box */
 
 #holder {
-	width: 275px;
+	width: 265px;
 	height: auto;
 	padding: 10px;
 	line-height: 20px;	
-	margin-left: 12px;
+	margin-left: 0px;
 }
 
 /* Form Overlay */
