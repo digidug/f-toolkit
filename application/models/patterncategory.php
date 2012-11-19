@@ -80,6 +80,7 @@ class PatternCategory extends Eloquent {
 	    	return false;
 	    }
 	    $this->name=$data['name']; 
+	    $this->icon=$data['icon']; 
 	    $this->save();
 	    
 	    $this->meta()->insert(array('lead'=>$data['lead'],'description'=>$data['description'],'css'=>$data['css'],'javascript'=>$data['javascript']));

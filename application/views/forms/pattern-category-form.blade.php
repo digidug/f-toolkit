@@ -11,6 +11,13 @@
             	{{ $errors->first('name', '<span class="help-inline">:message</span>') }}
             </div>
         </div>
+        <div class="control-group {{ $errors->first('icon')?'error':'' }}">
+        	{{ Form::label('icon', 'Icon',array('class'=>'control-label')) }}
+        	<div class="controls">
+            	{{ Form::text('icon',@$category->icon)}}
+               	{{ $errors->first('icon', '<span class="help-inline">:message</span>') }}
+            </div>
+        </div>
 		<div class="control-group {{ $errors->first('lead')?'error':'' }}">
         	{{ Form::label('lead', 'Lead',array('class'=>'control-label')) }}
         	<div class="controls">

@@ -45,6 +45,7 @@ class PatternCategories_Controller extends Base_Controller {
 		$inactive_patterns = Pattern::where_active('0')->get();	
 		if (Input::old()){
 			$category->name=Input::old('name');
+			$category->icon=Input::old('icon');
 			$category->meta->lead=Input::old('lead');
 			$category->meta->description=Input::old('description');
 			$category->meta->css=Input::old('css');
