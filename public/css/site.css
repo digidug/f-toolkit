@@ -14,14 +14,17 @@ img{
 /* top bar */
 .navbar .brand {
 	padding-top: 11px;
+
 }
 .navbar .nav > li > a {
 	padding-top: 13px;
+
 }
 
 /* sidenav */
 .nav-list{
 	font-size:16px;
+	
 }
 .nav-list li i{
 	color:#2a2a2a;
