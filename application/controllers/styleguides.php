@@ -58,7 +58,7 @@ class Styleguides_Controller extends Base_Controller {
     	if ($this->edit_mode==false){
 	    	$styleguide=Styleguide::one($styleguide_name);
 	    	$styleguide->version=StyleguideVersion::latest($styleguide->id)->version;
-	    	$category=$styleguide->category($category_name);
+	    	$category=$styleguide->version_category($category_name);
 	    	$patterns=$category->version_patterns();
 	    	$template='pages.versioncategory';
 		}else{
@@ -123,6 +123,7 @@ class Styleguides_Controller extends Base_Controller {
     public function get_manage($controller,$action,$id=null) {
 		switch ($controller){
 		    case "list": return Controller::call('Styleguides@list');
+		    case "pdf": return Controller::call('Pdf@generate');
 		    case "version": return Controller::call('StyleguideVersions@'.$action,array($id));
 	    }
     }

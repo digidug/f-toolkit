@@ -1,5 +1,5 @@
 /* general */
-body {padding-top:20px; padding-bottom:20px;font-size:16px;line-height: 21px;}
+body {padding-top:0px; padding-bottom:0px;font-size:16px;line-height: 21px;}
 
 h1 {padding-bottom:0.2em;}
 
@@ -12,13 +12,59 @@ img{
 }
 
 /* top bar */
+.navbar .container{
+	max-width:1200px;
+}
+.navbar .navbar-inner{
+	background: none;
+	border-radius: 0 !important; ;
+	-webkit-border-radius: 0 !important;
+	border:none;
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	background-color:#292929;
+	color:#fff;
+	font-size:1em;
+	padding:30px 10px;
+}
 .navbar .brand {
 	padding-top: 11px;
+<<<<<<< HEAD
 
 
+=======
+	color:#fff;
+	font-size:1em;
+	text-shadow: none;
+>>>>>>> updates to global header
 }
+
+.navbar .brand span{
+	font-weight: normal;
+}
+
+.navbar .brand img{
+	max-width:90px;
+	margin:-5px 15px 0px 0px;
+}
+
 .navbar .nav > li > a {
+<<<<<<< HEAD
 	padding-top: 13px;
+=======
+	padding-top: 16px;
+}
+
+.navbar .nav > li > a.gray {
+	opacity:0.4;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle{
+	background-color:inherit;
+	color:#08C;
+}
+.navbar li > .dropdown-menu{
+>>>>>>> updates to global header
 	
 }
 
@@ -29,6 +75,15 @@ img{
 }
 .nav-list li i{
 	color:#2a2a2a;
+}
+.navbar .nav > li > a {
+	color:#fff;
+	text-shadow: none;
+}
+
+.navbar .nav > li > a:hover {
+	color:#08C;
+	text-shadow: none;
 }
 
 /* login */

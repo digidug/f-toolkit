@@ -6,7 +6,7 @@
 	<p class="lead">{{ $category->meta()->first()->lead }}</p>
 	<div>{{ $category->meta()->first()->description }}</div>
 	@foreach ($patterns as $pattern)
-		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
+		@if (Auth::user()->hasRole('Administrator'))
 			<div class="pattern" id="pattern_{{$pattern->id}}">
 				@if ($pattern->version_meta()->first()->html!='')
 					<div class="btn-group pull-right" data-toggle="buttons-radio">

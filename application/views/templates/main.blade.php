@@ -42,8 +42,8 @@
   </head>
 
   <body>
+  		@include('navigations.global')
 		<div class="container">
-			@include('navigations.global')
 			<div class="row">
 				<div class="span3">
 					<div class="well" style="padding: 8px 0;">
