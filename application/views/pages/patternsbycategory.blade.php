@@ -3,8 +3,8 @@
 	<div class="page-header">
 		@if (Auth::user()->hasRole('Administrator'))
 			<div class="pull-right">
-				<a class="btn btn-success" href="{{ URL::to_action('styleguides@create', array('pattern',$category->id)) }}"><i class="icon-plus"></i> Add</a> 
-				<a class="btn btn-primary" href="{{ URL::to_action('styleguides@edit', array('category',$category->id)); }}"><i class="icon-edit icon-white"></i> Edit</a>
+				<a class="btn btn-success" href="{{ URL::to_action('styleguides@create', array('pattern',$category->id)) }}"><i class="icon-plus"></i> Add Pattern</a> 
+				<a class="btn btn-primary" href="{{ URL::to_action('styleguides@edit', array('category',$category->id)); }}"><i class="icon-edit icon-white"></i> Edit Category</a>
 			</div>
 		@endif
 		<h1>{{ $category->name }}</h1>
@@ -15,7 +15,7 @@
 		@if ($pattern->published==1 || Auth::user()->hasRole('Administrator'))
 			<div class="pattern" id="pattern_{{$pattern->id}}">
 				@if (Auth::user()->hasRole('Administrator'))
-					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('styleguides@edit', array('pattern',$pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit</a>
+					<a class="btn btn-primary btn-mini pull-right" href="{{ URL::to_action('styleguides@edit', array('pattern',$pattern->id)); }}" style="margin-left:20px;"><i class="icon-edit icon-white"></i> Edit Pattern</a>
 				@endif
 				<span class="pull-right">Status: <strong>{{Pattern::$states[$pattern->state]}}</strong> </span>
 				<h3>{{ $pattern->name }}</h3>

@@ -48,7 +48,7 @@
 								<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
 							</li>
 							<li class="{{ URI::is('styleguides/manage*')?'active':'' }}">
-								<a href="{{ URL::to_action('styleguides@manage',array('version','list')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
+								<a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
 							</li>
 							<li class="{{ URI::is('configure*')?'active':'' }}">
 								<a href="#"><i class="icon-wrench"></i> Configure</a>

@@ -8,8 +8,10 @@ class Styleguide extends Eloquent {
     public $validator,$version,$edit_mode;
     
     public $rules = array(
-        'name'     => 'required',
+        'name'     => 'required|alpha_dash|unique:styleguides,name,',
+        'guid'      => 'required|numeric|unique:styleguides,guid,'
     );
+
     
     public function categories(){
     	//print_r(StyleguideVersionPatternCategory::where_styleguide_version_id($this->version()->id)->get());
@@ -68,6 +70,11 @@ class Styleguide extends Eloquent {
     }
     
     public function category($name){
+    	if ($this->version!=null) return $this->active_category($name);
+    	else return $this->active_category($name);
+    }
+    
+    public function version_category($name){
     	$result=StyleguideVersionPatternCategory::select(array('styleguide_version_pattern_categories.id AS styleguide_version_pattern_category_id','pattern_categories.id AS pattern_category_id','styleguide_version_pattern_categories.pattern_category_meta_id'))
     		->where('styleguide_version_id','=',$this->version()->id)
     		->join('pattern_categories', 'pattern_categories.id', '=', 'styleguide_version_pattern_categories.pattern_category_id')
@@ -80,6 +87,12 @@ class Styleguide extends Eloquent {
         $pattern_category->pattern_category_meta_id=$result->pattern_category_meta_id;
         return $pattern_category;
     }
+    
+    public function active_category($name){
+        $pattern_category=PatternCategory::where_styleguide_id($this->id)->where_name($name)->first();
+        return $pattern_category;
+    }
+
     
     static function active(){
 	    return Styleguide::where_active('1')->order_by('guid')->get();
@@ -100,6 +113,39 @@ class Styleguide extends Eloquent {
 	    if (isset($parameters[1])){
 	        return $parameters[1];
         }else return false;
+    }
+    
+    public function add($data){
+	    $new_styleguide = array(
+        	'name' => $data['name'],
+        	'guid' => $data['guid'],
+        );
+        $this->validator = Validator::make($new_styleguide, $this->rules);
+	    if ( $this->validator->fails() ){
+	    	return false;
+	    }
+	    $this->fill($new_styleguide);
+	    $this->save();
+	    
+	    return true;
+    }
+    
+    public function edit($styleguide_id,$data){
+		$edit_styleguide = array(
+	    	'name'      => $data['name'],
+	    	'guid'		=> $data['guid']
+	    );
+	    $rules=$this->rules;
+	    $rules['name']=$rules['name'].$styleguide_id;
+	    $rules['guid']=$rules['guid'].$styleguide_id;
+	    $this->validator = Validator::make($edit_styleguide, $rules);
+	    if ( $this->validator->fails() ){
+	    	return false;
+	    }
+	    $this->fill($edit_styleguide);
+	    $this->save();
+	    
+	    return true;
     }
 
 }

@@ -1,7 +1,7 @@
 			<div class="navbar" id="topnav">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Creative Hub</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="/index.php">Creative Hub</a>
 						<div class="nav-collapse">
 							<ul class="nav">
 							<!--
@@ -18,8 +18,8 @@
 								<li class="dropdown">
 									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Style Guides <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										@foreach (Styleguide::active() AS $styleguide)
-											<a href="{{ URL::to_action('styleguides@one',array($styleguide->name)) }}/">{{ $styleguide->guid }} | {{$styleguide->name }}</a>
+										@foreach (Styleguide::active() AS $this_styleguide)
+											<a href="{{ URL::to_action('styleguides@one',array($this_styleguide->name)) }}/">{{ $this_styleguide->guid }} | {{$this_styleguide->name }}</a>
 										@endforeach
 									</ul>
 								</li>
