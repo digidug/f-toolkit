@@ -57,7 +57,7 @@ class PatternCategories_Controller extends Base_Controller {
 		    	'inactive_patterns'=>$inactive_patterns,
 		    	'pageTitle'=>'Edit <em> '.$category->name.' </em> Category',
 		    	'submitButtonTitle'=>'Save',
-    			'cancelButtonLink'=>URL::to_action('styleguides@category',array($category->styleguide->name, $category->name))
+    			'cancelButtonLink'=>URL::to_action('styleguides@category',array($category->styleguide->name, str_replace(' ','_',$category->name)))
     			));
     }
     
@@ -67,6 +67,6 @@ class PatternCategories_Controller extends Base_Controller {
 	    	return Redirect::to_action(URL::current())
         		->with_errors($category->validator)
         		->with_input();
-        } else return Redirect::to_action('styleguides@category',array($category->styleguide->name, $category->name));
+        } else return Redirect::to_action('styleguides@category',array($category->styleguide->name, str_replace(' ','_',$category->name)));
     }    
 }

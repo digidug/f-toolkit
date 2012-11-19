@@ -54,6 +54,7 @@ class Styleguides_Controller extends Base_Controller {
     
     
     public function get_category($styleguide_name,$category_name) {
+    	$category_name=str_replace('_',' ',$category_name);
     	if ($this->edit_mode==false){
 	    	$styleguide=Styleguide::one($styleguide_name);
 	    	$styleguide->version=StyleguideVersion::latest($styleguide->id)->version;
