@@ -32,22 +32,10 @@ a:hover {
 }
 .navbar .brand {
 	padding-top: 11px;
-<<<<<<< HEAD
-
-
-=======
 	color:#fff;
 	font-size:1em;
 	text-shadow: none;
-<<<<<<< HEAD
->>>>>>> updates to global header
-}
-
-.navbar .brand span{
-	font-weight: normal;
-=======
 	width:350px;
->>>>>>> attempting to implement ui
 }
 
 .navbar .brand img{
@@ -57,9 +45,6 @@ a:hover {
 }
 
 .navbar .nav > li > a {
-<<<<<<< HEAD
-	padding-top: 13px;
-=======
 	padding-top: 16px;
 }
 
@@ -82,11 +67,6 @@ a:hover {
 	background-color:inherit;
 	color:#08C;
 }
-<<<<<<< HEAD
-.navbar li > .dropdown-menu{
->>>>>>> updates to global header
-	
-=======
 .navbar .pull-right > li > .dropdown-menu::after, .navbar .nav > li > .dropdown-menu::after{
 	left:20px;
 	right:auto;
@@ -112,19 +92,14 @@ a:hover {
 .page-container{
 	max-width:1200px;
 	margin:0 auto;
->>>>>>> attempting to implement ui
 }
 
 /* sidenav */
 .nav-list{
 	font-size:16px;
-<<<<<<< HEAD
-	
-=======
 	background-color:#ECECEC;
 	padding:0;
 	margin:0;
->>>>>>> attempting to implement ui
 }
 .nav-list .nav-group{
 	margin:0;

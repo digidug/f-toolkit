@@ -13,18 +13,6 @@
 									<a href="{{ URL::to_action('styleguides@one',array($styleguide->name)) }}">{{ $styleguide->name }} Styleguide</a>
 								</li>
 								@foreach ($styleguide->categories() AS $category)
-<<<<<<< HEAD
-									<li class="">
-										<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,$category->name)) }}">{{ $category->name }}</a>
-										@if (isset($category_name) && $category_name==$category->name)
-											<ul class="patternsNav">
-											@foreach ($styleguide->category($category_name)->activePatterns() AS $pattern)
-												<li><small>{{$pattern->name}}</small></li>
-											@endforeach
-											</ul>
-										@endif
-									</li>
-=======
 								<li class="">
 									<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,str_replace(' ','_',$category->name))) }}"><i class="{{$category->icon}}"></i> {{ $category->name }}</a>
 									@if (isset($category_name) && $category_name==$category->name)
@@ -35,27 +23,10 @@
 										</ul>
 									@endif
 								</li>
->>>>>>> attempting to implement ui
 								@endforeach
 							</ul>
 							@endif
 							@if (Auth::user()->hasRole('Administrator'))
-<<<<<<< HEAD
-							<li class="nav-header">
-								Admin
-							</li>
-							
-							<li class="{{ URI::is('users*') && !URI::is('users/user*')?'active':'' }}">
-								<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
-							</li>
-							<li class="{{ URI::is('styleguides/manage*')?'active':'' }}">
-								<a href="{{ URL::to_action('styleguides@manage',array('version','list')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
-							</li>
-							<li class="{{ URI::is('configure*')?'active':'' }}">
-								<a href="#"><i class="icon-wrench"></i> Configure</a>
-							</li>
-							
-=======
 							<ul class="nav-group <?php echo (Navigation::is_admin())?'open':'closed'?>">
 								<li class="nav-header">
 									<a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}">Admin</a>
@@ -71,6 +42,5 @@
 									<a href="#"><i class="icon-wrench"></i> Configure</a>
 								</li>
 							</ul>
->>>>>>> attempting to implement ui
 							@endif
 						</ul>
