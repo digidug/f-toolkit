@@ -1,7 +1,7 @@
 			<div class="navbar" id="topnav">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="/index.php"><img src="/img/Ford_Motor_Company_logo.png"> Global Look + Style <span>Guidelines</span></a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="/index.php"><img src="/img/Ford_Motor_Company_logo.png"> <span class="hidden-phone">Global Look + Style Guidelines</span><span class="visible-phone">GLS Guidelines</span></a>
 						<div class="nav-collapse">
 							<ul class="nav pull-right">
 								@if(isset($styleguide) && Auth::user()->hasRole('Administrator'))

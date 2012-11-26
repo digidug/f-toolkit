@@ -1,5 +1,5 @@
 /* general */
-body {padding-top:0px; padding-bottom:0px;font-size:16px;line-height: 21px;}
+body {padding-top:0px; padding-bottom:0px;font-size:16px;line-height: 21px;font-family: "AntennaRE" !important;text-shadow:none !important;}
 
 h1 {padding-bottom:0.2em;}
 
@@ -9,6 +9,9 @@ h1 {padding-bottom:0.2em;}
 img{
 	max-width:100%;
 	height:auto;
+}
+a:hover {
+  color: #08C;
 }
 
 /* top bar */
@@ -24,8 +27,8 @@ img{
 	-webkit-box-shadow:none;
 	background-color:#292929;
 	color:#fff;
-	font-size:1em;
-	padding:30px 10px;
+	font-size:0.875em;
+	padding:15px 10px 10px 15px;
 }
 .navbar .brand {
 	padding-top: 11px;
@@ -36,16 +39,21 @@ img{
 	color:#fff;
 	font-size:1em;
 	text-shadow: none;
+<<<<<<< HEAD
 >>>>>>> updates to global header
 }
 
 .navbar .brand span{
 	font-weight: normal;
+=======
+	width:350px;
+>>>>>>> attempting to implement ui
 }
 
 .navbar .brand img{
 	max-width:90px;
 	margin:-5px 15px 0px 0px;
+	float:left;
 }
 
 .navbar .nav > li > a {
@@ -59,31 +67,111 @@ img{
 	opacity:0.4;
 }
 
-.navbar .nav li.dropdown.open > .dropdown-toggle{
-	background-color:inherit;
-	color:#08C;
-}
-.navbar li > .dropdown-menu{
->>>>>>> updates to global header
-	
-}
-
-/* sidenav */
-.nav-list{
-	font-size:16px;
-	
-}
-.nav-list li i{
-	color:#2a2a2a;
-}
 .navbar .nav > li > a {
 	color:#fff;
 	text-shadow: none;
+	font-size:12px;
 }
 
 .navbar .nav > li > a:hover {
 	color:#08C;
 	text-shadow: none;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle{
+	background-color:inherit;
+	color:#08C;
+}
+<<<<<<< HEAD
+.navbar li > .dropdown-menu{
+>>>>>>> updates to global header
+	
+=======
+.navbar .pull-right > li > .dropdown-menu::after, .navbar .nav > li > .dropdown-menu::after{
+	left:20px;
+	right:auto;
+}
+.navbar ul.dropdown-menu {
+	border-radius: 10px !important;
+}
+.dropdown-menu a {
+	padding: 15px 0px 15px 20px;
+	color:#08C;
+	border-bottom: thin solid #d1d1d1;
+}
+
+.dropdown-menu a:last-child {
+	border-bottom: 0;
+	margin-bottom:-2px;
+}
+
+.navbar .btn {
+	margin-top:10px;
+}
+
+.page-container{
+	max-width:1200px;
+	margin:0 auto;
+>>>>>>> attempting to implement ui
+}
+
+/* sidenav */
+.nav-list{
+	font-size:16px;
+<<<<<<< HEAD
+	
+=======
+	background-color:#ECECEC;
+	padding:0;
+	margin:0;
+>>>>>>> attempting to implement ui
+}
+.nav-list .nav-group{
+	margin:0;
+	padding:0;
+}
+.nav-list .nav-header a{
+	color: #333333;
+	font-size:14px;
+	font-weight:bold;
+}
+.nav-list .nav-header a:hover{
+	text-shadow:none;
+}
+.nav-header .arrow{
+	background-image:url(/img/left-nav_arrows.png);
+	background-size: 10px 20px;
+	width:28px;
+	height:48px;
+	float:left;
+}
+.nav-list .open .nav-header a{
+	color:#E3E4E5;
+}
+.nav-list ul.closed{
+	background-color: #ECECEC;
+	font-size:12px;
+}
+.nav-list ul.closed li{
+	display:none;
+}
+.nav-list ul.closed li:first-child{
+	display:block;
+}
+.nav-list ul.closed li a{
+	color: #333333;
+}
+.nav-list ul.open{
+	background-color: #8F9398;
+	font-size:12px;
+}
+.nav-list ul.open li a{
+	color:#E3E4E5;
+}
+
+.nav-list a:hover {
+	text-decoration: none;
+	background-color: #222;
 }
 
 /* login */
@@ -169,3 +257,37 @@ img{
     width: 800px;
     margin-left: -400px; /* - width/2 */
 }
+
+.sidebar{
+	width:25%;
+	float:left;
+}
+.main{
+	width:70%;
+	float:left;
+	padding-left:5%;
+}
+/* RESPONSIVE */
+@media (max-width: 979px) {
+	.container{
+		width:100%;
+	}
+	.sidebar{
+		margin-left: -100%;
+	}
+	.main{
+		width:100%;
+	}
+}
+@media (max-width: 767px){
+	body{
+		padding-right: 0px;
+		padding-left:  0px;
+	}
+}
+@media (max-width: 480px) {
+	.navbar .brand {
+		width:250px;
+	}
+}
+		

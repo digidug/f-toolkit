@@ -1,16 +1,16 @@
 @font-face {
 	font-family: "Antenna";
-	src: url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-2.eot");
-	src: local("Antenna"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-1.ttf") format("truetype"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-4.svg#web") format("svg");
-	font-style: normal;
-	font-weight: bold;
-}
-@font-face {
-	font-family: "Antenna";
 	src: url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-2.eot");
 	src: local("Antenna"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-3.woff") format("woff"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-1.ttf") format("truetype"), url("Antenna-Medium/c03da8b6-e888-4718-9c24-e25cc55c95d7-4.svg#web") format("svg");
 	font-style: normal;
 	font-weight: normal;
+}
+@font-face {
+	font-family: "Antenna";
+	src: url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-2.eot");
+	src: local("Antenna"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-1.ttf") format("truetype"), url("Antenna-Bold/85bf2123-24cb-4bfd-a720-efe63c68c84d-4.svg#web") format("svg");
+	font-style: normal;
+	font-weight: bold;
 }
 @font-face {
 	font-family: "AntennaRE";
@@ -126,9 +126,6 @@ fieldset {
 }
 .clearfix {
 	zoom: 1;
-}
-body {
-	font-family: "AntennaRE" !important;
 }
 .fm-button {
 	color: white;

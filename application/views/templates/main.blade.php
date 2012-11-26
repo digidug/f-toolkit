@@ -43,14 +43,14 @@
 
   <body>
   		@include('navigations.global')
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-					<div class="well" style="padding: 8px 0;">
+		<div class="page-container">
+			<div class="">
+				<div class="sidebar">
+					<div>
 						@include('navigations.side')
 					</div>
 				</div>
-				<div class="span9">
+				<div class="main">
 					@yield('content')
 				</div>
 			</div>
