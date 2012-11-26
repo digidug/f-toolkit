@@ -30,15 +30,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 body {
 	line-height:1;
+}
+
+.globalNav {
 	border-top: 140px solid #292929;
-
-
-.globalnav-header .img {
-	background-image: url(/img/ford-logo.png);
+	margin: 0 auto;
 }
 
 
-}
 .container {
 	width:980px;
 	height:auto;
@@ -231,9 +230,27 @@ span[class^="fm-icon-"] {
 	background-position: 0 -160px !important;
 }
 
+.fm-icon-envelope {
+	background-position: 0 -200px !important;
+}
+
+.fm-icon-twitter {
+	background-position: 0 -240px !important;
+}
+
+.fm-icon-facebook {
+	background-position: 0 -285px !important;
+}
+
+.fm-icon-scope {
+	background-position: 0 -440px !important;
+}
+
 .fm-icon-overlay {
 	background-position: 0 -478px !important;
 }
+
+
 
 .fm-icon-group{
 	background-color: #2D96CD;
@@ -1285,6 +1302,17 @@ span.selectWhite {
 	z-index: 6;
 	position: absolute;
 	top: 62px;
+}
+
+
+.title {
+	position: fixed;
+	top: 50px;
+	left: 10px;
+	padding: 10px;
+	margin: 0px;
+	width: 100%;
+	color: #fff;
 }
 
 /* End Form Overlay */

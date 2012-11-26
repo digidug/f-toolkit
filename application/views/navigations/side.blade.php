@@ -17,7 +17,7 @@
 								</li>
 								@foreach ($styleguide->categories() AS $category)
 									<li class="">
-										<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,str_replace(' ','_',$category->name))) }}"><i class="{{$category->icon}}"></i> {{ $category->name }}</a>
+										<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,$category->name)) }}">{{ $category->name }}</a>
 										@if (isset($category_name) && $category_name==$category->name)
 											<ul class="patternsNav">
 											@foreach ($styleguide->category($category_name)->activePatterns() AS $pattern)
@@ -48,7 +48,7 @@
 								<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
 							</li>
 							<li class="{{ URI::is('styleguides/manage*')?'active':'' }}">
-								<a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
+								<a href="{{ URL::to_action('styleguides@manage',array('version','list')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
 							</li>
 							<li class="{{ URI::is('configure*')?'active':'' }}">
 								<a href="#"><i class="icon-wrench"></i> Configure</a>
