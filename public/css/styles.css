@@ -1073,35 +1073,6 @@ span.selectWhite {
 
 }
 
-span.select {
-	bottom: 0;
-	float: left;
-	left: 0;
-	width: 274px;
-	height: 44px;
-	line-height: 44px;
-	text-indent: 10px;
-	background: #2D96CD url("http://m.ford.com/smartphone/assets/dd_arrow.png") no-repeat;
-	background-position: right;
-	cursor: default;
-	z-index: 1;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	-khtml-border-radius: 6px;
-	border-radius: 6px;
-	color: white;
-	overflow: hidden;
-	font-size: 14px;
-	font-weight: bold;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-box-sizing: border-box;
-	padding: 0 45px 0 0;
-}
-
-
-
 
 .secondary-dropdown {
 	position: absolute;
