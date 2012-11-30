@@ -41,7 +41,7 @@
     -->
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#sidenav">
   		@include('navigations.global')
 		<div class="page-container">
 			<div class="">

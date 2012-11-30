@@ -1,46 +1,60 @@
-						<ul class="nav nav-list">
-							<ul class="nav-group <?php echo (!Navigation::is_admin() && !isset($styleguide))?'open':'closed'?>">
-								<li class="nav-header">
-									<a href="/index.php">TOOLS</a>
-								</li>
-								<li class="">
-									<a href="/index.php"><i class="icon-home"></i> Dashboard</a>
-								</li>
-							</ul>
-							@if (isset($styleguide))
-							<ul class="nav-group open">
-								<li class="nav-header">
-									<a href="{{ URL::to_action('styleguides@one',array($styleguide->name)) }}">{{ $styleguide->name }} Styleguide</a>
-								</li>
-								@foreach ($styleguide->categories() AS $category)
-								<li class="">
-									<a href="{{ URL::to_action('styleguides@category',array($styleguide->name,str_replace(' ','_',$category->name))) }}"><i class="{{$category->icon}}"></i> {{ $category->name }}</a>
-									@if (isset($category_name) && $category_name==$category->name)
-										<ul class="patternsNav">
-										@foreach ($styleguide->category($category_name)->activePatterns() AS $pattern)
-											<li><small>{{$pattern->name}}</small></li>
-										@endforeach
-										</ul>
-									@endif
-								</li>
-								@endforeach
-							</ul>
-							@endif
-							@if (Auth::user()->hasRole('Administrator'))
-							<ul class="nav-group <?php echo (Navigation::is_admin())?'open':'closed'?>">
-								<li class="nav-header">
-									<a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}">Admin</a>
-								</li>
-								
-								<li class="{{ URI::is('users*') && !URI::is('users/user*')?'active':'' }}">
-									<a href="{{ URL::to('users') }}"><i class="icon-group"></i> Manage Users</a>
-								</li>
-								<li class="{{ URI::is('styleguides/manage*')?'active':'' }}">
-									<a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}"><i class="icon-tint"></i> Manage Style Guides</a>
-								</li>
-								<li class="{{ URI::is('configure*')?'active':'' }}">
-									<a href="#"><i class="icon-wrench"></i> Configure</a>
-								</li>
-							</ul>
-							@endif
-						</ul>
+<div class="accordion" id="sidenav">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_tools">
+        Tools
+      </a>
+    </div>
+    <div id="collapse_tools" class="accordion-body collapse {{ isset($nav_section) && $nav_section=='tools'?'in':'' }}">
+      <div class="accordion-inner">
+      	<ul>
+	      	<li><i class="icon-home"></i> <a href="/">Dashboard</a></li>
+	      	<li><i class="icon-user"></i> <a href="{{ URL::to_action('users@user',array(Auth::user()->id)) }}">Manage Profile</a></li>
+      	</ul>
+      </div>
+    </div>
+  </div>
+@foreach ($styleguides AS $sg)
+<?php if (isset($styleguide) && $styleguide->id==$sg->id) $sg=$styleguide; ?>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_styleguide_{{$sg->name}}">
+        {{$sg->name}} Style Guide
+      </a>
+    </div>
+    <div id="collapse_styleguide_{{$sg->name}}" class="accordion-body collapse {{isset($styleguide) && $styleguide->id==$sg->id?'in':''}}">
+      <div class="accordion-inner">
+      	<ul>
+        @foreach ($sg->categories() AS $cat)
+        	<li><i class="{{$cat->icon}}"></i> <a href="{{ URL::to_action('styleguides@category',array($sg->name,str_replace(' ','_',$cat->name))) }}">{{$cat->name}}</a>
+        	@if (isset($category) && $category->id==$cat->id)
+        		<ul>
+        		@foreach ($category->patterns() AS $ptn)
+        			<li><a href="#pattern_{{$ptn->id}}">{{ $ptn->name }}</li>
+        		@endforeach
+        		</ul>
+        	@endif
+        	</li>
+        @endforeach
+      	</ul>
+      </div>
+    </div>
+  </div>
+@endforeach
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_admin">
+        Admin
+      </a>
+    </div>
+    <div id="collapse_admin" class="accordion-body collapse {{ URI::is('manage*') || URI::is('users*')?'in':'' }}">
+      <div class="accordion-inner">
+      	<ul>
+	      	<li><i class="icon-group"></i> <a href="{{ URL::to('users') }}">Manage Users</a></li>
+	      	<li><i class="icon-tint"></i> <a href="{{ URL::to_action('styleguides@manage',array('list','all')) }}">Manage Style Guides</a></li>
+	      	<li><i class="icon-wrench"></i> <a href="{{ URL::to_action('users@user',array(Auth::user()->id)) }}">Configure</a></li>
+      	</ul>
+      </div>
+    </div>
+  </div>
+</div>

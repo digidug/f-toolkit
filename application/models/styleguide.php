@@ -13,8 +13,9 @@ class Styleguide extends Eloquent {
     );
 
     
-    public function categories(){
-    	//print_r(StyleguideVersionPatternCategory::where_styleguide_version_id($this->version()->id)->get());
+    public function categories($latest=false){
+    	if ($latest) $this->version=StyleguideVersion::latest($this->id)->version;
+    	
     	if ($this->version!=null) return $this->version_categories();
     	else return $this->active_categories();
     }
