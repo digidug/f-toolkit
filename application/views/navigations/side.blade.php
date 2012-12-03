@@ -24,12 +24,11 @@
     <div id="collapse_styleguide_{{$sg->name}}" class="accordion-body collapse {{isset($styleguide) && $styleguide->id==$sg->id?'in':''}}">
       <div class="accordion-inner">
       	<ul>
-      	<?php $cats=isset($styleguide->edit_mode)?$styleguide->categories($styleguide->edit_mode):$sg->categories(); ?>
-        @foreach ($cats AS $cat)
+        @foreach ($sg->categories(!$edit_mode) AS $cat)
         	<li><i class="{{$cat->icon}}"></i> <a href="{{ URL::to_action('styleguides@category',array($sg->name,str_replace(' ','_',$cat->name))) }}">{{$cat->name}}</a>
-        	@if (isset($category) && $category->id==$cat->id)
+        	@if (Request::route()->controller_action!="one" && isset($category) && $category->id==$cat->id)
         		<ul>
-        		@foreach ($patterns AS $ptn)
+        		@foreach ($category->patterns() AS $ptn)
         			<li><a href="#pattern_{{$ptn->id}}">{{ $ptn->name }}</li>
         		@endforeach
         		</ul>

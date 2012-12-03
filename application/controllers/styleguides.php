@@ -7,19 +7,7 @@ class Styleguides_Controller extends Base_Controller {
 	static $styleguide;
 	
 	public function __construct(){
-	    if (Input::get('edit_mode')=="true"){
-		    $edit_mode=true;
-	    }else if (Input::get('edit_mode')=="false"){
-		    $edit_mode=false;
-	    }else if (Session::get('edit_mode')!=false){
-		    $edit_mode=Session::get('edit_mode');
-	    }else{
-		    $edit_mode=false;
-	    }
-	    
-	    $this->edit_mode=$edit_mode;
-	    Session::put('edit_mode', $edit_mode);
-	    View::share('edit_mode', $edit_mode);
+	   $this->edit_mode=Session::get('edit_mode');
     }
     
     public function get_version($version,$styleguide_name) {

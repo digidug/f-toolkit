@@ -1,5 +1,16 @@
 <?php
+ if (Input::get('edit_mode')=="true"){
+    $edit_mode=true;
+}else if (Input::get('edit_mode')=="false"){
+    $edit_mode=false;
+}else if (Session::get('edit_mode')!=false){
+    $edit_mode=Session::get('edit_mode');
+}else{
+    $edit_mode=false;
+}
 
+Session::put('edit_mode', $edit_mode);
+View::share('edit_mode', $edit_mode);
 View::share('styleguides', Styleguide::active());
 	    
 /*
