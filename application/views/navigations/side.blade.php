@@ -15,7 +15,6 @@
     </div>
   </div>
 @foreach ($styleguides AS $sg)
-<?php if (isset($styleguide) && $styleguide->id==$sg->id) $sg=$styleguide; ?>
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_styleguide_{{$sg->name}}">
@@ -25,11 +24,12 @@
     <div id="collapse_styleguide_{{$sg->name}}" class="accordion-body collapse {{isset($styleguide) && $styleguide->id==$sg->id?'in':''}}">
       <div class="accordion-inner">
       	<ul>
-        @foreach ($sg->categories() AS $cat)
+      	<?php $cats=isset($styleguide->edit_mode)?$styleguide->categories($styleguide->edit_mode):$sg->categories(); ?>
+        @foreach ($cats AS $cat)
         	<li><i class="{{$cat->icon}}"></i> <a href="{{ URL::to_action('styleguides@category',array($sg->name,str_replace(' ','_',$cat->name))) }}">{{$cat->name}}</a>
         	@if (isset($category) && $category->id==$cat->id)
         		<ul>
-        		@foreach ($category->patterns() AS $ptn)
+        		@foreach ($patterns AS $ptn)
         			<li><a href="#pattern_{{$ptn->id}}">{{ $ptn->name }}</li>
         		@endforeach
         		</ul>
