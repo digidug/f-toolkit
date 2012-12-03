@@ -38,8 +38,7 @@ class Styleguides_Controller extends Base_Controller {
     public function get_one($styleguide_name) {
     	if ($this->edit_mode==false){
     		$styleguide=Styleguide::one($styleguide_name);
-    		$styleguide->version=StyleguideVersion::latest($styleguide->id)->version;
-    		$categories=$styleguide->categories();
+    		$categories=$styleguide->categories(true);
     		$template='pages.versionstyleguide';
     	}else{
 			$styleguide = Styleguide::one($styleguide_name);

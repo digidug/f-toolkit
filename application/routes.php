@@ -1,5 +1,7 @@
 <?php
 
+View::share('styleguides', Styleguide::active());
+	    
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -39,6 +41,7 @@ Route::controller('inspirations');
 
 Route::get('/', function()
 {
+	View::share('nav_section', 'tools');
 	return View::make('home.index');
 });
 
