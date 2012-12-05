@@ -2,7 +2,7 @@
   <div class="accordion-group">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_tools">
-        Tools
+        <div class="arrow"><i class="icon-home"></i></div> Dashboard
       </a>
     </div>
     <div id="collapse_tools" class="accordion-body collapse {{ isset($nav_section) && $nav_section=='tools'?'in':'' }}">
@@ -15,24 +15,26 @@
     </div>
   </div>
 @foreach ($styleguides AS $sg)
-  <div class="accordion-group">
+  <div class="accordion-group {{isset($styleguide) && $styleguide->id==$sg->id?'active':''}}">
     <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_styleguide_{{$sg->name}}">
-        {{$sg->name}} Style Guide
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#sidenav" href="#collapse_styleguide_{{$sg->name}}" onclick="window.location='{{ URL::to_action('styleguides@one',array($sg->name)) }}'">
+        <div class="arrow {{isset($styleguide) && $styleguide->id==$sg->id?'in':''}}"><i class="icon-caret-right"></i></div>{{$sg->name}} Style Guide
       </a>
     </div>
     <div id="collapse_styleguide_{{$sg->name}}" class="accordion-body collapse {{isset($styleguide) && $styleguide->id==$sg->id?'in':''}}">
       <div class="accordion-inner">
       	<ul>
         @foreach ($sg->categories(!$edit_mode) AS $cat)
-        	<li><i class="{{$cat->icon}}"></i> <a href="{{ URL::to_action('styleguides@category',array($sg->name,str_replace(' ','_',$cat->name))) }}">{{$cat->name}}</a>
+        	<li><i class="{{isset($category) && $cat->id==$category->id?'icon-chevron-right in':''}}"></i><i class="{{$cat->icon}}"></i> <a href="{{ URL::to_action('styleguides@category',array($sg->name,str_replace(' ','_',$cat->name))) }}">{{$cat->name}}</a>
+        	<!--
         	@if (Request::route()->controller_action!="one" && isset($category) && $category->id==$cat->id)
         		<ul>
         		@foreach ($category->patterns() AS $ptn)
-        			<li><a href="#pattern_{{$ptn->id}}">{{ $ptn->name }}</li>
+        			<li><a href="#pattern_{{$ptn->id}}">{{ $ptn->name }}</a></li>
         		@endforeach
         		</ul>
         	@endif
+        	-->
         	</li>
         @endforeach
       	</ul>

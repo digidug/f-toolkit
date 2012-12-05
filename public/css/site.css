@@ -1,5 +1,5 @@
 /* general */
-body {padding-top:0px; padding-bottom:0px;font-size:16px;line-height: 21px;font-family: "AntennaRE" !important;text-shadow:none !important;}
+body {padding-top:0px; padding-bottom:0px;font-size:16px;line-height: 21px;font-family: "AntennaRE" !important;text-shadow:none !important;color: #666 !important;}
 
 h1 {padding-bottom:0.2em;}
 
@@ -96,10 +96,57 @@ a:hover {
 
 /* sidenav */
 .accordion-inner ul{
-	margin:0;
+	margin-left:25px;
+}
+.accordion-inner .in{
+	margin: 0 7px 0 -22px;
+}
+.accordion-group .arrow .icon-home{
+	margin-left: -3px;
 }
 .accordion-inner ul li ul {
 	margin-left:25px;
+}
+.accordion-group{
+	background-color:#f0f0f0;
+	font-size:12px;
+	border-radius: inherit;
+	margin:0;
+}
+
+.accordion-group .arrow{
+	background-color: #c1c1c1;
+	color:#fff;
+	height: 20px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	width: 12px;
+	float:left;
+	margin-right:5px;
+	padding-left:8px;
+}
+.accordion-group .arrow.in{
+	background-color:#64676b;
+	-webkit-transform: rotate(90deg);
+}
+.accordion-group a{
+	color:#333333;
+}
+.accordion-group:first-child{
+	border-radius: .2em .2em 0 0;
+}
+.accordion-group:last-child{
+	border-radius: 0 0.2em .2em;
+}
+.accordion-group.active{
+	background-color:#8f9399;
+	color:#fff;
+}
+.accordion-group.active a{
+	color:#fff;
+}
+.accordion-group.active .accordion-heading{
+	border-bottom:1px solid #777a7f;
 }
 
 /* login */
@@ -147,13 +194,117 @@ a:hover {
 .zebra-list li:first-child {-webkit-border-radius:4px 4px 0 0; -moz-border-radius:4px 4px 0 0; border-radius:4px 4px 0 0;}
 .zebra-list li:last-child {border-bottom:1px solid #DDD; -webkit-border-radius:0 0 4px 4px; -moz-border-radius:0 0 4px 4px; border-radius:0 0 4px 4px;}
 
+/* styleguide */
+.styleguide-headline{
+	margin-top:20px !important;
+}
+.styleguide-note{
+	font-size:12px;
+	margin: 40px 0 80px 0;
+}
+ul.category-links{
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+	margin:38px 0 25px 0;
+	color:#08C;
+}
+ul.category-links li{
+	margin-bottom:20px;
+}
+ul.category-links li:last-child{
+	padding-bottom:0px;
+}
+ul.category-links i:first-child{
+	color: #333;
+}
+
 /* patterns */
+.page-header {
+	overflow: hidden; /* Clearfix! */
+    zoom: 1;  /* Triggering "hasLayout" in IE */
+    display: block; /* Element must be a block to wrap around contents. Unnecessary if only using block-level elements. */
+    border: 1px solid #E9E9E9;
+    border-radius:.3em;
+    padding:.5em 1em;
+}
+.page-header h3{
+	font-size:14px;
+	font-weight: normal;
+	margin:0em;
+	padding:0em;
+}
+.page-header h1{
+	font-size:40px;
+	font-weight:normal;
+	margin:-.2em 0em .3em 0em;
+	padding:0em;
+}
+.page-header .pattern-header-left{
+	width:60%;
+	float:left;
+	color:#333;
+}
+.page-header .pattern-header-right{
+	width: 40%;
+	float:left;
+	font-size:12px;
+}
+.page-header .pattern-header-right ul{
+	margin-top:5px;
+}
+.page-header .pattern-header-right ul li{
+	border-bottom: 1px solid #E9E9E9;
+	padding:3px 0 5px 0;
+}
+.page-header .pattern-header-right ul li:last-child{
+	border-bottom: none;
+}
+.page-header .pattern-header-right span{
+	color:#333;
+}
+ul.pattern-links{
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+	margin:38px 0 25px 0;
+	color:#08C;
+}
+ul.pattern-links li{
+	margin-bottom:20px;
+}
+ul.pattern-links li:last-child{
+	padding-bottom:0px;
+}
 .pattern{
 	margin: 20px 0;
+	border-top:thin #E5E5E5 ridge;
+	font-size:14px;
+}
+.pattern .actions{
+	margin-top:8px;
 }
 .pattern h3{
-	border-bottom:thin #E5E5E5 ridge;
-	margin-bottom:20px;
+	color:#333;
+	font-size:18px;
+	margin: 0;
+}
+.pattern-date{
+	font-size:12px;
+	margin:-5px 0 25px 0;
+}
+.pattern .nav-tabs > li > a{
+	padding:20px;
+	background-color:#8f9399;
+	color:#fff;
+}
+.pattern .nav-tabs > li.active > a{
+	background-color:#fff;
+	color:#666;
+}
+.pattern pre{
+	border-radius:0 !important;
+	border-top:none !important;
 }
 .description{
 	clear:both;
@@ -161,6 +312,7 @@ a:hover {
 .description p,.description ul{max-width:700px;}
 .description p,.description li{margin-bottom:20px;}
 .output{
+	margin-bottom:20px;
 	width:320px;
 }
 
@@ -191,9 +343,9 @@ a:hover {
 	float:left;
 }
 .main{
-	width:68%;
+	width:69%;
 	float:left;
-	padding:0 2% 0 5%;
+	padding:0 1% 0 5%;
 }
 /* RESPONSIVE */
 @media (max-width: 979px) {
@@ -217,5 +369,9 @@ a:hover {
 @media (max-width: 480px) {
 	.navbar .brand {
 		width:250px;
+	}
+	.page-header .pattern-header-left, .page-header .pattern-header-right{
+		width:100%;
+		float:none;
 	}
 }
